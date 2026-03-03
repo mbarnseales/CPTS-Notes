@@ -41,3 +41,32 @@ If other servers and hosts in the internal network are in scope, we then try to 
 We create a proof-of-concept that proves that these vulnerabilities exist and potentially even automate the individual steps that trigger these vulnerabilities.
 ##### 8: Post-Engagement
 Finally, the documentation is completed and presented to our client as a formal report deliverable. Afterward, we may hold a report walkthrough meeting to clarify anything about our testing or results and provide any needed support to personnel tasked with remediating our findings.
+
+
+## Pre-Engagement
+### Types of NDA's (Non-Disclosure Agreement)
+
+##### Unilateral NDA
+This type of NDA obligates only one party to maintain confidentiality and allows the other party to share the information received with third parties.
+##### Bilateral NDA
+In this type, both parties are obligated to keep the resulting and acquired information confidential. This is the most common type of NDA that protects the work of penetration testers.
+##### Multilateral NDA
+Multilateral NDA is a commitment to confidentiality by more than two parties. If we conduct a penetration test for a cooperative network, all parties responsible and involved must sign this document.
+
+### Scoping Questionnaire
+
+After the initial contact with the client we send a scoping questionnaire to get a full understanding of the services they are seeking. They will be given a list of our services and they will check off what they want from a list. Typically looking like this:
+
+```
+☐ Internal Vulnerability Assessment
+☐ External Vulnerability Assessment|
+☐ Internal Penetration Test
+☐ External Penetration Test
+☐ Wireless Security Assessment
+☐ Application Security Assessment
+☐ Physical Security Assessment
+☐ Social Engineering Assessment
+☐ Red Team Assessment
+☐ Web Application Security Assessment
+```
+

@@ -13,12 +13,12 @@
             "state": {
               "type": "markdown",
               "state": {
-                "file": "00-Methedology/Penetration Testing Process.md",
+                "file": "Glossary.md",
                 "mode": "source",
                 "source": false
               },
               "icon": "lucide-file",
-              "title": "Penetration Testing Process"
+              "title": "Glossary"
             }
           }
         ]
@@ -94,7 +94,7 @@
             "state": {
               "type": "backlink",
               "state": {
-                "file": "00-Methedology/Penetration Testing Process.md",
+                "file": "Glossary.md",
                 "collapseAll": false,
                 "extraContext": false,
                 "sortOrder": "alphabetical",
@@ -104,7 +104,7 @@
                 "unlinkedCollapsed": true
               },
               "icon": "links-coming-in",
-              "title": "Backlinks for Penetration Testing Process"
+              "title": "Backlinks for Glossary"
             }
           },
           {
@@ -196,8 +196,8 @@
   },
   "active": "bbbeee5d91e8acfb",
   "lastOpenFiles": [
-    "Glossary.md",
     "00-Methedology/Penetration Testing Process.md",
+    "Glossary.md",
     "CPTS-Notes",
     "Pre-Engagement.md",
     "Screenshots",
