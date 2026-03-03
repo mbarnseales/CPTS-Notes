@@ -1,0 +1,215 @@
+{
+  "main": {
+    "id": "3450748545e0dea1",
+    "type": "split",
+    "children": [
+      {
+        "id": "587caef454d6122f",
+        "type": "tabs",
+        "children": [
+          {
+            "id": "bbbeee5d91e8acfb",
+            "type": "leaf",
+            "state": {
+              "type": "markdown",
+              "state": {
+                "file": "00-Methedology/Penetration Testing Process.md",
+                "mode": "source",
+                "source": false
+              },
+              "icon": "lucide-file",
+              "title": "Penetration Testing Process"
+            }
+          }
+        ]
+      }
+    ],
+    "direction": "vertical"
+  },
+  "left": {
+    "id": "26925d82386817da",
+    "type": "split",
+    "children": [
+      {
+        "id": "f2097de8bc770cc1",
+        "type": "tabs",
+        "children": [
+          {
+            "id": "75da678c43657fcc",
+            "type": "leaf",
+            "state": {
+              "type": "file-explorer",
+              "state": {
+                "sortOrder": "alphabetical",
+                "autoReveal": false
+              },
+              "icon": "lucide-folder-closed",
+              "title": "Files"
+            }
+          },
+          {
+            "id": "c7e198d6f8ec552e",
+            "type": "leaf",
+            "state": {
+              "type": "search",
+              "state": {
+                "query": "",
+                "matchingCase": false,
+                "explainSearch": false,
+                "collapseAll": false,
+                "extraContext": false,
+                "sortOrder": "alphabetical"
+              },
+              "icon": "lucide-search",
+              "title": "Search"
+            }
+          },
+          {
+            "id": "05e79e35eac6feb8",
+            "type": "leaf",
+            "state": {
+              "type": "bookmarks",
+              "state": {},
+              "icon": "lucide-bookmark",
+              "title": "Bookmarks"
+            }
+          }
+        ]
+      }
+    ],
+    "direction": "horizontal",
+    "width": 300
+  },
+  "right": {
+    "id": "453fb8e42cc15440",
+    "type": "split",
+    "children": [
+      {
+        "id": "a7c87ce333abee6e",
+        "type": "tabs",
+        "children": [
+          {
+            "id": "f9e7315d2f6ac463",
+            "type": "leaf",
+            "state": {
+              "type": "backlink",
+              "state": {
+                "file": "00-Methedology/Penetration Testing Process.md",
+                "collapseAll": false,
+                "extraContext": false,
+                "sortOrder": "alphabetical",
+                "showSearch": false,
+                "searchQuery": "",
+                "backlinkCollapsed": false,
+                "unlinkedCollapsed": true
+              },
+              "icon": "links-coming-in",
+              "title": "Backlinks for Penetration Testing Process"
+            }
+          },
+          {
+            "id": "d5cba47c13f7eb98",
+            "type": "leaf",
+            "state": {
+              "type": "outgoing-link",
+              "state": {
+                "file": "Glossary.md",
+                "linksCollapsed": false,
+                "unlinkedCollapsed": true
+              },
+              "icon": "links-going-out",
+              "title": "Outgoing links from Glossary"
+            }
+          },
+          {
+            "id": "1c0bcc6253f608e8",
+            "type": "leaf",
+            "state": {
+              "type": "tag",
+              "state": {
+                "sortOrder": "frequency",
+                "useHierarchy": true,
+                "showSearch": false,
+                "searchQuery": ""
+              },
+              "icon": "lucide-tags",
+              "title": "Tags"
+            }
+          },
+          {
+            "id": "689656d59f7fb774",
+            "type": "leaf",
+            "state": {
+              "type": "all-properties",
+              "state": {
+                "sortOrder": "frequency",
+                "showSearch": false,
+                "searchQuery": ""
+              },
+              "icon": "lucide-archive",
+              "title": "All properties"
+            }
+          },
+          {
+            "id": "e0e7a06dbdc4d05a",
+            "type": "leaf",
+            "state": {
+              "type": "outline",
+              "state": {
+                "file": "Glossary.md",
+                "followCursor": false,
+                "showSearch": false,
+                "searchQuery": ""
+              },
+              "icon": "lucide-list",
+              "title": "Outline of Glossary"
+            }
+          },
+          {
+            "id": "af6033536c954a84",
+            "type": "leaf",
+            "state": {
+              "type": "git-view",
+              "state": {},
+              "icon": "git-pull-request",
+              "title": "Source Control"
+            }
+          }
+        ],
+        "currentTab": 5
+      }
+    ],
+    "direction": "horizontal",
+    "width": 300
+  },
+  "left-ribbon": {
+    "hiddenItems": {
+      "switcher:Open quick switcher": false,
+      "graph:Open graph view": false,
+      "canvas:Create new canvas": false,
+      "daily-notes:Open today's daily note": false,
+      "templates:Insert template": false,
+      "command-palette:Open command palette": false,
+      "bases:Create new base": false,
+      "obsidian-git:Open Git source control": false
+    }
+  },
+  "active": "bbbeee5d91e8acfb",
+  "lastOpenFiles": [
+    "Glossary.md",
+    "00-Methedology/Penetration Testing Process.md",
+    "CPTS-Notes",
+    "Pre-Engagement.md",
+    "Screenshots",
+    "Screenshots/Screenshot 2026-03-03 200856.png",
+    "_Templates",
+    "08-Reporting",
+    "07-Passwords",
+    "06-AD",
+    "05-Post-Exploitation",
+    "04-Web-Attacks",
+    "03-Exploitation",
+    "Welcome.md",
+    "02-Vuln-Assessment"
+  ]
+}
