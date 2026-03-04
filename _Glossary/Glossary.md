@@ -44,6 +44,7 @@ Finally, the documentation is completed and presented to our client as a formal 
 
 
 ## Pre-Engagement
+### D
 ### Types of NDA's (Non-Disclosure Agreement)
 
 ##### Unilateral NDA
@@ -70,7 +71,7 @@ With options for the clients to elaborate further if needed. There will also be 
 ### Pre-Engagement Meeting
 After receiving the scoping questionnaire back from the client we will then organize a pre-engagement meeting. Here is our opportunity to cover contract details in depth to make sure both us and the client are clear on the operation.
 ##### Contract Checklist
-| Checkpoint                           | Description                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                 |
+| **Checkpoint**                       | **Description**                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                             |
 | ------------------------------------ | ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
 | `☐ NDA`                              | Non-Disclosure Agreement (NDA) refers to a secrecy contract between the client and the contractor regarding all written or verbal information concerning an order/project. The contractor agrees to treat all confidential information brought to its attention as strictly confidential, even after the order/project is completed. Furthermore, any exceptions to confidentiality, the transferability of rights and obligations, and contractual penalties shall be stipulated in the agreement. The NDA should be signed before the kick-off meeting or at the latest during the meeting before any information is discussed in detail. |
 | `☐ Goals`                            | Goals are milestones that must be achieved during the order/project. In this process, goal setting is started with the significant goals and continued with fine-grained and small ones.                                                                                                                                                                                                                                                                                                                                                                                                                                                    |
@@ -89,7 +90,7 @@ After receiving the scoping questionnaire back from the client we will then orga
 | `☐ Reporting`                        | Apart from the report's structure, any customer-specific requirements the report should contain are also discussed. In addition, we clarify how the reporting is to take place and whether a presentation of the results is desired.                                                                                                                                                                                                                                                                                                                                                                                                        |
 | `☐ Payment Terms`                    | Finally, prices and the terms of payment are explained.                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                     |
 ##### Rules of Engagement Checklist
-| Checkpoint                                  | Contents                                                                                              |
+| **Checkpoint**                              | **Contents**                                                                                          |
 | ------------------------------------------- | ----------------------------------------------------------------------------------------------------- |
 | `☐ Introduction`                            | Description of this document.                                                                         |
 | `☐ Contractor`                              | Company name, contractor full name, job title.                                                        |
@@ -115,3 +116,46 @@ After receiving the scoping questionnaire back from the client we will then orga
 | `☐ Disclaimers and Limitation of Liability` | System damage, data loss                                                                              |
 | `☐ Permission to Test`                      | Signed contract, contractors agreement                                                                |
 ### Kick-Off Meeting
+This meeting will usually take place in-person and after signing all necessary documents.
+The meeting will usually include all points of contact personnel:
+- Internal Audit
+- Information Security
+- IT
+- Governance & Risk
+- Developers
+- sysadmins
+- Network Engineers
+- Practical Leads
+- Sales Account Executives
+
+We also inform the clients that if any of the below are found the penetration test will pause immediately:
+- A critical vulnerability is documented and needs emergency patch
+- If we find evidence of illegal activity
+- Evidence of a prior breach that went unnoticed
+- Presence of a threat actor in the network
+
+We must also inform customers and clients of the following:
+- The test may leave log entries and alarms
+- We may lock some users out accidently with brute force attacks
+- They should inform us immediately if the test has negative impacts on their network.
+### Contractors Agreement
+Red teams typically will also be doing physical testing. For this scenario additional agreement is required since it isn't only virtual but physical intrusion. It is possible that many of the employees will be unaware of the test so having a contractors agreement it is essentially our "Get out of jail free" card.
+##### Contractor Agreement - Checklist for Physical Assessment
+| **Checkpoint**                    |
+| --------------------------------- |
+| `☐ Introduction`                  |
+| `☐ Contractor`                    |
+| `☐ Purpose`                       |
+| `☐ Goal`                          |
+| `☐ Penetration Testers`           |
+| `☐ Contact Information`           |
+| `☐ Physical Addresses`            |
+| `☐ Building Name`                 |
+| `☐ Floors`                        |
+| `☐ Physical Room Identifications` |
+| `☐ Physical Components`           |
+| `☐ Timeline`                      |
+| `☐ Notarization`                  |
+| `☐ Permission to Test`            |
+### Setting Up
+After you have made your way through all of the prior points and we have the information we need, we plan the approach. Here we will set up our VM's, VPS and any other tooling or systems we will need to perform the test.

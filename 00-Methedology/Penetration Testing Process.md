@@ -9,10 +9,8 @@
 **Part 2:** [[Glossary#Scoping Questionnaire|Scoping Questionnaire]].
 		- [[Glossary#Contract Checklist|Contract Checklist]]
 		- [[Glossary#Rules of Engagement Checklist|Rules of Engagement Checklist]]
-**Part 3:**
-**Part 4:**
-**Part 5:**
-**Part 6:**
-**Part 7:**
-
+**Part 3:** [[Glossary#Kick-Off Meeting|Kick-Off Meeting]]
+**Part 4:** [[Glossary#Contractors Agreement|Contractors Agreement]]
+		- [[Glossary#Contractor Agreement - Checklist for Physical Assessment|Physical Assessment Checklist]]
+**Part 5:** [[Glossary#Setting Up|Setting Up]]
 
