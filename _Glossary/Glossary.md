@@ -265,4 +265,39 @@ This is where we examine the host machines role in the corporate network. We ana
 - Network Traffic
 
 Here we will also hunt for any sensitive data such as
-- 
+- Passwords on shares
+- Local machines
+- In scripts
+- Configuration files
+- Password vaults
+- Documents (Excel, Word, .txt,)
+- Emails
+### Persistence
+This is the phase of looking for a way to keep yourself in the system even if you were disconnected or removed. It also avoids having to attack a system multiple times or let you pick up where you left off between sessions.
+
+### Vulnerability Assessment
+Performing the same vulnerability assessment just with new information from a different perspective. 
+
+### Privilege Escalation
+Here we are trying to gain the highest level of access we possibly can. On Linux machines that will be `root` level access. For windows that will be `administrator`/`local administrator`/`SYSTEM`. Sometimes we will not always be able to do it on the initial host and we might need to make lateral movement to get to another users machine.
+
+### Data Exfiltration
+Here the client may ask us to test their security systems and try to move data from that machine to our own.
+
+# Lateral Movement
+Here we want to test how far we can move manually in the entire network and see what vulnerabilities we can find from the internal perspective that might be exploited. This has several phases.
+- Pivoting
+- Evasive Testing
+- Information Gathering
+- Vulnerability Assessment
+- (Privilege) Exploitation
+- Post-Exploitation
+
+### Pivoting
+Some systems will not be visible publicly facing, so we may need to use the exploited machine as proxy to perform scans on the internal network. This process is called `Pivoting` or `Tunneling`.
+
+### Evasive Testing
+Here there may be new methods in place to prevent lateral movement. `Segmentation`, `Threat monitoring`, `IPS/IDS`, `EDR`, etc.
+To bypass these we need to understand how they work and what they respond to.
+
+### Information Gathering

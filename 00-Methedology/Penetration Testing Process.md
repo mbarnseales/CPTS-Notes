@@ -28,3 +28,12 @@ Part 3: [[Glossary#The Return|The Return]]
 Part 1: [[Glossary#Prioritizing Possible Attacks|Prioritizing Possible Attacks]]
 Part 2: [[Glossary#Preparation for the Attack|Preparation for the Attack]]
 
+## [[Glossary#Post-Exploitation|Post-Exploitation]]
+Part 1: [[Glossary#Evasive Testing|Evasive Testing]]
+Part 2: [[Glossary#Information Gathering|Information Gathering]]
+Part 3: [[Glossary#Pillaging|Pillaging]]
+Part 4: [[Glossary#Persistence|Persistence]]
+Part 5: [[Glossary#Vulnerability Assessment|Vulnerability Assessment]]
+Part 6: [[Glossary#Privilege Escalation|Privilege Escalation]]
+Part 7: [[Glossary#Data Exfiltration|Data Exfiltration]]
+
