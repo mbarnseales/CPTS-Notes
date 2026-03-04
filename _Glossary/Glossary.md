@@ -29,7 +29,7 @@ A stochastic process is one in which one state follows from other states only wi
 The first step is to create all the necessary documents in the pre-engagement phase, discuss the assessment objectives, and clarify any questions.
 ##### 2: Information Gathering 
 Once the pre-engagement activities are complete, we investigate the company's existing website we have been assigned to assess. We identify the technologies in use and learn how the web application functions.
-##### 5: Vulnerability Assessment
+##### 3: Vulnerability Assessment
 With this information, we can look for known vulnerabilities and investigate questionable features that may allow for unintended actions.
 ##### 4: Exploitation
 Once we have found potential vulnerabilities, we prepare our exploit code, tools, and environment and test the webserver for these potential vulnerabilities.
