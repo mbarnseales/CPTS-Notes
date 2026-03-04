@@ -188,4 +188,29 @@ Here we are identifying what services we can use that will allow us to interact 
 Now you have a detailed list of the infrastructure we can look at individual hosts listed in our scoping document. Looking at things like what services are running, OS in use, what version are the services using, etc.
 
 After exploitation we can then perform `internal` host enumeration. This is typically where we look for sensitive `files` local `services`, `scripts`, `applications`.
-# Vulnerability Assesment
+# Vulnerability Assessment
+Here we analyze all the information we have gathered to see if we can get a foothold.
+
+| **Analysis Type** | **Description**                                                                                                                                                                                                                                                                                                                                                         |
+| ----------------- | ----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
+| Descriptive       | Descriptive analysis is essential in any data analysis. On the one hand, it describes a data set based on individual characteristics. It helps to detect possible errors in data collection or outliers in the data set.                                                                                                                                                |
+| Diagnostic        | Diagnostic analysis clarifies conditions' causes, effects, and interactions. Doing so provides insights that are obtained through correlations and interpretation. We must take a backward-looking view, similar to descriptive analysis, with the subtle difference that we try to find reasons for events and developments.                                           |
+| Predictive        | By evaluating historical and current data, predictive analysis creates a predictive model for future probabilities. Based on the results of descriptive and diagnostic analyses, this method of data analysis makes it possible to identify trends, detect deviations from expected values at an early stage, and predict future occurrences as accurately as possible. |
+| Prescriptive      | Prescriptive analytics aims to narrow down what actions to take to eliminate or prevent a future problem or trigger a specific activity or process.                                                                                                                                                                                                                     |
+We look for open ports and if any known attack vectors.
+
+### Vulnerability Research and Assessment
+This is where we cross reference the information we have gathered for any already known vulnerabilities using [CVE](https://www.cve.org/ResourcesSupport/FAQs), as it is likely this this vulnerability is still present.
+Other potential sources:
+- [CVEdetails](https://www.cvedetails.com/)
+- [Exploit DB](https://www.exploit-db.com/)
+- [Vulners](https://vulners.com/)
+- [Packet Storm Security](https://packetstormsecurity.com/)
+- [NIST](https://nvd.nist.gov/vuln/search?execution=e2s1)
+Diagnostic Analysis and Predictive analysis is used here. Here we must understand the functionality of our Proof-Of-Concept Documentation.
+
+### Assessment of Possible Attack Vectors
+This includes actual testing and predictive analysis. Cross referencing historical information and combining it with information we have gathered from previous stages of the process.
+
+### The Return
+If we are unable to identify  vulnerability, we then double back and repeat the process looking for a potential exploit that will work. Rinse and repeat.
