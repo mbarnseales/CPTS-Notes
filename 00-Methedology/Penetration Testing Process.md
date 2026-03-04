@@ -14,8 +14,13 @@ Part 4: [[Glossary#Contractors Agreement|Contractors Agreement]]
 Part 5: [[Glossary#Setting Up|Setting Up]]
 
 ## [[Glossary#Information Gathering|Information Gathering]]
-Part 1: [[Glossary#Vulnerability Assessment|Vulnerability Assessment]]
-Part 2: [[Glossary#Vulnerability Research and Assessment|Vulnerability Research and Assessment]]
-Part 3: [[Glossary#Assessment of Possible Attack Vectors|Assessment of Possible Attack Vectors]]
-Part 4: [[Glossary#The Return|The Return]]
+Part 1: [[Glossary#OSINT|OSINT]]
+Part 2: [[Glossary#Infrastructure Enumeration|Infrastructure Enumeration]]
+Part 3: [[Glossary#Service Enumeration|Service Enumeration]]
+Part 4: [[Glossary#Host Enumeration|Host Enumeration]]
+
+## [[Glossary#Vulnerability Assessment|Vulnerability Assessment]]
+Part 1: [[Glossary#Vulnerability Research and Assessment|Vulnerability Research and Assessment]]
+Part 2: [[Glossary#Assessment of Possible Attack Vectors|Assessment of Possible Attack Vectors]]
+Part 3: [[Glossary#The Return|The Return]]
 

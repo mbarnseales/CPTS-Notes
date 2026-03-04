@@ -214,3 +214,5 @@ This includes actual testing and predictive analysis. Cross referencing historic
 
 ### The Return
 If we are unable to identify  vulnerability, we then double back and repeat the process looking for a potential exploit that will work. Rinse and repeat.
+
+# Exploitation

@@ -214,10 +214,11 @@
       "obsidian-git:Open Git source control": false
     }
   },
-  "active": "bbbeee5d91e8acfb",
+  "active": "dc39d3abc77bf23d",
   "lastOpenFiles": [
-    "_Glossary/Glossary.md",
     "00-Methedology/Penetration Testing Process.md",
+    "_Glossary/Glossary.md",
+    "00-Methedology/Penetration Testing Process.md.tmp.11368.1772596617212",
     "_Glossary",
     "CPTS-Notes",
     "Pre-Engagement.md",
@@ -229,7 +230,6 @@
     "06-AD",
     "05-Post-Exploitation",
     "04-Web-Attacks",
-    "03-Exploitation",
     "Welcome.md"
   ]
 }
