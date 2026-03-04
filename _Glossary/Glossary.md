@@ -327,4 +327,46 @@ A common pitfall — admins will sometimes "fight the script" by patching only w
 The report should paint the full picture — not just individual findings but how they chain together. An attack chain walkthrough is especially valuable in internal assessments. Fixing one link in the chain is good, but the remaining flaws still exist and may provide another path.
 Always focus remediation advice on the **root cause**, not the symptom. Example: a Domain Admin using `Password123` is a symptom — the root cause is a weak password policy.
 
+# Post-Engagement
+The final phase — everything that must happen after active testing ends. Contractually binding in most cases.
+
+### Cleanup
+Remove all tools, scripts, and artifacts uploaded during testing. Revert any configuration changes made. Document everything — if something can't be cleaned up, flag it in the report appendices.
+
+### Documentation and Reporting
+Before disconnecting or sending "stop" notifications, ensure all findings are fully documented — command output, screenshots, affected hosts. Do not retain any PII or sensitive client data beyond what's needed for the report.
+
+Report deliverables should include:
+- Attack chain (if full compromise was achieved)
+- Executive summary (non-technical audience)
+- Detailed findings with risk rating, impact, remediation advice, and references
+- Steps to reproduce each finding
+- Near, medium, and long-term recommendations
+- Appendices: scope, OSINT data, password analysis, ports/services, compromised hosts/accounts, file transfers, AD analysis, scan data
+
+The first version sent to the client is marked **DRAFT**.
+
+### Report Review Meeting
+Walk the client through each finding — not word for word, but a clear explanation from your perspective. The client will ask questions and flag anything needing correction. Low-risk findings often get skipped. Be prepared to clarify and defend your findings.
+
+### Deliverable Acceptance
+Once the client reviews the DRAFT and provides feedback, issue a final version marked **FINAL**. Some audit firms will not accept a DRAFT-marked report, so keeping a consistent DRAFT → FINAL workflow is best practice.
+
+### Post-Remediation Testing
+Retest each remediated finding and issue a post-remediation report showing the before/after state. For each finding show evidence it is resolved — or that it is not. A simple status table works well:
+
+| # | Severity | Finding | Status |
+|---|----------|---------|--------|
+| 1 | High | SQL Injection | Remediated |
+| 2 | Medium | SMB Signing Not Enabled | Not Remediated |
+
+### Role of the Pentester in Remediation
+We are impartial third parties — we do **not** fix things ourselves. We can give general remediation advice (e.g., "sanitize user input") but not rewrite code or make configuration changes. This preserves the integrity of the assessment and avoids conflicts of interest.
+
+### Data Retention
+Retain client data (scan results, logs, credentials, screenshots) securely and encrypted for a reasonable period after the engagement in case questions arise. Wipe all data from tester systems at conclusion. Use a fresh VM for any post-remediation work. Refer to the SoW and RoE for specific retention requirements.
+
+### Close Out
+Wipe or destroy all systems used during the engagement. Store any retained artifacts encrypted per firm policy. Invoice the client. Send a post-assessment satisfaction survey — what went well and what can improve. This is also where follow-on work discussions often begin.
+
 
