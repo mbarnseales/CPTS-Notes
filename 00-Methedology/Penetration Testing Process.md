@@ -24,3 +24,7 @@ Part 1: [[Glossary#Vulnerability Research and Assessment|Vulnerability Research 
 Part 2: [[Glossary#Assessment of Possible Attack Vectors|Assessment of Possible Attack Vectors]]
 Part 3: [[Glossary#The Return|The Return]]
 
+## [[Glossary#Exploitation|Exploitation]]
+Part 1: [[Glossary#Prioritizing Possible Attacks|Prioritizing Possible Attacks]]
+Part 2: [[Glossary#Preparation for the Attack|Preparation for the Attack]]
+

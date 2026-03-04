@@ -216,3 +216,20 @@ This includes actual testing and predictive analysis. Cross referencing historic
 If we are unable to identify  vulnerability, we then double back and repeat the process looking for a potential exploit that will work. Rinse and repeat.
 
 # Exploitation
+Here we actually use the identified vulnerabilities and adapt them to our specific case.
+
+### Prioritizing Possible Attacks
+After we have potential attack vectors of our target system we need to then prioritize which comes first. This can depend on the following factors:
+- Probability of Success
+- Complexity
+- Probability of Damage
+
+It helps to have a personal point system you can use to break this down.
+Example:
+![[Screenshot 2026-03-04 150707.png]]
+### Preparation for the Attack
+Sometimes in can be hard to find quality, known PoC exploit code. In this case we will need to set up a VM that more closely resembles the target machine and see if we can modify the attack to work in our use case.
+
+**Important:** When in doubt about an attack. It is always best to check with the client and give them the necessary data to make an informed decision.
+
+Once we have successfully exploited the target we need make sure our notes are clear and we have clear logs for replication to show the client.
