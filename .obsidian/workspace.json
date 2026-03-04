@@ -1,0 +1,233 @@
+{
+  "main": {
+    "id": "3450748545e0dea1",
+    "type": "split",
+    "children": [
+      {
+        "id": "87bca8f8a9e85c3d",
+        "type": "tabs",
+        "children": [
+          {
+            "id": "1b649d0e35bd0d00",
+            "type": "leaf",
+            "state": {
+              "type": "markdown",
+              "state": {
+                "file": "_Glossary/Glossary.md",
+                "mode": "source",
+                "source": false
+              },
+              "icon": "lucide-file",
+              "title": "Glossary"
+            }
+          }
+        ]
+      }
+    ],
+    "direction": "vertical"
+  },
+  "left": {
+    "id": "26925d82386817da",
+    "type": "split",
+    "children": [
+      {
+        "id": "f2097de8bc770cc1",
+        "type": "tabs",
+        "children": [
+          {
+            "id": "75da678c43657fcc",
+            "type": "leaf",
+            "state": {
+              "type": "file-explorer",
+              "state": {
+                "sortOrder": "alphabetical",
+                "autoReveal": false
+              },
+              "icon": "lucide-folder-closed",
+              "title": "Files"
+            }
+          },
+          {
+            "id": "c7e198d6f8ec552e",
+            "type": "leaf",
+            "state": {
+              "type": "search",
+              "state": {
+                "query": "",
+                "matchingCase": false,
+                "explainSearch": false,
+                "collapseAll": false,
+                "extraContext": false,
+                "sortOrder": "alphabetical"
+              },
+              "icon": "lucide-search",
+              "title": "Search"
+            }
+          },
+          {
+            "id": "05e79e35eac6feb8",
+            "type": "leaf",
+            "state": {
+              "type": "bookmarks",
+              "state": {},
+              "icon": "lucide-bookmark",
+              "title": "Bookmarks"
+            }
+          }
+        ]
+      }
+    ],
+    "direction": "horizontal",
+    "width": 300
+  },
+  "right": {
+    "id": "453fb8e42cc15440",
+    "type": "split",
+    "children": [
+      {
+        "id": "a7c87ce333abee6e",
+        "type": "tabs",
+        "children": [
+          {
+            "id": "f9e7315d2f6ac463",
+            "type": "leaf",
+            "state": {
+              "type": "backlink",
+              "state": {
+                "file": "Glossary.md",
+                "collapseAll": false,
+                "extraContext": false,
+                "sortOrder": "alphabetical",
+                "showSearch": false,
+                "searchQuery": "",
+                "backlinkCollapsed": false,
+                "unlinkedCollapsed": true
+              },
+              "icon": "links-coming-in",
+              "title": "Backlinks for Glossary"
+            }
+          },
+          {
+            "id": "d5cba47c13f7eb98",
+            "type": "leaf",
+            "state": {
+              "type": "outgoing-link",
+              "state": {
+                "file": "Glossary.md",
+                "linksCollapsed": false,
+                "unlinkedCollapsed": true
+              },
+              "icon": "links-going-out",
+              "title": "Outgoing links from Glossary"
+            }
+          },
+          {
+            "id": "1c0bcc6253f608e8",
+            "type": "leaf",
+            "state": {
+              "type": "tag",
+              "state": {
+                "sortOrder": "frequency",
+                "useHierarchy": true,
+                "showSearch": false,
+                "searchQuery": ""
+              },
+              "icon": "lucide-tags",
+              "title": "Tags"
+            }
+          },
+          {
+            "id": "689656d59f7fb774",
+            "type": "leaf",
+            "state": {
+              "type": "all-properties",
+              "state": {
+                "sortOrder": "frequency",
+                "showSearch": false,
+                "searchQuery": ""
+              },
+              "icon": "lucide-archive",
+              "title": "All properties"
+            }
+          },
+          {
+            "id": "e0e7a06dbdc4d05a",
+            "type": "leaf",
+            "state": {
+              "type": "outline",
+              "state": {
+                "file": "Glossary.md",
+                "followCursor": false,
+                "showSearch": false,
+                "searchQuery": ""
+              },
+              "icon": "lucide-list",
+              "title": "Outline of Glossary"
+            }
+          },
+          {
+            "id": "af6033536c954a84",
+            "type": "leaf",
+            "state": {
+              "type": "git-view",
+              "state": {},
+              "icon": "git-pull-request",
+              "title": "Source Control"
+            }
+          }
+        ],
+        "currentTab": 5
+      }
+    ],
+    "direction": "horizontal",
+    "width": 300
+  },
+  "left-ribbon": {
+    "hiddenItems": {
+      "switcher:Open quick switcher": false,
+      "graph:Open graph view": false,
+      "canvas:Create new canvas": false,
+      "daily-notes:Open today's daily note": false,
+      "templates:Insert template": false,
+      "command-palette:Open command palette": false,
+      "bases:Create new base": false,
+      "obsidian-git:Open Git source control": false
+    }
+  },
+  "active": "1b649d0e35bd0d00",
+  "lastOpenFiles": [
+    "_Templates/Practice.md",
+    "_Reference/Web-Enumeration.md",
+    "_Reference/Shells.md",
+    "_Reference/Ports.md",
+    "_Tools/cURL.md",
+    "00-Methedology/Penetration Testing Process.md",
+    "_Tools/FTP.md",
+    "_Tools/Whatweb.md",
+    "_Glossary/Glossary.md",
+    "_Tools/SNMP.md",
+    "_Tools/SMB.md",
+    "_Tools/Searchsploit.md",
+    "_Tools/Nmap.md",
+    "_Tools/Metasploit.md",
+    "_Tools/Gobuster.md",
+    "_Reference/Shells.md.tmp.19568.1772613373829",
+    "_Reference/Shells.md.tmp.19568.1772613367165",
+    "_Reference/Shells.md.tmp.19568.1772613353855",
+    "_Reference/Shells.md.tmp.19568.1772613257655",
+    "_Reference/Shells.md.tmp.19568.1772612692013",
+    "_Tools/Searchsploit.md.tmp.19568.1772612481085",
+    "_Reference/Web-Enumeration.md.tmp.19568.1772612409999",
+    "_Tools/cURL.md.tmp.19568.1772612403912",
+    "_Tools/Whatweb.md.tmp.19568.1772612400774",
+    "_Reference/Nmap.md",
+    "_Tools",
+    "_Reference/FTP.md",
+    "_Reference/SNMP.md",
+    "_Reference/SMB.md",
+    "Screenshots/Screenshot 2026-03-04 150707.png",
+    "Pre-Engagement.md",
+    "Screenshots/Screenshot 2026-03-03 200856.png",
+    "Welcome.md"
+  ]
+}
