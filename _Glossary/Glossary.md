@@ -301,3 +301,30 @@ Here there may be new methods in place to prevent lateral movement. `Segmentatio
 To bypass these we need to understand how they work and what they respond to.
 
 ### Information Gathering
+We return to Info Gathering but this time from inside the network. First we get an overview of reachable systems, then enumerate each host individually. Some of this may already be available from the Post-Exploitation stage.
+
+### Vulnerability Assessment
+Internal VA differs from external — more errors occur inside a network. Group assignments and user rights play a key role. Compromising a developer account for example could grant access to most dev resources, providing crucial internal info and potential attack paths.
+
+### (Privilege) Exploitation
+Use discovered paths to access other systems. Common methods include cracking passwords/hashes, reusing credentials across systems, or using hashes directly via `pass-the-hash`. Tools like `Responder` can intercept `NTLMv2` hashes from administrators for use in pass-the-hash attacks.
+
+### Post-Exploitation
+Repeat the Post-Exploitation stage for each newly accessed system — collecting system info, user data, and business information as evidence. Always consider data handling rules defined in the contract. From here we move into the Proof-of-Concept phase.
+
+# Proof-of-Concept
+A PoC proves that a discovered vulnerability is real and exploitable. It serves as the decision-making basis for remediation and helps administrators and developers validate, reproduce, and test fixes for security issues.
+
+### PoC Representations
+A PoC can take multiple forms:
+- **Documentation** — a detailed write-up of the vulnerability and how it was exploited
+- **Script/Code** — automated exploitation that clearly demonstrates each step, making it easy for admins and devs to reproduce and understand the impact
+
+### The Script Trap
+A common pitfall — admins will sometimes "fight the script" by patching only what breaks it, rather than addressing the underlying vulnerability. A script is just one path to exploitation. Make sure this is explicitly discussed: fixing the script doesn't fix the problem.
+
+### The Report
+The report should paint the full picture — not just individual findings but how they chain together. An attack chain walkthrough is especially valuable in internal assessments. Fixing one link in the chain is good, but the remaining flaws still exist and may provide another path.
+Always focus remediation advice on the **root cause**, not the symptom. Example: a Domain Admin using `Password123` is a symptom — the root cause is a weak password policy.
+
+

@@ -37,3 +37,16 @@ Part 5: [[Glossary#Vulnerability Assessment|Vulnerability Assessment]]
 Part 6: [[Glossary#Privilege Escalation|Privilege Escalation]]
 Part 7: [[Glossary#Data Exfiltration|Data Exfiltration]]
 
+## [[Glossary#Lateral Movement|Lateral Movement]]
+Part 1: [[Glossary#Pivoting|Pivoting]]
+Part 2: [[Glossary#Evasive Testing|Evasive Testing]]
+Part 3: [[Glossary#Information Gathering|Information Gathering]]
+Part 4: [[Glossary#Vulnerability Assessment|Vulnerability Assessment]]
+Part 5: [[Glossary#(Privilege) Exploitation|(Privilege) Exploitation]]
+Part 6: [[Glossary#Post-Exploitation|Post-Exploitation]]
+
+## [[Glossary#Proof-of-Concept|Proof-of-Concept]]
+Part 1: [[Glossary#PoC Representations|PoC Representations]]
+Part 2: [[Glossary#The Script Trap|The Script Trap]]
+Part 3: [[Glossary#The Report|The Report]]
+
