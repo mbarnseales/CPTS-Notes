@@ -13,12 +13,12 @@
             "state": {
               "type": "markdown",
               "state": {
-                "file": "_Templates/Practice.md",
+                "file": "00-Methedology/Penetration Testing Process.md",
                 "mode": "source",
                 "source": false
               },
               "icon": "lucide-file",
-              "title": "Practice"
+              "title": "Penetration Testing Process"
             }
           }
         ]
@@ -196,8 +196,8 @@
   },
   "active": "dc39d3abc77bf23d",
   "lastOpenFiles": [
-    "_Glossary/Glossary.md",
     "_Templates/Practice.md",
+    "_Glossary/Glossary.md",
     "_Templates/Practice.md.tmp.9696.1772601207770",
     "00-Methedology/Penetration Testing Process.md.tmp.9696.1772600681357",
     "_Glossary/Glossary.md.tmp.9696.1772600674825",
