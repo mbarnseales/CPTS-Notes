@@ -13,7 +13,7 @@
             "state": {
               "type": "markdown",
               "state": {
-                "file": "Glossary.md",
+                "file": "_Glossary/Glossary.md",
                 "mode": "source",
                 "source": false
               },
@@ -194,10 +194,11 @@
       "obsidian-git:Open Git source control": false
     }
   },
-  "active": "bbbeee5d91e8acfb",
+  "active": "75da678c43657fcc",
   "lastOpenFiles": [
+    "_Glossary",
     "00-Methedology/Penetration Testing Process.md",
-    "Glossary.md",
+    "_Glossary/Glossary.md",
     "CPTS-Notes",
     "Pre-Engagement.md",
     "Screenshots",
