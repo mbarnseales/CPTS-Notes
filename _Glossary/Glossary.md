@@ -1,5 +1,5 @@
 
-## Types of Penetration Testing
+# Types of Penetration Testing
 
 ##### Blackbox: 
 Only the essential information is provided such as IP addresses and domains.
@@ -12,7 +12,7 @@ May include physical testing and social engineering, among other things. Can be 
 ##### Purple-Teaming: 
  It can be combined with any of the above types. However, it focuses on working closely with the defenders.
 
-## Processes
+# Processes
 
 ##### Processes: 
 A term for the directed sequence of events. In operational and organizational context are referred to as work, business, production or value creation processes. Processes are another name for programs running in a computer system.
@@ -23,7 +23,7 @@ A stochastic process is one in which one state follows from other states only wi
 
 **Relation:** A penetration testing process is defined by successive steps and events performed by the penetration tester to find a path to the predefined objective.
 
-## Steps of Engagement
+# Steps of Engagement
 
 ##### 1: Pre-Engagement 
 The first step is to create all the necessary documents in the pre-engagement phase, discuss the assessment objectives, and clarify any questions.
@@ -43,8 +43,17 @@ We create a proof-of-concept that proves that these vulnerabilities exist and po
 Finally, the documentation is completed and presented to our client as a formal report deliverable. Afterward, we may hold a report walkthrough meeting to clarify anything about our testing or results and provide any needed support to personnel tasked with remediating our findings.
 
 
-## Pre-Engagement
-### D
+# Pre-Engagement
+### Documents to be Prepared
+| **Document**                                                         | **Timing for Creation**                             |
+| -------------------------------------------------------------------- | --------------------------------------------------- |
+| `1. Non-Disclosure Agreement` (`NDA`)                                | `After` Initial Contact                             |
+| `2. Scoping Questionnaire`                                           | `Before` the Pre-Engagement Meeting                 |
+| `3. Scoping Document`                                                | `During` the Pre-Engagement Meeting                 |
+| `4. Penetration Testing Proposal` (`Contract/Scope of Work` (`SoW`)) | `During` the Pre-engagement Meeting                 |
+| `5. Rules of Engagement` (`RoE`)                                     | `Before` the Kick-Off Meeting                       |
+| `6. Contractors Agreement` (Physical Assessments)                    | `Before` the Kick-Off Meeting                       |
+| `7. Reports`                                                         | `During` and `after` the conducted Penetration Test |
 ### Types of NDA's (Non-Disclosure Agreement)
 
 ##### Unilateral NDA
@@ -159,3 +168,24 @@ Red teams typically will also be doing physical testing. For this scenario addit
 | `☐ Permission to Test`            |
 ### Setting Up
 After you have made your way through all of the prior points and we have the information we need, we plan the approach. Here we will set up our VM's, VPS and any other tooling or systems we will need to perform the test.
+# Information Gathering
+This is the phase of the engagement that is the cornerstone of any penetration test. We enumerate as much information as we can about our targets. This information might be relevant to us in many different ways and is pbroken down into 4 categories:
+- Open-Source Intelligence (OSINT)
+- Infrastructure Enumeration
+- Service Enumeration
+- Host Enumeration
+
+##### OSINT
+Using publicly available information to gather more information about your target. Key things can be found like hashes, passwords, keys or tokens.
+Great places to look:
+- Misconfigured GitHub Repositories
+- Developers using StackOverflow sometimes share too much
+##### Infrastructure Enumeration
+This is where we try to build a model of what the company infrastructure looks like. Using services like DNS to create a map of servers and hosts. Finding what security measures are in place so we can avoid them. After this process we compare it with our SOW document to make sure we aren't overstepping.
+##### Service Enumeration
+Here we are identifying what services we can use that will allow us to interact with the network. As well as other important information such as the service version.
+##### Host Enumeration
+Now you have a detailed list of the infrastructure we can look at individual hosts listed in our scoping document. Looking at things like what services are running, OS in use, what version are the services using, etc.
+
+After exploitation we can then perform `internal` host enumeration. This is typically where we look for sensitive `files` local `services`, `scripts`, `applications`.
+# Vulnerability Assesment
