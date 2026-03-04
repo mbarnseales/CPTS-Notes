@@ -59,4 +59,3 @@ Part 5: [[Glossary#Post-Remediation Testing|Post-Remediation Testing]]
 Part 6: [[Glossary#Role of the Pentester in Remediation|Role of the Pentester in Remediation]]
 Part 7: [[Glossary#Data Retention|Data Retention]]
 Part 8: [[Glossary#Close Out|Close Out]]
-
