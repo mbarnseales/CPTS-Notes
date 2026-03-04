@@ -233,3 +233,36 @@ Sometimes in can be hard to find quality, known PoC exploit code. In this case w
 **Important:** When in doubt about an attack. It is always best to check with the client and give them the necessary data to make an informed decision.
 
 Once we have successfully exploited the target we need make sure our notes are clear and we have clear logs for replication to show the client.
+
+# Post-Exploitation
+Here we must again consider whether or not to use Evasive Testing. Also in this phase we are looking to obtain sensitive and security relevant information from a local perspective as well as business relevant information that usually requires higher privileges. Components of this phase include:
+- Evasive Testing
+- Pillaging
+- Privilege Escalation
+- Data Exfiltration
+- Information Gathering
+- Vulnerability Assessment
+- Persistence
+### Evasive Testing
+If there is a skilled administrator monitoring the systems, any change, or even a single command could trigger an alarm such as `net user` or `whoami` are usually flagged by EDR systems.
+Evasion testing can be broken down into 3 categories:
+- Evasive
+- Hybrid Evasive
+- Non-Evasive
+### Information Gathering
+Here again we are looking for valuable info that could help us gain a better understanding of the system and internal architecture. Now we have a new perspective on the engagement which can lead to more possibilities to access information that is relevant to us.
+
+### Pillaging
+This is where we examine the host machines role in the corporate network. We analyze the network configurations, that could include
+- Interfaces
+- Routing
+- DNS
+- ARP
+- Services
+- VPN
+- IP Subnets
+- Shares
+- Network Traffic
+
+Here we will also hunt for any sensitive data such as
+- 
