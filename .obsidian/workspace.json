@@ -11,10 +11,14 @@
             "id": "1214b1acd22af5d0",
             "type": "leaf",
             "state": {
-              "type": "empty",
-              "state": {},
+              "type": "markdown",
+              "state": {
+                "file": "05-Post-Exploitation/Privilege-Escalation.md",
+                "mode": "source",
+                "source": false
+              },
               "icon": "lucide-file",
-              "title": "New tab"
+              "title": "Privilege-Escalation"
             }
           }
         ]
@@ -190,13 +194,19 @@
       "obsidian-git:Open Git source control": false
     }
   },
-  "active": "75da678c43657fcc",
+  "active": "1214b1acd22af5d0",
   "lastOpenFiles": [
+    "_Tools/WinPEAS.md",
+    "_Reference/Shells.md",
+    "_Tools/WinPEAS.md.tmp.16804.1772684163629",
+    "_Tools/LinPEAS.md",
+    "_Tools/LinPEAS.md.tmp.16804.1772684144482",
+    "05-Post-Exploitation/Privilege-Escalation.md",
+    "05-Post-Exploitation/Privilege-Escalation.md.tmp.16804.1772684125238",
     "_Reference/Shells.md.tmp.19564.1772681519165",
     "_Glossary/Glossary.md",
     "_Templates/Practice.md",
     "_Reference/Web-Enumeration.md",
-    "_Reference/Shells.md",
     "_Reference/Ports.md",
     "_Tools/cURL.md",
     "00-Methedology/Penetration Testing Process.md",
@@ -214,11 +224,7 @@
     "_Reference/Shells.md.tmp.19568.1772613257655",
     "_Reference/Shells.md.tmp.19568.1772612692013",
     "_Tools/Searchsploit.md.tmp.19568.1772612481085",
-    "_Reference/Web-Enumeration.md.tmp.19568.1772612409999",
-    "_Tools/cURL.md.tmp.19568.1772612403912",
-    "_Tools/Whatweb.md.tmp.19568.1772612400774",
     "_Reference/Nmap.md",
-    "_Tools",
     "_Reference/FTP.md",
     "_Reference/SNMP.md",
     "_Reference/SMB.md",
