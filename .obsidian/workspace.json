@@ -194,13 +194,13 @@
       "obsidian-git:Open Git source control": false
     }
   },
-  "active": "75da678c43657fcc",
+  "active": "1214b1acd22af5d0",
   "lastOpenFiles": [
+    "05-Post-Exploitation/Linux-Privilege-Escalation.md",
+    "05-Post-Exploitation/Privilege-Escalation.md",
     "05-Post-Exploitation/Privilege-Escalation.md.tmp.15100.1772685820810",
     "05-Post-Exploitation/Windows-Privilege-Escalation.md",
     "05-Post-Exploitation/Windows-Privilege-Escalation.md.tmp.15100.1772685784277",
-    "05-Post-Exploitation/Privilege-Escalation.md",
-    "05-Post-Exploitation/Linux-Privilege-Escalation.md",
     "05-Post-Exploitation/Linux-Privilege-Escalation.md.tmp.15100.1772685759827",
     "_Tools/WinPEAS.md",
     "_Reference/Shells.md",
@@ -226,7 +226,6 @@
     "_Reference/Shells.md.tmp.19568.1772613373829",
     "_Reference/Shells.md.tmp.19568.1772613367165",
     "_Reference/Shells.md.tmp.19568.1772613353855",
-    "_Reference/Shells.md.tmp.19568.1772613257655",
     "_Reference/Nmap.md",
     "_Reference/FTP.md",
     "_Reference/SNMP.md",
