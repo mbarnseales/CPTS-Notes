@@ -13,12 +13,12 @@
             "state": {
               "type": "markdown",
               "state": {
-                "file": "_Reference/File-Transfers.md",
+                "file": "_Tools/CeWL.md",
                 "mode": "source",
                 "source": false
               },
               "icon": "lucide-file",
-              "title": "File-Transfers"
+              "title": "CeWL"
             }
           }
         ]
@@ -196,8 +196,10 @@
   },
   "active": "94e087b2d4cc1e42",
   "lastOpenFiles": [
-    "_Tools/cURL.md",
     "_Reference/File-Transfers.md",
+    "_Tools/CeWL.md",
+    "_Tools/CeWL.md.tmp.25748.1772697809417",
+    "_Tools/cURL.md",
     "_Reference/Web-Enumeration.md",
     "_Tools/LinPEAS.md",
     "05-Post-Exploitation/Linux-Privilege-Escalation.md",
@@ -215,7 +217,6 @@
     "_Tools/WinPEAS.md.tmp.16804.1772684163629",
     "_Tools/LinPEAS.md.tmp.16804.1772684144482",
     "05-Post-Exploitation/Privilege-Escalation.md.tmp.16804.1772684125238",
-    "_Reference/Shells.md.tmp.19564.1772681519165",
     "_Glossary/Glossary.md",
     "_Reference/Ports.md",
     "00-Methedology/Penetration Testing Process.md",
