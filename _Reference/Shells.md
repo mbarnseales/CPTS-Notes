@@ -146,3 +146,9 @@ http://<target>/shell.php?cmd=id
 # cURL
 curl http://<target>/shell.php?cmd=id
 ```
+
+---
+
+## External References
+
+- [InternalAllTheThings - Reverse Shell Cheatsheet](https://swisskyrepo.github.io/InternalAllTheThings/cheatsheets/shell-reverse-cheatsheet/)

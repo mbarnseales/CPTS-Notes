@@ -13,12 +13,12 @@
             "state": {
               "type": "markdown",
               "state": {
-                "file": "_Glossary/Glossary.md",
+                "file": "_Reference/Shells.md",
                 "mode": "source",
                 "source": false
               },
               "icon": "lucide-file",
-              "title": "Glossary"
+              "title": "Shells"
             }
           }
         ]
@@ -180,7 +180,7 @@
       }
     ],
     "direction": "horizontal",
-    "width": 300
+    "width": 200
   },
   "left-ribbon": {
     "hiddenItems": {
@@ -196,6 +196,8 @@
   },
   "active": "1b649d0e35bd0d00",
   "lastOpenFiles": [
+    "_Reference/Shells.md.tmp.19564.1772681519165",
+    "_Glossary/Glossary.md",
     "_Templates/Practice.md",
     "_Reference/Web-Enumeration.md",
     "_Reference/Shells.md",
@@ -204,7 +206,6 @@
     "00-Methedology/Penetration Testing Process.md",
     "_Tools/FTP.md",
     "_Tools/Whatweb.md",
-    "_Glossary/Glossary.md",
     "_Tools/SNMP.md",
     "_Tools/SMB.md",
     "_Tools/Searchsploit.md",
