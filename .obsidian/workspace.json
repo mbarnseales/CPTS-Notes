@@ -4,21 +4,17 @@
     "type": "split",
     "children": [
       {
-        "id": "87bca8f8a9e85c3d",
+        "id": "db2137ecb74adcda",
         "type": "tabs",
         "children": [
           {
-            "id": "1b649d0e35bd0d00",
+            "id": "1214b1acd22af5d0",
             "type": "leaf",
             "state": {
-              "type": "markdown",
-              "state": {
-                "file": "_Reference/Shells.md",
-                "mode": "source",
-                "source": false
-              },
+              "type": "empty",
+              "state": {},
               "icon": "lucide-file",
-              "title": "Shells"
+              "title": "New tab"
             }
           }
         ]
@@ -194,7 +190,7 @@
       "obsidian-git:Open Git source control": false
     }
   },
-  "active": "1b649d0e35bd0d00",
+  "active": "75da678c43657fcc",
   "lastOpenFiles": [
     "_Reference/Shells.md.tmp.19564.1772681519165",
     "_Glossary/Glossary.md",
