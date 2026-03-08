@@ -155,7 +155,7 @@ Shell caught as `www-data`.
 
 ---
 
-## Lateral Movement — www-data → fismathack
+## Lateral Movement - www-data to fismathack
 
 ### Extract credentials from SQLite DB
 
