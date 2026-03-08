@@ -13,7 +13,7 @@
             "state": {
               "type": "markdown",
               "state": {
-                "file": "_Glossary/Nmap.md",
+                "file": "_Tools/Nmap.md",
                 "mode": "source",
                 "source": false
               },
@@ -196,9 +196,9 @@
   },
   "active": "519023c5c57ee9af",
   "lastOpenFiles": [
+    "_Glossary/Nmap.md",
     "_Glossary/Networking.md",
     "_Tools/Nmap.md",
-    "_Glossary/Nmap.md",
     "_Tools/Nmap.md.tmp.13828.1772954235827",
     "_Templates/Practice.md",
     "_Glossary/Networking.md.tmp.864.1772952424805",
