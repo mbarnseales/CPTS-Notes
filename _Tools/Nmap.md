@@ -44,6 +44,9 @@ Network Mapper — open-source tool for network discovery, port scanning, servic
 | `-A` | Aggressive scan (OS detection, version, scripts, traceroute) |
 | `-PE` | Force ICMP Echo request for host discovery |
 | `-iL <file>` | Read targets from file |
+| `-oN <name>` | Save output in normal format (.nmap) |
+| `-oG <name>` | Save output in grepable format (.gnmap) |
+| `-oX <name>` | Save output in XML format (.xml) |
 | `-oA <name>` | Save output in all formats (normal, XML, grepable) |
 | `--top-ports=<n>` | Scan top N most frequent ports |
 | `--script <name>` | Run a specific NSE script |
@@ -113,6 +116,15 @@ nmap --script <script-name> -p <port> <target>
 
 # Aggressive scan
 nmap -A -p <port> <target>
+```
+
+---
+
+## Output & Reporting
+
+```bash
+# Convert XML output to HTML report (readable for non-technical stakeholders)
+xsltproc target.xml -o target.html
 ```
 
 ---
