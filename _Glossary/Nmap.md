@@ -108,6 +108,21 @@ Attacker  ←  [nothing]  (open|filtered)
 
 > Critical UDP ports to always check: DNS (53), SNMP (161/162), DHCP (67/68), TFTP (69).
 
+# Banner Grabbing
+
+When Nmap connects to an open port, it first reads the service banner — a string the service sends immediately upon connection to identify itself. Nmap prints this as the version info in `-sV` results.
+
+If no banner is present or recognised, Nmap falls back to **signature-based matching** — sending specific probes and comparing responses against its database. This is slower and less reliable.
+
+##### Important:
+Nmap does not always capture everything in a banner. Services sometimes send more detail than Nmap displays. A manual grab with `nc` directly reads the raw banner and can reveal additional information such as OS, distribution, or software version that Nmap filtered or missed.
+
+```bash
+nc -nv <target> <port>
+```
+
+The banner is delivered via a TCP packet with the **PSH flag** set — the server pushes data immediately to the client without waiting for a request. See [[Networking|TCP Flags]] for detail on PSH.
+
 # Host Discovery — ARP vs ICMP
 
 On a local subnet, Nmap defaults to sending an ARP request before attempting ICMP echo requests. An ARP reply alone is enough for Nmap to mark a host as alive — it never needs to send ICMP at all. This matters because a host may appear down during an ICMP-based sweep simply because Nmap didn't use the right method, not because the host is offline.

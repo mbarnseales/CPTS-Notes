@@ -54,6 +54,9 @@ Network Mapper — open-source tool for network discovery, port scanning, servic
 | `--packet-trace` | Show all packets sent and received |
 | `--reason` | Show why a host/port was assigned its state |
 | `--disable-arp-ping` | Force ICMP instead of defaulting to ARP on local network |
+| `--stats-every=<time>` | Print scan progress at set intervals (e.g. `5s`, `1m`) |
+| `-v` | Verbose — show open ports as discovered |
+| `-vv` | Very verbose — more detail during scan |
 
 ---
 
@@ -92,6 +95,9 @@ sudo nmap 10.129.2.18 -sn -oA host -PE --disable-arp-ping
 
 ### Port Scanning
 
+> [!tip] Scan Strategy
+> Run a quick scan first (`-F` or `--top-ports`) to get an immediate picture. Then kick off a full `-p- -sV` in the background. Minimises noise early while the deep scan runs.
+
 ```bash
 # Default (top 1000 ports)
 nmap <target>
@@ -108,8 +114,11 @@ sudo nmap <target> --top-ports=10 -oA top10
 # UDP scan — top 100 ports
 sudo nmap <target> -sU -F -oA udp
 
-# Banner grabbing
+# Banner grabbing with Nmap
 nmap -sV --script=banner <target>
+
+# Manual banner grab with nc (catches what Nmap may miss)
+nc -nv <target> <port>
 
 # Specific port with script
 nmap --script <script-name> -p <port> <target>

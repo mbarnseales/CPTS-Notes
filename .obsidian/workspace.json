@@ -13,12 +13,12 @@
             "state": {
               "type": "markdown",
               "state": {
-                "file": "_Templates/Practice.md",
+                "file": "_Glossary/Nmap.md",
                 "mode": "source",
                 "source": false
               },
               "icon": "lucide-file",
-              "title": "Practice"
+              "title": "Nmap"
             }
           }
         ]
@@ -194,8 +194,13 @@
       "obsidian-git:Open Git source control": false
     }
   },
-  "active": "75da678c43657fcc",
+  "active": "519023c5c57ee9af",
   "lastOpenFiles": [
+    "_Templates/Practice.md",
+    "_Glossary/Networking.md.tmp.864.1772952424805",
+    "_Glossary/Nmap.md.tmp.864.1772952412179",
+    "_Tools/Nmap.md.tmp.864.1772952396250",
+    "_Tools/Nmap.md.tmp.864.1772952390549",
     "_Tools/Nmap.md.tmp.13832.1772950855077",
     "_Tools/Nmap.md.tmp.13832.1772950851188",
     "01-Recon/Host-Discovery.md",
@@ -212,12 +217,8 @@
     "_Glossary/Glossary.md",
     "_Glossary/Networking.md.tmp.13392.1772944272852",
     "01-Recon/Host-Discovery.md.tmp.13392.1772944255916",
-    "_Glossary/Nmap.md.tmp.15576.1772944121466",
-    "_Tools/Nmap.md.tmp.15576.1772944106593",
     "_Tools/SMB.md",
     "_Tools/SNMP.md",
-    "_Glossary/Nmap.md.tmp.3428.1772942580017",
-    "_Tools/Nmap.md.tmp.3428.1772942567658",
     "_Tools/Searchsploit.md",
     "_Tools/Metasploit.md",
     "_Tools/WinPEAS.md",
@@ -226,9 +227,7 @@
     "_Tools/cURL.md",
     "_Tools/FTP.md",
     "05-Post-Exploitation/Linux-Privilege-Escalation.md",
-    "_Tools/CeWL.md.tmp.25748.1772697809417",
     "_Tools/LinPEAS.md",
-    "_Templates/Practice.md",
     "05-Post-Exploitation/Privilege-Escalation.md",
     "05-Post-Exploitation/Windows-Privilege-Escalation.md",
     "_Tools/Gobuster.md",

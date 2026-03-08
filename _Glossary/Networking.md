@@ -51,6 +51,49 @@ Host A  ←  ICMP Echo Reply  (Type 0)  ←  Target  (host is alive)
 - Nmap uses `-PE` to force ICMP Echo Requests for host discovery
 - Use `--disable-arp-ping` to stop Nmap defaulting to ARP on local networks
 
+# TCP Flags
+
+TCP flags control the state and behaviour of a connection. Each flag is a single bit in the TCP header. Multiple flags can be set simultaneously.
+
+| Flag | Abbreviation | Meaning |
+|------|-------------|---------|
+| SYN | `S` | Initiate a connection |
+| ACK | `.` | Acknowledge received data |
+| RST | `R` | Reset / forcibly terminate a connection |
+| FIN | `F` | Gracefully close a connection |
+| PSH | `P` | Push data immediately to the application — don't buffer |
+| URG | `U` | Urgent data — process before anything else |
+
+##### SYN:
+Sent to open a connection. The start of the three-way handshake.
+
+##### ACK:
+Acknowledges that the previous packet was received. Almost always set after the initial SYN.
+
+##### RST:
+Abruptly terminates a connection. No graceful close — used when a port is closed or a connection is rejected. Seen in Nmap results as confirmation that a port is `closed`.
+
+##### FIN:
+Signals the sender has finished sending data. Begins a graceful connection teardown (FIN → FIN-ACK → ACK).
+
+##### PSH:
+Tells the receiver to pass the data to the application immediately rather than buffering it. Used when a service sends its **banner** upon connection — the server pushes the identification string straight to the client without waiting.
+
+##### URG:
+Marks data as urgent. Rarely seen in normal traffic.
+
+---
+
+##### Common Flag Combinations:
+
+| Combination | Seen In |
+|-------------|---------|
+| `S` | TCP SYN scan probe |
+| `SA` (SYN-ACK) | Open port response |
+| `RA` (RST-ACK) | Closed port response |
+| `PA` (PSH-ACK) | Banner delivery from server |
+| `FA` (FIN-ACK) | Connection teardown |
+
 # TTL — Time To Live
 
 ##### Layer:
