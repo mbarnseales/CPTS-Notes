@@ -12,7 +12,7 @@ Port is accepting connections. Target responded with SYN-ACK.
 Port is accessible but nothing is listening. Target responded with RST.
 
 ##### Filtered:
-Nmap cannot determine state. No response received — packet likely dropped or ignored by a firewall.
+Nmap cannot determine state. No response received — packet likely dropped or ignored by a firewall. See Filtered Ports — Dropped vs Rejected below.
 
 ##### Unfiltered:
 Port is accessible but state is undetermined. ACK scan reached the port but open/closed cannot be confirmed.
@@ -35,6 +35,78 @@ Attacker  →  RST        →  Target  (Nmap tears it down immediately)
 Attacker  ←  RST        ←  Target  (closed)
 Attacker  ←  [nothing]             (filtered)
 ```
+
+# TCP Connect Scan (-sT)
+
+Completes the full three-way TCP handshake. Used automatically when sudo is unavailable — the OS networking stack handles the connection rather than raw packets. More accurate than SYN but significantly noisier. Creates connection logs on most systems and is easily detected by modern IDS/IPS.
+
+```
+Attacker  →  SYN        →  Target
+Attacker  ←  SYN-ACK   ←  Target  (open)
+Attacker  →  ACK        →  Target  (connection fully established)
+
+Attacker  ←  RST        ←  Target  (closed)
+```
+
+In `--packet-trace` output, Connect scan shows `CONN` instead of `SENT`/`RCVD`:
+
+```
+CONN (0.0385s) TCP localhost > 10.129.2.28:443 => Operation now in progress
+CONN (0.0396s) TCP localhost > 10.129.2.28:443 => Connected
+```
+
+# Filtered Ports — Dropped vs Rejected
+
+Both states show as `filtered` in results but behave very differently. The timing tells you which one you're dealing with.
+
+##### Dropped:
+Firewall silently discards the packet. No response is sent back. Nmap retries up to 10 times (`--max-retries`) before giving up. Scan takes significantly longer — ~2 seconds vs ~0.05 seconds for a normal response.
+
+```
+Attacker  →  SYN  →  Firewall  →  [packet discarded, no reply]
+Attacker  →  SYN  →  Firewall  →  [retries...]
+```
+
+##### Rejected:
+Firewall actively refuses the connection and sends back an ICMP Type 3 Code 3 (Port Unreachable) response. Scan completes quickly — you get a definitive answer.
+
+```
+Attacker  →  SYN          →  Firewall
+Attacker  ←  ICMP Type 3  ←  Firewall  (port unreachable — filtered)
+```
+
+> A slow filtered result = dropped. A fast filtered result = rejected. Both mean the port is inaccessible but the firewall behaviour is different.
+
+# UDP Scan (-sU)
+
+UDP is stateless — no three-way handshake, no acknowledgment. Nmap sends empty datagrams and interprets the response (or lack of one) to determine port state. Significantly slower than TCP scans due to longer timeouts.
+
+```
+Attacker  →  UDP datagram  →  Target
+```
+
+##### Open:
+Target application responds. Only happens if the application is configured to reply.
+
+```
+Attacker  ←  UDP response  ←  Target  (open)
+```
+
+##### Closed:
+Target returns ICMP Type 3 Code 3 (Port Unreachable).
+
+```
+Attacker  ←  ICMP Type 3 Code 3  ←  Target  (closed)
+```
+
+##### Open|Filtered:
+No response at all — Nmap cannot tell if the port is open or being filtered. This is the most common result in UDP scans.
+
+```
+Attacker  ←  [nothing]  (open|filtered)
+```
+
+> Critical UDP ports to always check: DNS (53), SNMP (161/162), DHCP (67/68), TFTP (69).
 
 # Host Discovery — ARP vs ICMP
 

@@ -34,6 +34,9 @@ Network Mapper — open-source tool for network discovery, port scanning, servic
 | Flag | Description |
 |------|-------------|
 | `-sn` | Disable port scan (host discovery / ping sweep only) |
+| `-Pn` | Skip host discovery — treat all hosts as online |
+| `-n` | Disable DNS resolution (speeds up scan) |
+| `-F` | Fast scan — top 100 ports |
 | `-sC` | Run default scripts |
 | `-sV` | Version scan (fingerprint services) |
 | `-p-` | Scan all 65,535 TCP ports |
@@ -42,11 +45,24 @@ Network Mapper — open-source tool for network discovery, port scanning, servic
 | `-PE` | Force ICMP Echo request for host discovery |
 | `-iL <file>` | Read targets from file |
 | `-oA <name>` | Save output in all formats (normal, XML, grepable) |
+| `--top-ports=<n>` | Scan top N most frequent ports |
 | `--script <name>` | Run a specific NSE script |
 | `--script=banner` | Banner grabbing |
 | `--packet-trace` | Show all packets sent and received |
 | `--reason` | Show why a host/port was assigned its state |
 | `--disable-arp-ping` | Force ICMP instead of defaulting to ARP on local network |
+
+---
+
+## Port Specification
+
+| Method | Example | Description |
+|--------|---------|-------------|
+| Specific | `-p 22,25,80` | Comma-separated individual ports |
+| Range | `-p 22-445` | All ports within a range |
+| Top N | `--top-ports=10` | N most frequently seen ports |
+| All | `-p-` | All 65,535 ports |
+| Fast | `-F` | Top 100 ports |
 
 ---
 
@@ -79,6 +95,15 @@ nmap <target>
 
 # Full scan with version and scripts
 nmap -sV -sC -p- <target>
+
+# Fast scan — top 100 ports
+sudo nmap <target> -F -oA fast
+
+# Top 10 most frequent ports
+sudo nmap <target> --top-ports=10 -oA top10
+
+# UDP scan — top 100 ports
+sudo nmap <target> -sU -F -oA udp
 
 # Banner grabbing
 nmap -sV --script=banner <target>
