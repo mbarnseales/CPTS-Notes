@@ -37,11 +37,12 @@ Network Mapper — open-source tool for network discovery, port scanning, servic
 | `-Pn` | Skip host discovery — treat all hosts as online |
 | `-n` | Disable DNS resolution (speeds up scan) |
 | `-F` | Fast scan — top 100 ports |
-| `-sC` | Run default scripts |
+| `-O` | OS detection |
+| `-sC` | Run default NSE scripts |
 | `-sV` | Version scan (fingerprint services) |
+| `-A` | Aggressive: `-sV` + `-O` + `--traceroute` + `-sC` |
 | `-p-` | Scan all 65,535 TCP ports |
 | `-p <port>` | Scan specific port(s) |
-| `-A` | Aggressive scan (OS detection, version, scripts, traceroute) |
 | `-PE` | Force ICMP Echo request for host discovery |
 | `-iL <file>` | Read targets from file |
 | `-oN <name>` | Save output in normal format (.nmap) |
@@ -49,8 +50,8 @@ Network Mapper — open-source tool for network discovery, port scanning, servic
 | `-oX <name>` | Save output in XML format (.xml) |
 | `-oA <name>` | Save output in all formats (normal, XML, grepable) |
 | `--top-ports=<n>` | Scan top N most frequent ports |
-| `--script <name>` | Run a specific NSE script |
-| `--script=banner` | Banner grabbing |
+| `--traceroute` | Trace packet route to target |
+| `--script <name>` | Run a specific NSE script or category |
 | `--packet-trace` | Show all packets sent and received |
 | `--reason` | Show why a host/port was assigned its state |
 | `--disable-arp-ping` | Force ICMP instead of defaulting to ARP on local network |
@@ -69,6 +70,50 @@ Network Mapper — open-source tool for network discovery, port scanning, servic
 | Top N | `--top-ports=10` | N most frequently seen ports |
 | All | `-p-` | All 65,535 ports |
 | Fast | `-F` | Top 100 ports |
+
+---
+
+## NSE — Nmap Scripting Engine
+
+Scripts written in Lua that interact with services for deeper enumeration, vuln detection, brute forcing, and more.
+
+### Script Categories
+
+| Category | Description |
+|----------|-------------|
+| `auth` | Credential determination |
+| `broadcast` | Host discovery via broadcast — found hosts added to scan |
+| `brute` | Brute-force login attempts against services |
+| `default` | Run with `-sC` — safe, commonly useful scripts |
+| `discovery` | Service and host information gathering |
+| `dos` | Denial of service checks — use with caution |
+| `exploit` | Attempts to exploit known vulnerabilities |
+| `external` | Uses external services for processing |
+| `fuzzer` | Identifies unexpected packet handling — slow |
+| `intrusive` | May negatively affect the target |
+| `malware` | Checks for malware infection indicators |
+| `safe` | Non-intrusive, non-destructive scripts |
+| `version` | Extends service version detection |
+| `vuln` | Identifies specific known vulnerabilities |
+
+### Script Usage
+
+```bash
+# Run default scripts
+sudo nmap <target> -sC
+
+# Run all scripts in a category
+sudo nmap <target> --script <category>
+
+# Run specific named script(s)
+sudo nmap <target> --script <script-name>,<script-name>
+
+# Vuln scan on a specific port
+sudo nmap <target> -p 80 -sV --script vuln
+
+# Banner + SMTP commands
+sudo nmap <target> -p 25 --script banner,smtp-commands
+```
 
 ---
 
@@ -103,7 +148,7 @@ sudo nmap 10.129.2.18 -sn -oA host -PE --disable-arp-ping
 nmap <target>
 
 # Full scan with version and scripts
-nmap -sV -sC -p- <target>
+sudo nmap -sV -sC -p- <target> -oA full
 
 # Fast scan — top 100 ports
 sudo nmap <target> -F -oA fast
@@ -114,17 +159,17 @@ sudo nmap <target> --top-ports=10 -oA top10
 # UDP scan — top 100 ports
 sudo nmap <target> -sU -F -oA udp
 
+# Aggressive scan (version + OS + traceroute + default scripts)
+sudo nmap <target> -A -oA aggressive
+
 # Banner grabbing with Nmap
-nmap -sV --script=banner <target>
+sudo nmap -sV --script=banner <target>
 
 # Manual banner grab with nc (catches what Nmap may miss)
 nc -nv <target> <port>
 
 # Specific port with script
-nmap --script <script-name> -p <port> <target>
-
-# Aggressive scan
-nmap -A -p <port> <target>
+sudo nmap --script <script-name> -p <port> <target>
 ```
 
 ---
