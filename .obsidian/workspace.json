@@ -13,12 +13,12 @@
             "state": {
               "type": "markdown",
               "state": {
-                "file": "_Reference/Web-Enumeration.md",
+                "file": "05-Post-Exploitation/Linux-Privilege-Escalation.md",
                 "mode": "source",
                 "source": false
               },
               "icon": "lucide-file",
-              "title": "Web-Enumeration"
+              "title": "Linux-Privilege-Escalation"
             }
           }
         ]
@@ -196,6 +196,7 @@
   },
   "active": "519023c5c57ee9af",
   "lastOpenFiles": [
+    "_Reference/Web-Enumeration.md",
     "_Glossary/Nmap.md",
     "_Glossary/Glossary.md",
     "_Glossary/Networking.md",
@@ -218,7 +219,6 @@
     "_Reference/Shells.md",
     "_Reference/Ports.md",
     "_Reference/File-Transfers.md",
-    "_Reference/Web-Enumeration.md",
     "_Glossary/Nmap.md.tmp.13392.1772944378954",
     "_Tools/SMB.md",
     "_Tools/SNMP.md",
