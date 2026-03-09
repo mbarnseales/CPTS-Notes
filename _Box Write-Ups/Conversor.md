@@ -157,6 +157,8 @@ Shell caught as `www-data`.
 
 ## Lateral Movement - www-data to fismathack
 
+See Also: [[Credential-Hunting]] | [[Hash-Cracking]]
+
 ### Extract credentials from SQLite DB
 
 The DB path was hardcoded in the source. Read it with `strings` to extract the password hashes:
@@ -194,6 +196,8 @@ User flag: `/home/fismathack/user.txt`
 ---
 
 ## Privilege Escalation — fismathack → root
+
+See Also: [[Linux-Privilege-Escalation]] | [[GTFOBins]]
 
 ### Enumeration
 

