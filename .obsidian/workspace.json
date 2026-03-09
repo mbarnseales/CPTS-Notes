@@ -13,12 +13,12 @@
             "state": {
               "type": "markdown",
               "state": {
-                "file": "_Box Write-Ups/Knife.md",
+                "file": "_Reference/Web-Enumeration.md",
                 "mode": "source",
                 "source": false
               },
               "icon": "lucide-file",
-              "title": "Knife"
+              "title": "Web-Enumeration"
             }
           }
         ]
@@ -196,13 +196,14 @@
   },
   "active": "519023c5c57ee9af",
   "lastOpenFiles": [
-    "_Box Write-Ups/Conversor.md",
-    "_Box Write-Ups/Knife.md",
-    "_Tools/cURL.md",
-    "_Box Write-Ups",
-    "_Tools/Nmap.md",
     "_Glossary/Nmap.md",
+    "_Glossary/Glossary.md",
     "_Glossary/Networking.md",
+    "_Tools/cURL.md",
+    "_Tools/Nmap.md",
+    "_Box Write-Ups/Knife.md",
+    "_Box Write-Ups/Conversor.md",
+    "_Box Write-Ups",
     "_Tools/Nmap.md.tmp.13828.1772954235827",
     "_Templates/Practice.md",
     "_Glossary/Networking.md.tmp.864.1772952424805",
@@ -219,7 +220,6 @@
     "_Reference/File-Transfers.md",
     "_Reference/Web-Enumeration.md",
     "_Glossary/Nmap.md.tmp.13392.1772944378954",
-    "_Glossary/Glossary.md",
     "_Tools/SMB.md",
     "_Tools/SNMP.md",
     "_Tools/Searchsploit.md",
