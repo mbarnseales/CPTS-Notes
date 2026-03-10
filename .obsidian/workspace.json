@@ -13,12 +13,12 @@
             "state": {
               "type": "markdown",
               "state": {
-                "file": "_Glossary/Nmap.md",
+                "file": "_Reference/Shells.md",
                 "mode": "source",
                 "source": false
               },
               "icon": "lucide-file",
-              "title": "Nmap"
+              "title": "Shells"
             }
           }
         ]
@@ -196,6 +196,7 @@
   },
   "active": "519023c5c57ee9af",
   "lastOpenFiles": [
+    "_Glossary/Nmap.md",
     "_Glossary/Networking.md",
     "_Glossary/Glossary.md",
     "_Box Write-Ups/Knife.md",
@@ -204,7 +205,6 @@
     "_Templates/Box-Write-Up.md",
     "05-Post-Exploitation/Linux-Privilege-Escalation.md",
     "Untitled.md",
-    "_Glossary/Nmap.md",
     "_Glossary/Security-Concepts.md",
     "_Tools/Nmap.md",
     "_Tools/SNMP.md",
