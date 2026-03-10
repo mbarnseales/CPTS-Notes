@@ -58,6 +58,12 @@ Network Mapper — open-source tool for network discovery, port scanning, servic
 | `--stats-every=<time>` | Print scan progress at set intervals (e.g. `5s`, `1m`) |
 | `-v` | Verbose — show open ports as discovered |
 | `-vv` | Very verbose — more detail during scan |
+| `-T<0-5>` | Timing template — controls scan aggressiveness |
+| `--min-rate <n>` | Send at least N packets per second |
+| `--max-retries <n>` | Max port scan probe retransmissions (default: 10) |
+| `--initial-rtt-timeout <time>` | Initial round-trip-time timeout (e.g. `50ms`) |
+| `--max-rtt-timeout <time>` | Maximum round-trip-time timeout (e.g. `100ms`) |
+| `--min-parallelism <n>` | Minimum number of probes in parallel |
 
 ---
 
@@ -170,6 +176,42 @@ nc -nv <target> <port>
 
 # Specific port with script
 sudo nmap --script <script-name> -p <port> <target>
+```
+
+---
+
+## Performance & Timing
+
+> [!warning] Speed vs Accuracy
+> Every performance optimisation is a trade-off. Reducing timeouts or retries can cause Nmap to miss hosts and ports. Validate aggressive scans with a slower follow-up if results look thin.
+
+### Timing Templates
+
+| Template | Flag | Use Case |
+|----------|------|----------|
+| Paranoid | `-T0` | Maximum evasion — extremely slow |
+| Sneaky | `-T1` | Evasion focused |
+| Polite | `-T2` | Low bandwidth / avoid disrupting services |
+| Normal | `-T3` | Default |
+| Aggressive | `-T4` | Fast networks — good for labs and HTB |
+| Insane | `-T5` | Fastest — may miss results, can trigger IDS |
+
+> `-T4` is the go-to for lab environments. Use `-T2` or lower on real engagements where stealth matters.
+
+### Performance Flags
+
+```bash
+# Timing template (T4 for labs, T2 for stealth)
+sudo nmap <target> -T4
+
+# Set packet rate — useful when whitelisted and bandwidth is known
+sudo nmap <target> --min-rate 300
+
+# Reduce retries — speeds up scan but may miss filtered ports
+sudo nmap <target> --max-retries 0
+
+# Tune RTT timeouts for fast local networks
+sudo nmap <target> --initial-rtt-timeout 50ms --max-rtt-timeout 100ms
 ```
 
 ---
