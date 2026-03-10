@@ -225,7 +225,7 @@ sudo nmap <target> -S <spoofed_IP> -e tun0
 
 ```bash
 # Scan using port 53 as source — firewalls often trust DNS traffic
-sudo nmap <target> --source-port 53
+sudo nmap <target> --sourceport 53
 
 # Verify with ncat — connect to filtered port via port 53
 ncat -nv --source-port 53 <target> <port>
