@@ -13,12 +13,12 @@
             "state": {
               "type": "markdown",
               "state": {
-                "file": "05-Post-Exploitation/Credential-Hunting.md",
+                "file": "_Reference/Ports.md",
                 "mode": "source",
                 "source": false
               },
               "icon": "lucide-file",
-              "title": "Credential-Hunting"
+              "title": "Ports"
             }
           }
         ]
@@ -196,13 +196,13 @@
   },
   "active": "519023c5c57ee9af",
   "lastOpenFiles": [
+    "_Glossary/Networking.md",
+    "05-Post-Exploitation/Credential-Hunting.md",
     "_Reference/Shells.md",
     "_Reference/Web-Enumeration.md",
-    "05-Post-Exploitation/Credential-Hunting.md",
     "05-Post-Exploitation/Linux-Privilege-Escalation.md",
     "_Tools/cURL.md",
     "_Glossary/Nmap.md",
-    "_Glossary/Networking.md",
     "_Glossary/Glossary.md",
     "_Box Write-Ups/Knife.md",
     "_Box Write-Ups/Conversor.md",
