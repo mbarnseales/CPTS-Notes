@@ -13,12 +13,12 @@
             "state": {
               "type": "markdown",
               "state": {
-                "file": "_Box Write-Ups/CCTV.md",
+                "file": "_Glossary/Nmap.md",
                 "mode": "source",
                 "source": false
               },
               "icon": "lucide-file",
-              "title": "CCTV"
+              "title": "Nmap"
             }
           }
         ]
@@ -196,18 +196,18 @@
   },
   "active": "519023c5c57ee9af",
   "lastOpenFiles": [
+    "_Glossary/Networking.md",
+    "_Glossary/Glossary.md",
+    "_Box Write-Ups/Knife.md",
     "_Box Write-Ups/Conversor.md",
     "_Box Write-Ups/CCTV.md",
     "_Templates/Box-Write-Up.md",
-    "_Box Write-Ups/Knife.md",
     "05-Post-Exploitation/Linux-Privilege-Escalation.md",
     "Untitled.md",
     "_Glossary/Nmap.md",
     "_Glossary/Security-Concepts.md",
-    "_Glossary/Networking.md",
     "_Tools/Nmap.md",
     "_Tools/SNMP.md",
-    "_Glossary/Glossary.md",
     "_Glossary/Security-Concepts.md.tmp.18512.1773124638047",
     "07-Passwords/Hash-Cracking.md",
     "_Glossary/Nmap.md.tmp.18512.1773124612669",
