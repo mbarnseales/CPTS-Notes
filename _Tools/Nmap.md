@@ -64,6 +64,12 @@ Network Mapper — open-source tool for network discovery, port scanning, servic
 | `--initial-rtt-timeout <time>` | Initial round-trip-time timeout (e.g. `50ms`) |
 | `--max-rtt-timeout <time>` | Maximum round-trip-time timeout (e.g. `100ms`) |
 | `--min-parallelism <n>` | Minimum number of probes in parallel |
+| `-D RND:<n>` | Decoy scan — generate N random source IPs to mask real origin |
+| `-D <IP,IP,...>` | Decoy scan — specify exact decoy IPs |
+| `-S <IP>` | Spoof source IP address |
+| `-e <interface>` | Send packets through specified network interface |
+| `--source-port <port>` | Set source port for packets (e.g. `53` to mimic DNS) |
+| `--dns-server <ns>` | Use specified DNS server for resolution |
 
 ---
 
@@ -176,6 +182,62 @@ nc -nv <target> <port>
 
 # Specific port with script
 sudo nmap --script <script-name> -p <port> <target>
+```
+
+---
+
+## Firewall & IDS/IPS Evasion
+
+See Also: [[Nmap|Nmap - Packet Behaviour & Port States]] | [[Security-Concepts]]
+
+### Mapping Firewall Rules
+
+```bash
+# ACK scan — maps what's filtered vs unfiltered, bypasses many firewall rules
+sudo nmap <target> -sA -Pn -n --disable-arp-ping
+
+# Compare with SYN scan to spot firewall behaviour
+sudo nmap <target> -sS -Pn -n --disable-arp-ping
+```
+
+> An `unfiltered` result on ACK scan means the packet reached the port — but not whether it's open or closed. Use alongside SYN scan to build a complete picture.
+
+### Decoy Scanning
+
+```bash
+# Random decoys — 5 fake source IPs mixed with your real IP
+sudo nmap <target> -D RND:5
+
+# Specific decoy IPs (decoys must be live hosts)
+sudo nmap <target> -D 10.10.10.1,10.10.10.2,ME
+```
+
+> Decoys must be **alive**. Dead decoy IPs can trigger SYN-flood protection and block the scan entirely.
+
+### Source IP Spoofing
+
+```bash
+# Spoof source IP — useful when only certain subnets can reach a service
+sudo nmap <target> -S <spoofed_IP> -e tun0
+```
+
+### DNS Port Bypass (Source Port 53)
+
+```bash
+# Scan using port 53 as source — firewalls often trust DNS traffic
+sudo nmap <target> --source-port 53
+
+# Verify with ncat — connect to filtered port via port 53
+ncat -nv --source-port 53 <target> <port>
+```
+
+> Port 53 (DNS) is commonly whitelisted by firewalls. Using it as a source port makes packets appear to be DNS responses, bypassing rules that block other traffic.
+
+### Internal DNS Servers
+
+```bash
+# Use target's internal DNS server — more trusted than external, useful in DMZ
+sudo nmap <target> --dns-server <internal_dns_ip>
 ```
 
 ---

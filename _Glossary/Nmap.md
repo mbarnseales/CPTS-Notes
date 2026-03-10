@@ -108,6 +108,65 @@ Attacker  ←  [nothing]  (open|filtered)
 
 > Critical UDP ports to always check: DNS (53), SNMP (161/162), DHCP (67/68), TFTP (69).
 
+# Firewall & IDS/IPS Evasion
+
+See Also: [[Security-Concepts]]
+
+# ACK Scan for Firewall Mapping (-sA)
+
+The ACK scan sends packets with only the ACK flag set — no SYN, no connection attempt. Because firewalls are typically configured to block inbound SYN packets (new connection attempts) but allow ACK packets (which look like responses to established connections), ACK packets frequently pass through where SYN packets are dropped.
+
+```
+Attacker  →  ACK  →  Firewall  →  Target
+
+If port is reachable:   Target  ←  RST  ←  (unfiltered)
+If port is blocked:     [no response or ICMP unreachable]  (filtered)
+```
+
+##### Important:
+ACK scan does **not** reveal whether a port is open or closed — only whether it is **reachable** (unfiltered) or **blocked** (filtered). Pair it with a SYN scan to build a full picture of what the firewall is doing.
+
+# Decoy Scanning (-D)
+
+Nmap inserts spoofed source IP addresses into packet headers alongside the real source IP. From the target's perspective, the scan appears to come from multiple hosts simultaneously, making it difficult to identify the real attacker.
+
+```
+Nmap sends packets appearing to come from:
+  102.52.161.59  (fake)
+  10.10.14.2     (real — randomly placed)
+  210.120.38.29  (fake)
+  ...
+```
+
+##### Critical requirement:
+Decoy IPs must belong to **live hosts**. If decoy addresses are unreachable, the target's SYN-flood protection may trigger and block all traffic — including the real scan.
+
+##### Usage:
+- `RND:<n>` generates n random IPs automatically
+- `ME` explicitly places your real IP at a specific position in the list
+- Decoys work with SYN, ACK, ICMP, and OS detection scans
+
+# Source Port Bypass (--source-port)
+
+Firewalls often whitelist traffic from trusted ports — particularly port 53 (DNS), since DNS is essential infrastructure and administrators assume DNS responses are safe. By setting the scan's source port to 53, packets appear to be DNS responses and pass through rules that would otherwise block them.
+
+```
+Normal scan:   Attacker:random_port  →  Target:50000  →  [blocked]
+Port 53 scan:  Attacker:53           →  Target:50000  →  [allowed — looks like DNS]
+```
+
+This applies to both Nmap (`--source-port 53`) and follow-up connections with ncat (`--source-port 53`). If a port opens with this technique, it's likely that IDS/IPS rules for that service are also misconfigured or weaker than expected.
+
+# RTT — Round-Trip Time
+
+The time between Nmap sending a probe packet and receiving a response. Nmap uses RTT measurements to dynamically adjust how long it waits before deciding a port is unresponsive.
+
+##### Default behaviour:
+Nmap starts with an initial RTT timeout of 100ms and adjusts based on observed response times during the scan.
+
+##### Tuning risk:
+Setting `--initial-rtt-timeout` or `--max-rtt-timeout` too low causes Nmap to give up on packets before responses arrive — particularly on slower or high-latency networks. Hosts and ports that would have responded are marked as down or missed entirely. Always verify thin results with a slower follow-up scan.
+
 # Banner Grabbing
 
 When Nmap connects to an open port, it first reads the service banner — a string the service sends immediately upon connection to identify itself. Nmap prints this as the version info in `-sV` results.
