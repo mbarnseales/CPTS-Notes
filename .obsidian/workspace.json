@@ -13,12 +13,12 @@
             "state": {
               "type": "markdown",
               "state": {
-                "file": "_Glossary/Security-Concepts.md",
+                "file": "_Tools/Nmap.md",
                 "mode": "source",
                 "source": false
               },
               "icon": "lucide-file",
-              "title": "Security-Concepts"
+              "title": "Nmap"
             }
           }
         ]
@@ -196,11 +196,13 @@
   },
   "active": "519023c5c57ee9af",
   "lastOpenFiles": [
-    "_Glossary/Nmap.md",
-    "_Glossary/Security-Concepts.md",
-    "_Glossary/Security-Concepts.md.tmp.18512.1773124638047",
+    "_Tools/SNMP.md",
     "_Glossary/Networking.md",
     "_Glossary/Glossary.md",
+    "_Tools/Nmap.md",
+    "_Glossary/Security-Concepts.md",
+    "_Glossary/Nmap.md",
+    "_Glossary/Security-Concepts.md.tmp.18512.1773124638047",
     "07-Passwords/Hash-Cracking.md",
     "_Glossary/Nmap.md.tmp.18512.1773124612669",
     "_Tools/Nmap.md.tmp.18512.1773124593867",
@@ -221,7 +223,6 @@
     "05-Post-Exploitation/Credential-Hunting.md.tmp.15704.1773053155092",
     "_Reference/Web-Enumeration.md",
     "_Tools/cURL.md",
-    "_Tools/Nmap.md",
     "_Templates/Practice.md",
     "01-Recon/Host-Discovery.md",
     "00-Methedology/Penetration Testing Process.md",
@@ -229,7 +230,6 @@
     "_Reference/Ports.md",
     "_Reference/File-Transfers.md",
     "_Tools/SMB.md",
-    "_Tools/SNMP.md",
     "_Tools/Searchsploit.md",
     "_Tools/Metasploit.md",
     "Screenshots/Screenshot 2026-03-04 150707.png",
