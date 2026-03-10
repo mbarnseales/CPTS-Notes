@@ -13,12 +13,12 @@
             "state": {
               "type": "markdown",
               "state": {
-                "file": "_Reference/Shells.md",
+                "file": "05-Post-Exploitation/Credential-Hunting.md",
                 "mode": "source",
                 "source": false
               },
               "icon": "lucide-file",
-              "title": "Shells"
+              "title": "Credential-Hunting"
             }
           }
         ]
@@ -196,8 +196,11 @@
   },
   "active": "519023c5c57ee9af",
   "lastOpenFiles": [
-    "_Tools/cURL.md",
     "_Reference/Shells.md",
+    "_Reference/Web-Enumeration.md",
+    "05-Post-Exploitation/Credential-Hunting.md",
+    "05-Post-Exploitation/Linux-Privilege-Escalation.md",
+    "_Tools/cURL.md",
     "_Glossary/Nmap.md",
     "_Glossary/Networking.md",
     "_Glossary/Glossary.md",
@@ -205,7 +208,6 @@
     "_Box Write-Ups/Conversor.md",
     "_Box Write-Ups/CCTV.md",
     "_Templates/Box-Write-Up.md",
-    "05-Post-Exploitation/Linux-Privilege-Escalation.md",
     "Untitled.md",
     "_Glossary/Security-Concepts.md",
     "_Tools/Nmap.md",
@@ -216,7 +218,6 @@
     "_Tools/Nmap.md.tmp.18512.1773124593867",
     "_Tools/Nmap.md.tmp.18512.1773124578885",
     "_Glossary/Nmap.md.tmp.10352.1773123005728",
-    "05-Post-Exploitation/Credential-Hunting.md",
     "_Reference/GTFOBins.md",
     "05-Post-Exploitation/Windows-Privilege-Escalation.md",
     "05-Post-Exploitation/Privilege-Escalation.md",
@@ -225,7 +226,6 @@
     "_Box Write-Ups/Knife.md.tmp.15704.1773053198954",
     "05-Post-Exploitation/Linux-Privilege-Escalation.md.tmp.15704.1773053190151",
     "05-Post-Exploitation/Credential-Hunting.md.tmp.15704.1773053155092",
-    "_Reference/Web-Enumeration.md",
     "_Templates/Practice.md",
     "01-Recon/Host-Discovery.md",
     "00-Methedology/Penetration Testing Process.md",
