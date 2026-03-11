@@ -108,6 +108,7 @@ tcpdump -i any -nn -A tcp port 5000
 | sa_mark | `X1l9fx1ZjS7RZb` |
 
 SSH'd in as `sa_mark` and retrieved the user flag.
+user: `2c36b5db7378009d64eb8cb1c49aef08`
 
 ---
 
@@ -157,9 +158,7 @@ Shell lands within 10 seconds as root.
 ```bash
 cat /root/root.txt
 ```
-
----
-
+root: `bdabead33437cf3bc3b5bf267d1c2970`
 ## Rabbit Holes
 
 - Attempted to crack superadmin and admin bcrypt hashes — neither in rockyou
