@@ -13,12 +13,12 @@
             "state": {
               "type": "markdown",
               "state": {
-                "file": "05-Post-Exploitation/Linux-Privilege-Escalation.md",
+                "file": "_Reference/Shells.md",
                 "mode": "source",
                 "source": false
               },
               "icon": "lucide-file",
-              "title": "Linux-Privilege-Escalation"
+              "title": "Shells"
             }
           }
         ]
@@ -196,13 +196,13 @@
   },
   "active": "519023c5c57ee9af",
   "lastOpenFiles": [
-    "05-Post-Exploitation/Credential-Hunting.md",
+    "05-Post-Exploitation/Linux-Privilege-Escalation.md",
     "_Reference/Shells.md",
+    "05-Post-Exploitation/Credential-Hunting.md",
     "_Tools/Nmap.md",
     "_Reference/Ports.md",
     "_Glossary/Networking.md",
     "_Reference/Web-Enumeration.md",
-    "05-Post-Exploitation/Linux-Privilege-Escalation.md",
     "_Tools/cURL.md",
     "_Glossary/Nmap.md",
     "_Glossary/Glossary.md",

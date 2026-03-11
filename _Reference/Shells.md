@@ -80,7 +80,7 @@ Run this every time you catch a raw shell — gives you a proper interactive ter
 
 ```bash
 # 1. On the remote shell
-python -c 'import pty; pty.spawn("/bin/bash")'
+python3 -c 'import pty; pty.spawn("/bin/bash")'
 
 # 2. Background the shell
 Ctrl+Z
