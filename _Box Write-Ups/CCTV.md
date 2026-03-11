@@ -24,9 +24,13 @@ nmap -sC -sV -oA nmap/initial <IP>
 
 
 ### Web Enumeration
-First thing I came across was a webpage that had a staff login button on the top right. Redirecting you to
-`http://cctv.htb/index=`
+First thing I came across was a webpage that had a staff login button on the top right. Redirecting you to `http://cctv.htb/index=`. Here first thing to try was default credentials and `admin:admin` and we are in.
 
+Here we land on a ZoneMinder CMS running version `v1.37.63` which has a known vulnerability to a time-based blind SQL injection payload. 
+```bash
+view=request&request=event&action=removetag&tid=1
+```
+This works because the parameter `tid=1`. The Tag ID was being passed to a `DELETE` query in the ZoneMinder's database.
 ### Service Enumeration
 
 <!-- Any other services worth noting — SMB, FTP, SSH banners, etc. -->
