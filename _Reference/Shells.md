@@ -149,6 +149,34 @@ curl http://<target>/shell.php?cmd=id
 
 ---
 
+## SSH Port Forwarding (Tunneling)
+
+Forwards a port on your local machine through an SSH connection to reach services that are only accessible on the target's localhost. Essential when internal services are not exposed externally.
+
+```bash
+# Forward single port
+# Access target's 127.0.0.1:<remote_port> via your localhost:<local_port>
+ssh -L <local_port>:127.0.0.1:<remote_port> <user>@<target>
+
+# Forward multiple ports in one command
+ssh -L 8765:127.0.0.1:8765 -L 7999:127.0.0.1:7999 <user>@<target>
+```
+
+After running, connect to `127.0.0.1:<local_port>` on your machine — traffic is tunnelled through SSH to the target's internal service.
+
+```bash
+# Example — access internal web app on target port 8080
+ssh -L 8080:127.0.0.1:8080 user@10.129.1.1
+# Then browse to http://127.0.0.1:8080 on your machine
+```
+
+> Use `-N` to open the tunnel without executing a remote command (keeps it clean):
+> `ssh -N -L 8080:127.0.0.1:8080 user@target`
+
+Seen in: [[CCTV]] (forwarded motionEye port 8765 and Motion port 7999 to access internal services)
+
+---
+
 ## External References
 
 - [InternalAllTheThings - Reverse Shell Cheatsheet](https://swisskyrepo.github.io/InternalAllTheThings/cheatsheets/shell-reverse-cheatsheet/)

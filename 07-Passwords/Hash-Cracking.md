@@ -115,3 +115,4 @@ gunzip /usr/share/wordlists/rockyou.txt.gz
 | Box | Hash Type | Tool | Notes |
 |-----|-----------|------|-------|
 | [[Conversor]] | MD5 (unsalted) | John | Extracted from SQLite DB with `strings` — see [[Credential-Hunting]] |
+| [[CCTV]] | bcrypt (`$2y$`) | Hashcat `-m 3200` | Dumped from ZoneMinder DB via SQLi — only `mark`'s hash cracked (rockyou) |
