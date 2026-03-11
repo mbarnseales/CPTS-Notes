@@ -196,6 +196,7 @@
   },
   "active": "f803da6e1562bd5f",
   "lastOpenFiles": [
+    "_Box Write-Ups/CCTV.md",
     "_Glossary/Nmap.md",
     "_Glossary/Security-Concepts.md",
     "_Reference/File-Transfers.md",
@@ -203,7 +204,6 @@
     "07-Passwords/Hash-Cracking.md",
     "_Box Write-Ups/Knife.md",
     "_Box Write-Ups/Conversor.md",
-    "_Box Write-Ups/CCTV.md",
     "_Glossary/Networking.md",
     "_Glossary/Glossary.md",
     "_Tools/SQLmap.md",
