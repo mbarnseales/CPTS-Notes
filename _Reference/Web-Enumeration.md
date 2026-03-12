@@ -1,11 +1,11 @@
-
+﻿
 # Web Enumeration Tips
 
 ## SSL/TLS Certificates
 Browse to `https://<target>` and inspect the certificate. Can reveal: company name, email address, internal hostnames. Useful for phishing (if in scope) or further OSINT.
 
 ## robots.txt
-`http://<target>/robots.txt` — tells search engines what not to index. Often reveals private directories and admin pages.
+`http://<target>/robots.txt`  -  tells search engines what not to index. Often reveals private directories and admin pages.
 
 ## Source Code
 `CTRL + U` in browser to view page source. Check for:

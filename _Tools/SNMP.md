@@ -1,9 +1,9 @@
-
+﻿
 # SNMP
 
 Default port: `161`
 
-Versions 1 and 2c use plaintext community strings — `public` and `private` are often left as default. Version 3 added encryption and authentication.
+Versions 1 and 2c use plaintext community strings  -  `public` and `private` are often left as default. Version 3 added encryption and authentication.
 
 Can expose: process parameters, credentials, routing info, software versions, bound services.
 

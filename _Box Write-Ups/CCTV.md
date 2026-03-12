@@ -1,4 +1,4 @@
-
+﻿
 # CCTV
 
 ## Box Info
@@ -33,7 +33,7 @@ view=request&request=event&action=removetag&tid=1
 
 ---
 
-## Exploitation — Initial Foothold
+## Exploitation  -  Initial Foothold
 
 ### The Plan
 
@@ -161,11 +161,11 @@ cat /root/root.txt
 root: `bdabead33437cf3bc3b5bf267d1c2970`
 ## Rabbit Holes
 
-- Attempted to crack superadmin and admin bcrypt hashes — neither in rockyou
-- Attempted `--os-shell` via sqlmap — failed due to insufficient MySQL FILE privileges
-- Attempted webshell write via `SELECT INTO OUTFILE` — restricted to `/var/lib/mysql-files/`
-- Attempted to modify ZoneMinder system config as admin — superadmin privileges required
-- Attempted ZoneMinder auth hash login bypass — time-based hash component made it unreliable
+- Attempted to crack superadmin and admin bcrypt hashes  -  neither in rockyou
+- Attempted `--os-shell` via sqlmap  -  failed due to insufficient MySQL FILE privileges
+- Attempted webshell write via `SELECT INTO OUTFILE`  -  restricted to `/var/lib/mysql-files/`
+- Attempted to modify ZoneMinder system config as admin  -  superadmin privileges required
+- Attempted ZoneMinder auth hash login bypass  -  time-based hash component made it unreliable
 - Spent significant time cracking hashes before pivoting to tcpdump
 
 ---
@@ -197,10 +197,10 @@ Root flag
 
 - Always run `ss -tulnp` immediately after foothold to enumerate internal services
 - Always run `tcpdump` on internal interfaces to hunt for cleartext credentials
-- bcrypt hashes not in rockyou don't mean a dead end — pivot to other attack vectors
-- Client-side JS validation is never a security boundary — always bypassable via browser console
+- bcrypt hashes not in rockyou don't mean a dead end  -  pivot to other attack vectors
+- Client-side JS validation is never a security boundary  -  always bypassable via browser console
 - Any unsanitized field that reaches a config file executed by a daemon is a potential injection point
-- Session cookies expire during long sqlmap runs — always grab a fresh cookie if you get 401s
+- Session cookies expire during long sqlmap runs  -  always grab a fresh cookie if you get 401s
 
 ---
 

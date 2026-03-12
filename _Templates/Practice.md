@@ -1,9 +1,9 @@
-
+﻿
 # Practice
 
-Technical skills are only half the battle. Consistent hands-on practice and strong written/verbal communication are what separate a competent pentester from a great one. If you can compromise a Fortune 500's domain but can't prove it clearly in a report — the work means nothing.
+Technical skills are only half the battle. Consistent hands-on practice and strong written/verbal communication are what separate a competent pentester from a great one. If you can compromise a Fortune 500's domain but can't prove it clearly in a report  -  the work means nothing.
 
-**Practice client interactions too** — kickoff calls, report walkthroughs, defending your findings. Do it with teammates acting as fictitious clients.
+**Practice client interactions too**  -  kickoff calls, report walkthroughs, defending your findings. Do it with teammates acting as fictitious clients.
 
 ---
 
@@ -34,7 +34,7 @@ Pick modules across different difficulties and technologies. Goal: understand th
 | 6 | Create **technical** documentation from notes |
 | 7 | Create **non-technical** documentation from notes |
 
-After each module, write a sample finding with reproduction steps and an executive summary entry — treat it as client-ready output.
+After each module, write a sample finding with reproduction steps and an executive summary entry  -  treat it as client-ready output.
 
 ---
 
@@ -57,7 +57,7 @@ Choose 2x Easy, 1x Medium. Compare your notes to write-ups to find gaps.
 
 ## Active Machines
 
-Choose 2x Easy, 2x Medium, 1x Hard. No write-ups available — full blackbox. Rely on yourself.
+Choose 2x Easy, 2x Medium, 1x Hard. No write-ups available  -  full blackbox. Rely on yourself.
 
 | Step | Task |
 |------|------|
@@ -66,7 +66,7 @@ Choose 2x Easy, 2x Medium, 1x Hard. No write-ups available — full blackbox. Re
 | 3 | Write non-technical documentation |
 | 4 | Have it proofread by technical and non-technical people |
 
-Proofreading reveals where your documentation fails each audience. Non-technical docs should be informative and concise — no heavy jargon.
+Proofreading reveals where your documentation fails each audience. Non-technical docs should be informative and concise  -  no heavy jargon.
 
 ---
 
@@ -75,14 +75,14 @@ Proofreading reveals where your documentation fails each audience. Non-technical
 Multi-host enterprise network simulations. Shifts focus from single host to full attack chains across interconnected systems.
 
 - Tools like `Responder` become far more relevant here in simulated AD environments
-- Documentation now covers the **full attack chain** — foothold to domain compromise
+- Documentation now covers the **full attack chain**  -  foothold to domain compromise
 - Practice writing up how multiple hosts and vulnerabilities chain together
 
 ---
 
 ## Wrapping Up
 
-- Follow the path in order if you're new — skipping creates knowledge gaps
+- Follow the path in order if you're new  -  skipping creates knowledge gaps
 - Revisit completed modules with fresh eyes using the penetration testing process as context
-- The field moves fast — new TTPs emerge constantly, stay current
+- The field moves fast  -  new TTPs emerge constantly, stay current
 - **Never stop learning. Challenge yourself daily. Think Outside The Box.**

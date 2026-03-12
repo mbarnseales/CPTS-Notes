@@ -1,9 +1,9 @@
-
+﻿
 # FTP
 
 Default port: `21`
 
-**Always check for anonymous login** — a common misconfiguration.
+**Always check for anonymous login**  -  a common misconfiguration.
 
 ## Commands
 ```bash

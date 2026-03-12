@@ -1,4 +1,4 @@
-# Knife
+﻿# Knife
 
 ## Box Info
 - **Difficulty**: Easy
@@ -30,7 +30,7 @@ Service Info: OS: Linux; CPE: cpe:/o:linux:linux_kernel
 ```
 
 ### Web Enumeration
-Visited the site via browser and curl. Bare bones page with no links or interactive elements. No redirect to a hostname — site served directly by IP.
+Visited the site via browser and curl. Bare bones page with no links or interactive elements. No redirect to a hostname  -  site served directly by IP.
 
 Identified PHP version via HTTP response headers: `PHP/8.1.0-dev`
 ```bash
@@ -40,7 +40,7 @@ curl -I http://<IP>
 ## Exploitation
 
 ### Initial Foothold
-**Vulnerability Found**: PHP 8.1.0-dev backdoor (CVE-2021-49092) — malicious commit to PHP source repo introduced a backdoor triggered via `User-Agentt` header. Any value prefixed with `zerodium` gets passed directly to PHP's `eval()`.
+**Vulnerability Found**: PHP 8.1.0-dev backdoor (CVE-2021-49092)  -  malicious commit to PHP source repo introduced a backdoor triggered via `User-Agentt` header. Any value prefixed with `zerodium` gets passed directly to PHP's `eval()`.
 
 **Exploit Used**: Custom Python script / manual curl
 
@@ -80,7 +80,7 @@ Output showed james could run `/usr/bin/knife` as root with no password required
 ```bash
 cat /usr/bin/knife
 ```
-Revealed knife is a Ruby binary — part of Chef Workstation, a infrastructure automation tool. It has an `exec` subcommand that evaluates arbitrary Ruby.
+Revealed knife is a Ruby binary  -  part of Chef Workstation, a infrastructure automation tool. It has an `exec` subcommand that evaluates arbitrary Ruby.
 
 **Vulnerability**: Sudoable binary with built-in command execution (GTFOBins)
 
@@ -95,10 +95,10 @@ sudo /usr/bin/knife exec -E 'exec "/bin/sh"'
 **Flag**: `d3759d96cda2ebf119f9d9aa22d22412`
 
 ## Key Learnings
-- PHP supply chain attack — the backdoor was a malicious commit made under stolen developer identities, caught within 24hrs before any official release shipped it
-- `User-Agentt` (double t) header triggers `eval()` — the typo is intentional to avoid conflicting with the real `User-Agent` header
-- Pseudo-shells from web backdoors can't handle interactive processes or reverse shells triggered via Python/bash directly — need to send the reverse shell payload via the original exploit mechanism (curl)
-- GTFOBins `knife exec -E` — any binary that can evaluate code and is sudoable is a privesc vector
+- PHP supply chain attack  -  the backdoor was a malicious commit made under stolen developer identities, caught within 24hrs before any official release shipped it
+- `User-Agentt` (double t) header triggers `eval()`  -  the typo is intentional to avoid conflicting with the real `User-Agent` header
+- Pseudo-shells from web backdoors can't handle interactive processes or reverse shells triggered via Python/bash directly  -  need to send the reverse shell payload via the original exploit mechanism (curl)
+- GTFOBins `knife exec -E`  -  any binary that can evaluate code and is sudoable is a privesc vector
 - `sudo -l` should always be first check on Linux privesc
 
 ## Commands Reference

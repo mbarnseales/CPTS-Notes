@@ -1,4 +1,4 @@
-
+﻿
 # SQLmap
 
 Automated SQL injection detection and exploitation tool. Handles detection, database enumeration, data extraction, and in some cases OS-level access.
@@ -7,7 +7,7 @@ Automated SQL injection detection and exploitation tool. Handles detection, data
 > SQLmap generates significant traffic and is easily detected. On real engagements confirm injection manually first, then use sqlmap only when authorised. Always use `--batch` to avoid interactive prompts halting a long run.
 
 > [!tip] Session Cookies
-> Authenticated endpoints require a valid session cookie (`--cookie`). Cookies expire — if you get 401s mid-run, grab a fresh cookie and restart.
+> Authenticated endpoints require a valid session cookie (`--cookie`). Cookies expire  -  if you get 401s mid-run, grab a fresh cookie and restart.
 
 ---
 
@@ -17,7 +17,7 @@ Automated SQL injection detection and exploitation tool. Handles detection, data
 # Detect injection and list databases
 sqlmap -u '<URL>' --dbs --batch
 
-# Authenticated endpoint — pass session cookie
+# Authenticated endpoint  -  pass session cookie
 sqlmap -u '<URL>' --cookie="SESSIONNAME=<value>" --dbs --batch
 ```
 
@@ -53,11 +53,11 @@ sqlmap -u '<URL>' --cookie="<COOKIE>" -D <database> -T <table> --dump --batch
 | `-D <db>` | Target specific database |
 | `-T <table>` | Target specific table |
 | `-C <col1>,<col2>` | Target specific columns |
-| `--batch` | Non-interactive — use defaults for all prompts |
+| `--batch` | Non-interactive  -  use defaults for all prompts |
 | `--threads=<n>` | Parallel threads (default: 1, max: 10) |
-| `--hex` | Encode retrieved data as hex — helps with binary/special chars |
+| `--hex` | Encode retrieved data as hex  -  helps with binary/special chars |
 | `--level=<1-5>` | Depth of tests (default: 1) |
-| `--risk=<1-3>` | Risk of tests — higher risks data modification (default: 1) |
+| `--risk=<1-3>` | Risk of tests  -  higher risks data modification (default: 1) |
 | `--os-shell` | Attempt interactive OS shell via file write |
 | `--technique=<T>` | Limit to specific technique (B=Boolean, T=Time, E=Error, U=Union) |
 
@@ -70,8 +70,8 @@ sqlmap -u '<URL>' --cookie="<COOKIE>" -D <database> -T <table> --dump --batch
 | `B` | Boolean-based blind | Infers data from true/false responses |
 | `T` | Time-based blind | Infers data from response delay (e.g. `SLEEP()`) |
 | `E` | Error-based | Extracts data from database error messages |
-| `U` | UNION-based | Appends extra SELECT — fast but requires visible output |
-| `S` | Stacked queries | Executes multiple statements — allows writes |
+| `U` | UNION-based | Appends extra SELECT  -  fast but requires visible output |
+| `S` | Stacked queries | Executes multiple statements  -  allows writes |
 | `Q` | Inline queries | Nested subquery injection |
 
 ---
@@ -79,7 +79,7 @@ sqlmap -u '<URL>' --cookie="<COOKIE>" -D <database> -T <table> --dump --batch
 ## Common Scenarios
 
 ```bash
-# Time-based blind — slow, specify technique to avoid wasting time on others
+# Time-based blind  -  slow, specify technique to avoid wasting time on others
 sqlmap -u '<URL>' --cookie="<COOKIE>" --technique=T --dbs --batch
 
 # Speed up with threads and hex encoding
@@ -104,7 +104,7 @@ sqlmap -u '<URL>' --cookie="<COOKIE>" --os-shell
 sqlmap -u '<URL>' --cookie="<COOKIE>" --file-write=shell.php --file-dest=/var/www/html/shell.php
 ```
 
-> These require the database user to have FILE privilege. Often blocked on hardened systems. See [[CCTV]] for a case where this failed — `--os-shell` was restricted to `/var/lib/mysql-files/`.
+> These require the database user to have FILE privilege. Often blocked on hardened systems. See [[CCTV]] for a case where this failed  -  `--os-shell` was restricted to `/var/lib/mysql-files/`.
 
 ---
 
@@ -112,4 +112,4 @@ sqlmap -u '<URL>' --cookie="<COOKIE>" --file-write=shell.php --file-dest=/var/ww
 
 | Box | Injection Type | Notes |
 |-----|---------------|-------|
-| [[CCTV]] | Time-based blind (`tid` parameter) | ZoneMinder CVE — dumped bcrypt hashes from Users table |
+| [[CCTV]] | Time-based blind (`tid` parameter) | ZoneMinder CVE  -  dumped bcrypt hashes from Users table |

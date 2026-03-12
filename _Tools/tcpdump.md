@@ -29,7 +29,7 @@ See Also: [[Credential-Hunting]]
 ## Common Captures
 
 ```bash
-# Capture all traffic on all interfaces — print as ASCII
+# Capture all traffic on all interfaces  -  print as ASCII
 tcpdump -i any -nn -A
 
 # Capture specific TCP port
@@ -63,7 +63,7 @@ tcpdump -i lo -nn -A
 ```
 
 Look for:
-- `Authorization: Basic` headers (base64 encoded — decode immediately)
+- `Authorization: Basic` headers (base64 encoded  -  decode immediately)
 - `username=` / `password=` in POST bodies
 - `USER` / `PASS` in FTP/SMTP traffic
 - JSON payloads with credential fields

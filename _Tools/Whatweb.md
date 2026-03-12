@@ -1,7 +1,7 @@
-
+﻿
 # Whatweb
 
-Fingerprints web servers, frameworks, and applications — useful for identifying versions and potential vulnerabilities.
+Fingerprints web servers, frameworks, and applications  -  useful for identifying versions and potential vulnerabilities.
 
 ## Commands
 ```bash

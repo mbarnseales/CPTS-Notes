@@ -1,4 +1,4 @@
-
+﻿
 # Box Name
 
 ## Box Info
@@ -19,8 +19,8 @@ nmap -sC -sV -oA nmap/initial <IP>
 ```
 
 **Results:**
-- Port XX: Service — Version
-- Port XX: Service — Version
+- Port XX: Service  -  Version
+- Port XX: Service  -  Version
 
 ### Web Enumeration
 
@@ -28,18 +28,18 @@ nmap -sC -sV -oA nmap/initial <IP>
 
 ### Service Enumeration
 
-<!-- Any other services worth noting — SMB, FTP, SSH banners, etc. -->
+<!-- Any other services worth noting  -  SMB, FTP, SSH banners, etc. -->
 
 ---
 
 ## Source Code Analysis
 
-<!-- If source code is available — always download it. Document key findings. -->
+<!-- If source code is available  -  always download it. Document key findings. -->
 <!-- What files were interesting? What did you grep for? What logic is vulnerable? -->
 
 ---
 
-## Exploitation — Initial Foothold
+## Exploitation  -  Initial Foothold
 
 ### The Plan
 

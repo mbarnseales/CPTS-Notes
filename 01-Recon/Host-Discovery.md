@@ -1,4 +1,4 @@
-
+﻿
 # Host Discovery
 
 Before scanning ports or fingerprinting services, confirm which hosts are alive. Scanning dead hosts wastes time and creates noise. Always save every scan.
@@ -16,13 +16,13 @@ Before scanning ports or fingerprinting services, confirm which hosts are alive.
 
 1. Identify scope (range, list, or single IP)
 2. Run ping sweep to find live hosts
-3. If hosts appear down — don't assume they are. Firewalls block ICMP.
+3. If hosts appear down  -  don't assume they are. Firewalls block ICMP.
 4. Try alternate discovery methods (ARP, TCP, UDP probes)
-5. Document everything — what was scanned, when, and what responded
+5. Document everything  -  what was scanned, when, and what responded
 
 ---
 
-## Ping Sweep — By Scope
+## Ping Sweep  -  By Scope
 
 ```bash
 # Network range
@@ -45,7 +45,7 @@ sudo nmap 10.129.2.18 -sn -oA host
 
 ## When Hosts Appear Down
 
-A host that doesn't respond to a ping sweep isn't necessarily offline — it may be filtering ICMP. Try:
+A host that doesn't respond to a ping sweep isn't necessarily offline  -  it may be filtering ICMP. Try:
 
 ```bash
 # Force ICMP echo (bypass ARP default on local subnet)
@@ -58,7 +58,7 @@ sudo nmap 10.129.2.18 -sn -PE --disable-arp-ping --reason -oA host
 sudo nmap 10.129.2.18 -sn -PE --disable-arp-ping --packet-trace -oA host
 ```
 
-> On a local subnet, Nmap defaults to ARP before ICMP — see [[Nmap|Nmap Glossary: ARP vs ICMP]] for why this matters.
+> On a local subnet, Nmap defaults to ARP before ICMP  -  see [[Nmap|Nmap Glossary: ARP vs ICMP]] for why this matters.
 
 ---
 

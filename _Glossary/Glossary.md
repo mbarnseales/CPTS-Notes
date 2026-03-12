@@ -1,4 +1,4 @@
-
+﻿
 # Types of Penetration Testing
 
 ##### Blackbox: 
@@ -304,37 +304,37 @@ To bypass these we need to understand how they work and what they respond to.
 We return to Info Gathering but this time from inside the network. First we get an overview of reachable systems, then enumerate each host individually. Some of this may already be available from the Post-Exploitation stage.
 
 ### Vulnerability Assessment
-Internal VA differs from external — more errors occur inside a network. Group assignments and user rights play a key role. Compromising a developer account for example could grant access to most dev resources, providing crucial internal info and potential attack paths.
+Internal VA differs from external  -  more errors occur inside a network. Group assignments and user rights play a key role. Compromising a developer account for example could grant access to most dev resources, providing crucial internal info and potential attack paths.
 
 ### (Privilege) Exploitation
 Use discovered paths to access other systems. Common methods include cracking passwords/hashes, reusing credentials across systems, or using hashes directly via `pass-the-hash`. Tools like `Responder` can intercept `NTLMv2` hashes from administrators for use in pass-the-hash attacks.
 
 ### Post-Exploitation
-Repeat the Post-Exploitation stage for each newly accessed system — collecting system info, user data, and business information as evidence. Always consider data handling rules defined in the contract. From here we move into the Proof-of-Concept phase.
+Repeat the Post-Exploitation stage for each newly accessed system  -  collecting system info, user data, and business information as evidence. Always consider data handling rules defined in the contract. From here we move into the Proof-of-Concept phase.
 
 # Proof-of-Concept
 A PoC proves that a discovered vulnerability is real and exploitable. It serves as the decision-making basis for remediation and helps administrators and developers validate, reproduce, and test fixes for security issues.
 
 ### PoC Representations
 A PoC can take multiple forms:
-- **Documentation** — a detailed write-up of the vulnerability and how it was exploited
-- **Script/Code** — automated exploitation that clearly demonstrates each step, making it easy for admins and devs to reproduce and understand the impact
+- **Documentation**  -  a detailed write-up of the vulnerability and how it was exploited
+- **Script/Code**  -  automated exploitation that clearly demonstrates each step, making it easy for admins and devs to reproduce and understand the impact
 
 ### The Script Trap
-A common pitfall — admins will sometimes "fight the script" by patching only what breaks it, rather than addressing the underlying vulnerability. A script is just one path to exploitation. Make sure this is explicitly discussed: fixing the script doesn't fix the problem.
+A common pitfall  -  admins will sometimes "fight the script" by patching only what breaks it, rather than addressing the underlying vulnerability. A script is just one path to exploitation. Make sure this is explicitly discussed: fixing the script doesn't fix the problem.
 
 ### The Report
-The report should paint the full picture — not just individual findings but how they chain together. An attack chain walkthrough is especially valuable in internal assessments. Fixing one link in the chain is good, but the remaining flaws still exist and may provide another path.
-Always focus remediation advice on the **root cause**, not the symptom. Example: a Domain Admin using `Password123` is a symptom — the root cause is a weak password policy.
+The report should paint the full picture  -  not just individual findings but how they chain together. An attack chain walkthrough is especially valuable in internal assessments. Fixing one link in the chain is good, but the remaining flaws still exist and may provide another path.
+Always focus remediation advice on the **root cause**, not the symptom. Example: a Domain Admin using `Password123` is a symptom  -  the root cause is a weak password policy.
 
 # Post-Engagement
-The final phase — everything that must happen after active testing ends. Contractually binding in most cases.
+The final phase  -  everything that must happen after active testing ends. Contractually binding in most cases.
 
 ### Cleanup
-Remove all tools, scripts, and artifacts uploaded during testing. Revert any configuration changes made. Document everything — if something can't be cleaned up, flag it in the report appendices.
+Remove all tools, scripts, and artifacts uploaded during testing. Revert any configuration changes made. Document everything  -  if something can't be cleaned up, flag it in the report appendices.
 
 ### Documentation and Reporting
-Before disconnecting or sending "stop" notifications, ensure all findings are fully documented — command output, screenshots, affected hosts. Do not retain any PII or sensitive client data beyond what's needed for the report.
+Before disconnecting or sending "stop" notifications, ensure all findings are fully documented  -  command output, screenshots, affected hosts. Do not retain any PII or sensitive client data beyond what's needed for the report.
 
 Report deliverables should include:
 - Attack chain (if full compromise was achieved)
@@ -347,13 +347,13 @@ Report deliverables should include:
 The first version sent to the client is marked **DRAFT**.
 
 ### Report Review Meeting
-Walk the client through each finding — not word for word, but a clear explanation from your perspective. The client will ask questions and flag anything needing correction. Low-risk findings often get skipped. Be prepared to clarify and defend your findings.
+Walk the client through each finding  -  not word for word, but a clear explanation from your perspective. The client will ask questions and flag anything needing correction. Low-risk findings often get skipped. Be prepared to clarify and defend your findings.
 
 ### Deliverable Acceptance
 Once the client reviews the DRAFT and provides feedback, issue a final version marked **FINAL**. Some audit firms will not accept a DRAFT-marked report, so keeping a consistent DRAFT → FINAL workflow is best practice.
 
 ### Post-Remediation Testing
-Retest each remediated finding and issue a post-remediation report showing the before/after state. For each finding show evidence it is resolved — or that it is not. A simple status table works well:
+Retest each remediated finding and issue a post-remediation report showing the before/after state. For each finding show evidence it is resolved  -  or that it is not. A simple status table works well:
 
 | # | Severity | Finding | Status |
 |---|----------|---------|--------|
@@ -361,12 +361,12 @@ Retest each remediated finding and issue a post-remediation report showing the b
 | 2 | Medium | SMB Signing Not Enabled | Not Remediated |
 
 ### Role of the Pentester in Remediation
-We are impartial third parties — we do **not** fix things ourselves. We can give general remediation advice (e.g., "sanitize user input") but not rewrite code or make configuration changes. This preserves the integrity of the assessment and avoids conflicts of interest.
+We are impartial third parties  -  we do **not** fix things ourselves. We can give general remediation advice (e.g., "sanitize user input") but not rewrite code or make configuration changes. This preserves the integrity of the assessment and avoids conflicts of interest.
 
 ### Data Retention
 Retain client data (scan results, logs, credentials, screenshots) securely and encrypted for a reasonable period after the engagement in case questions arise. Wipe all data from tester systems at conclusion. Use a fresh VM for any post-remediation work. Refer to the SoW and RoE for specific retention requirements.
 
 ### Close Out
-Wipe or destroy all systems used during the engagement. Store any retained artifacts encrypted per firm policy. Invoice the client. Send a post-assessment satisfaction survey — what went well and what can improve. This is also where follow-on work discussions often begin.
+Wipe or destroy all systems used during the engagement. Store any retained artifacts encrypted per firm policy. Invoice the client. Send a post-assessment satisfaction survey  -  what went well and what can improve. This is also where follow-on work discussions often begin.
 
 

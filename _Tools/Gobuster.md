@@ -17,9 +17,9 @@ gobuster dns -d <domain> -w /usr/share/SecLists/Discovery/DNS/namelist.txt
 ## HTTP Status Codes
 | Code | Meaning |
 |------|---------|
-| 200 | OK — resource exists and is accessible |
-| 301 | Redirect — follow it |
-| 403 | Forbidden — exists but access denied |
+| 200 | OK  -  resource exists and is accessible |
+| 301 | Redirect  -  follow it |
+| 403 | Forbidden  -  exists but access denied |
 | 404 | Not found |
 
 ## SecLists

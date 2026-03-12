@@ -1,4 +1,4 @@
-
+﻿
 # Hash Cracking
 
 See Also: [[Credential-Hunting]] | [[GTFOBins]]
@@ -11,12 +11,12 @@ Before cracking, identify the hash format. Common tells:
 
 | Hash | Length | Example | Notes |
 |------|--------|---------|-------|
-| MD5 | 32 chars | `5b5c3ac3a1c897c94caad48e6c71fdec` | No salt — instantly crackable with rockyou |
+| MD5 | 32 chars | `5b5c3ac3a1c897c94caad48e6c71fdec` | No salt  -  instantly crackable with rockyou |
 | SHA1 | 40 chars | `da39a3ee5e6b4b0d...` | Common in older apps |
-| SHA256 | 64 chars | — | Stronger, still crackable offline |
-| NTLM | 32 chars | — | Windows — looks like MD5 but different format |
-| bcrypt | 60 chars | `$2a$10$...` | Slow by design — expensive to crack |
-| SHA512crypt | — | `$6$...` | Linux `/etc/shadow` format |
+| SHA256 | 64 chars |  -  | Stronger, still crackable offline |
+| NTLM | 32 chars |  -  | Windows  -  looks like MD5 but different format |
+| bcrypt | 60 chars | `$2a$10$...` | Slow by design  -  expensive to crack |
+| SHA512crypt |  -  | `$6$...` | Linux `/etc/shadow` format |
 
 ```bash
 # hashid can identify hash format
@@ -87,7 +87,7 @@ hashcat -m <mode> hash.txt /usr/share/wordlists/rockyou.txt
 # -m 1800 = SHA512crypt (Linux shadow)
 # -m 3200 = bcrypt
 
-# Example — MD5
+# Example  -  MD5
 hashcat -m 0 hash.txt /usr/share/wordlists/rockyou.txt
 
 # Show cracked
@@ -114,5 +114,5 @@ gunzip /usr/share/wordlists/rockyou.txt.gz
 
 | Box | Hash Type | Tool | Notes |
 |-----|-----------|------|-------|
-| [[Conversor]] | MD5 (unsalted) | John | Extracted from SQLite DB with `strings` — see [[Credential-Hunting]] |
-| [[CCTV]] | bcrypt (`$2y$`) | Hashcat `-m 3200` | Dumped from ZoneMinder DB via SQLi — only `mark`'s hash cracked (rockyou) |
+| [[Conversor]] | MD5 (unsalted) | John | Extracted from SQLite DB with `strings`  -  see [[Credential-Hunting]] |
+| [[CCTV]] | bcrypt (`$2y$`) | Hashcat `-m 3200` | Dumped from ZoneMinder DB via SQLi  -  only `mark`'s hash cracked (rockyou) |
