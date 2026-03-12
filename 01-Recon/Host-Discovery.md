@@ -1,4 +1,4 @@
-﻿
+
 # Host Discovery
 
 Before scanning ports or fingerprinting services, confirm which hosts are alive. Scanning dead hosts wastes time and creates noise. Always save every scan.

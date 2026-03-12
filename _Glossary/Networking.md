@@ -1,4 +1,4 @@
-﻿
+
 # Networking  -  Protocols & Concepts
 
 Core networking protocols referenced throughout enumeration, exploitation, and post-exploitation. Understanding these helps you reason through tool behavior and unexpected scan results.

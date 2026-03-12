@@ -92,6 +92,7 @@ A TXT record that lists which mail servers are authorised to send email on behal
 ```
 
 Key modifiers:
+
 | Symbol | Meaning |
 |--------|---------|
 | `+all` | Allow all (effectively no restriction -- dangerous) |
@@ -122,6 +123,7 @@ _dmarc.inlanefreight.com.  IN  TXT  "v=DMARC1; p=reject; rua=mailto:dmarc@inlane
 ```
 
 Policy options:
+
 | Value | Action |
 |-------|--------|
 | `p=none` | Monitor only -- no enforcement. Easy to spoof. |

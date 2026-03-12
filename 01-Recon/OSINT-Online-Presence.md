@@ -18,6 +18,9 @@ Layer 1 of the [[Enumeration-Methodology|Enumeration Methodology]]. The goal is 
 3. Resolve subdomains to IPs -- filter for company-owned vs third-party hosted
 4. Run IPs through Shodan for open ports and service fingerprints
 5. Query all DNS records -- read TXT records for third-party provider intelligence
+6. Search for exposed cloud storage (S3, Azure Blob, GCP) via Google Dorks and GrayHatWarfare
+7. Check website source code for cloud storage references loaded as assets
+8. Search LinkedIn/Xing for technical employees and job postings -- extract tech stack and tooling
 
 ---
 
@@ -134,6 +137,98 @@ SPF records also leak internal IPs -- the `ip4:` entries in an SPF record are of
 
 ---
 
+## 7. Cloud Storage
+
+Cloud misconfigurations are common. Even when a provider secures their infrastructure, the company's own bucket/blob permissions may be open to the public. Look for storage endpoints surfaced through DNS resolution, source code, and search engines.
+
+> [!warning] Scope
+> Cloud infrastructure belongs to a third-party provider. Do not interact with it without explicit written permission from that provider, even if the company contracted you.
+
+### Identify Cloud Storage via DNS
+
+When resolving subdomains, any result pointing to a cloud provider domain instead of a company IP is a cloud-hosted resource. Note it separately.
+
+```bash
+# During subdomain resolution, watch for entries like:
+s3-website-us-west-2.amazonaws.com
+*.blob.core.windows.net
+storage.googleapis.com
+```
+
+### Google Dorks
+
+```bash
+# AWS S3
+intext:"<company>" inurl:amazonaws.com
+
+# Azure Blob
+intext:"<company>" inurl:blob.core.windows.net
+
+# GCP
+intext:"<company>" inurl:storage.googleapis.com
+```
+
+Results often surface PDFs, documents, presentations, and source code stored in misconfigured buckets.
+
+### Website Source Code
+
+Cloud storage is frequently used to serve static assets (images, JS, CSS). Inspect page source for references to cloud storage domains -- these are direct bucket/blob URLs.
+
+```bash
+# In browser: Ctrl+U to view source, then search for:
+amazonaws.com
+blob.core.windows.net
+storage.googleapis.com
+```
+
+### GrayHatWarfare
+
+[GrayHatWarfare](https://buckets.grayhatwarfare.com) indexes publicly accessible cloud storage across AWS, Azure, and GCP. Search by company name or abbreviation. Filter by file type.
+
+High-value finds: SSH private keys (`id_rsa`), config files, credentials, internal documents. Private keys found in public buckets can give direct SSH access to company infrastructure.
+
+### Company Name Variations
+
+Try abbreviations and common variations of the company name -- IT infrastructure often uses shortened names that differ from the public-facing brand.
+
+---
+
+## 8. Staff OSINT
+
+Employees reveal the tech stack -- often more accurately than any scan. Job postings list required technologies explicitly. Employee profiles and public code show what's actually in use day-to-day.
+
+### What to Extract from Job Postings
+
+| Category | What It Reveals |
+|----------|----------------|
+| Languages | Runtime environments on servers (Java, Python, PHP, etc.) |
+| Databases | DB engines to target during exploitation (MySQL, PostgreSQL, Oracle, MSSQL) |
+| Frameworks | Web app structure and known misconfig patterns (Django, Flask, Spring, ASP.NET) |
+| Tools / Platforms | Internal services to look for (Atlassian, Git providers, CI/CD systems) |
+| Certifications required | Indicates what security tooling/standards the company follows |
+
+### What to Extract from Employee Profiles
+
+- **Skills listed** -- confirms technologies in active use
+- **Career history / project descriptions** -- reveals specific systems and internal product names
+- **GitHub links** -- public repos may contain hardcoded secrets, JWT tokens, internal URLs, or config files with real values
+- **Posts and shared content** -- shows what the employee is currently working on
+
+### Who to Look For
+
+Focus on technical employees in development and security roles. Security employees reveal what defensive tooling the company has deployed. Developers reveal what's being built and how.
+
+Search filters on LinkedIn: job title, company, location, skills. Narrow by "software engineer", "DevOps", "security engineer", "infrastructure".
+
+### Finding Misconfigurations via Framework Research
+
+Once a framework is identified (e.g. Django), search for its known OWASP misconfigurations. Companies that follow framework tutorials often name files and structure projects exactly as the documentation shows -- which means default paths and patterns are predictable.
+
+> [!tip]
+> Employee GitHub profiles linked from LinkedIn are high value. Look for config files, `.env` files, hardcoded API keys, JWT secrets, and internal hostnames committed to public repos.
+
+---
+
 ## Tools Summary
 
 | Tool | Purpose |
@@ -143,3 +238,8 @@ SPF records also leak internal IPs -- the `ip4:` entries in an SPF record are of
 | Shodan CLI | Passive port/service fingerprinting by IP |
 | `dig any` | Pull all DNS record types |
 | Browser cert viewer | Check SAN entries on main site certificate |
+| Google Dorks | Find exposed cloud storage buckets/blobs |
+| GrayHatWarfare | Browse indexed public cloud storage files |
+| domain.glass | Third-party infrastructure lookup, Cloudflare detection |
+| LinkedIn / Xing | Employee profiles, job postings, tech stack extraction |
+| GitHub | Employee public repos -- secrets, configs, internal hostnames |

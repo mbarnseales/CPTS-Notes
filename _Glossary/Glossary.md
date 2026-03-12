@@ -1,4 +1,4 @@
-﻿
+
 # Types of Penetration Testing
 
 ##### Blackbox: 

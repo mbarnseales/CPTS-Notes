@@ -1,4 +1,4 @@
-﻿
+
 # Enumeration Methodology
 
 A framework for structuring enumeration across external and internal penetration tests. Not a step-by-step guide  -  a systematic approach that accommodates dynamic environments while ensuring nothing is skipped.

@@ -1,4 +1,4 @@
-﻿# Knife
+# Knife
 
 ## Box Info
 - **Difficulty**: Easy

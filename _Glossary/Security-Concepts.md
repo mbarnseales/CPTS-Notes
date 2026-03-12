@@ -1,4 +1,4 @@
-﻿
+
 # Security Concepts
 
 Fundamental security infrastructure concepts referenced throughout enumeration, exploitation, and evasion. Understanding what these systems do and how they differ informs how you scan, move, and stay quiet.

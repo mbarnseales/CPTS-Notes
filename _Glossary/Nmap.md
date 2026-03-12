@@ -1,4 +1,4 @@
-﻿
+
 # Nmap  -  Packet Behaviour & Port States
 
 See Also: [[Nmap|Nmap - Commands & Flags]]
