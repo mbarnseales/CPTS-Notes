@@ -181,6 +181,10 @@ blob.core.windows.net
 storage.googleapis.com
 ```
 
+### domain.glass
+
+[domain.glass](https://domain.glass) is a third-party infrastructure lookup tool. Useful for confirming whether a target sits behind Cloudflare. A "Safe" Cloudflare classification at this stage means you've already identified a Layer 2 (Gateway) security measure before active scanning begins -- note it.
+
 ### GrayHatWarfare
 
 [GrayHatWarfare](https://buckets.grayhatwarfare.com) indexes publicly accessible cloud storage across AWS, Azure, and GCP. Search by company name or abbreviation. Filter by file type.

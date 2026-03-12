@@ -1,4 +1,4 @@
-﻿
+
 # FTP
 
 Default port: `21`

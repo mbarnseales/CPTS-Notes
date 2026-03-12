@@ -4,7 +4,7 @@
 Network Mapper  -  open-source tool for network discovery, port scanning, service/version detection, and OS fingerprinting. The go-to for initial enumeration on any engagement.
 
 > [!info] See Also
-> [[Nmap|Nmap - Packet Behaviour & Port States]]
+> [[Nmap-Port-States|Nmap - Packet Behaviour & Port States]]
 
 > [!tip] Always Save Scans
 > Use `-oA <name>` on every scan. Different tools produce different results  -  saved output lets you compare, document, and report accurately.
@@ -188,7 +188,7 @@ sudo nmap --script <script-name> -p <port> <target>
 
 ## Firewall & IDS/IPS Evasion
 
-See Also: [[Nmap|Nmap - Packet Behaviour & Port States]] | [[Security-Concepts]]
+See Also: [[Nmap-Port-States|Nmap - Packet Behaviour & Port States]] | [[Security-Concepts]]
 
 ### Mapping Firewall Rules
 

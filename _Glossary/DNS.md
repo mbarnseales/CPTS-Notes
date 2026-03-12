@@ -149,7 +149,7 @@ Entries include the common name, SANs, issuer CA, and issue/expiry dates. Expire
 
 ---
 
-# FQDN -- Fully Qualified Domain Name
+# FQDN - Fully Qualified Domain Name
 
 The complete, unambiguous domain name specifying the exact location in the DNS hierarchy, ending with a trailing dot (`.`) representing the root zone.
 
