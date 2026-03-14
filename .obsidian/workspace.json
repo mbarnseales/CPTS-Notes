@@ -13,12 +13,12 @@
             "state": {
               "type": "markdown",
               "state": {
-                "file": "01-Recon/Enumeration-Methodology.md",
+                "file": "_Tools/SMB.md",
                 "mode": "source",
                 "source": false
               },
               "icon": "lucide-file",
-              "title": "Enumeration-Methodology"
+              "title": "SMB"
             }
           }
         ]
@@ -196,6 +196,9 @@
   },
   "active": "f803da6e1562bd5f",
   "lastOpenFiles": [
+    "01-Recon/Enumeration-Methodology.md",
+    "_Tools/SMB.md.tmp.20268.1773477421100",
+    "01-Recon/SMB-Enumeration.md",
     "_Tools/WinPEAS.md",
     "_Tools/Whatweb.md",
     "_Tools/tcpdump.md",
@@ -225,13 +228,9 @@
     "_Glossary/Security-Concepts.md",
     "_Glossary/Glossary.md",
     "01-Recon/Host-Discovery.md",
-    "01-Recon/Enumeration-Methodology.md",
-    "_Tools/Nmap.md",
-    "_Reference/GTFOBins.md",
     "fix-emdash.ps1.tmp.18724.1773299223238",
     "fix-emdash.ps1.tmp.18724.1773298921780",
     "fix-emdash.ps1",
-    "fix-emdash.ps1.tmp.18724.1773298883337",
     "Screenshots/Screenshot 2026-03-04 150707.png",
     "Screenshots/Screenshot 2026-03-03 200856.png"
   ]
