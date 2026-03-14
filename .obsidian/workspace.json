@@ -11,14 +11,14 @@
             "id": "f803da6e1562bd5f",
             "type": "leaf",
             "state": {
-              "type": "split-diff-view",
+              "type": "markdown",
               "state": {
-                "aFile": "_Box Write-Ups/CCTV.md",
-                "bFile": "_Box Write-Ups/CCTV.md",
-                "aRef": ""
+                "file": "01-Recon/Enumeration-Methodology.md",
+                "mode": "source",
+                "source": false
               },
-              "icon": "diff",
-              "title": "Diff: CCTV  (Working Tree)"
+              "icon": "lucide-file",
+              "title": "Enumeration-Methodology"
             }
           }
         ]
