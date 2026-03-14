@@ -1,4 +1,4 @@
-﻿# Conversor
+# Conversor
 
 ## Box Info
 

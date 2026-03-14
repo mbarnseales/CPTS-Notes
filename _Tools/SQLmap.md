@@ -1,4 +1,4 @@
-﻿
+
 # SQLmap
 
 Automated SQL injection detection and exploitation tool. Handles detection, database enumeration, data extraction, and in some cases OS-level access.

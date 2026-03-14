@@ -1,4 +1,4 @@
-﻿
+
 # WinPEAS
 
 Part of the [PEASS-ng](https://github.com/peass-ng/PEASS-ng) suite. Automates Windows privilege escalation enumeration.

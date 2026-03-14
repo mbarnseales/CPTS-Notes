@@ -1,4 +1,4 @@
-﻿
+
 # LinPEAS
 
 Part of the [PEASS-ng](https://github.com/peass-ng/PEASS-ng) suite. Automates Linux privilege escalation enumeration.
