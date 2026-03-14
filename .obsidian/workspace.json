@@ -13,12 +13,12 @@
             "state": {
               "type": "markdown",
               "state": {
-                "file": "01-Recon/SMB-Enumeration.md",
+                "file": "01-Recon/NFS-Enumeration.md",
                 "mode": "source",
                 "source": false
               },
               "icon": "lucide-file",
-              "title": "SMB-Enumeration"
+              "title": "NFS-Enumeration"
             }
           }
         ]
@@ -196,13 +196,16 @@
   },
   "active": "f803da6e1562bd5f",
   "lastOpenFiles": [
+    "_Tools/NFS.md",
+    "01-Recon/SMB-Enumeration.md",
+    "_Tools/NFS.md.tmp.19564.1773483726890",
+    "01-Recon/NFS-Enumeration.md",
     "01-Recon/FTP-Enumeration.md",
     "_Tools/SMB.md",
     "_Tools/SNMP.md",
     "_Tools/Searchsploit.md",
     "01-Recon/Enumeration-Methodology.md",
     "_Tools/SMB.md.tmp.20268.1773477421100",
-    "01-Recon/SMB-Enumeration.md",
     "_Tools/WinPEAS.md",
     "_Tools/Whatweb.md",
     "_Tools/tcpdump.md",
@@ -227,11 +230,8 @@
     "_Glossary/Networking.md",
     "_Glossary/Nmap.md",
     "_Glossary/Security-Concepts.md",
-    "_Glossary/Glossary.md",
-    "01-Recon/Host-Discovery.md",
     "fix-emdash.ps1.tmp.18724.1773299223238",
     "fix-emdash.ps1.tmp.18724.1773298921780",
-    "fix-emdash.ps1",
     "Screenshots/Screenshot 2026-03-04 150707.png",
     "Screenshots/Screenshot 2026-03-03 200856.png"
   ]
