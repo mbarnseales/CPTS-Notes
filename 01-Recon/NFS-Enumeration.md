@@ -21,12 +21,12 @@ NFSv4 and above only require port 2049, which simplifies firewall traversal. Old
 
 ## NFS Versions
 
-| Version | Key Features |
-|---------|-------------|
-| NFSv2 | Legacy. Originally UDP only. Widely supported. |
-| NFSv3 | Variable file sizes, better error reporting. Not fully backwards compatible with NFSv2. |
-| NFSv4 | Kerberos support, stateful protocol, ACLs, firewall-friendly (single port 2049), no portmapper required. First version to authenticate users rather than just the client machine. |
-| NFSv4.1 | Adds pNFS (parallel NFS) for distributed/clustered storage and session trunking (multipathing). |
+| Version | Key Features                                                                                                                                                                      |
+| ------- | --------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
+| NFSv2   | Legacy. Originally UDP only. Widely supported.                                                                                                                                    |
+| NFSv3   | Variable file sizes, better error reporting. Not fully backwards compatible with NFSv2.                                                                                           |
+| NFSv4   | Kerberos support, stateful protocol, ACLs, firewall-friendly (single port 2049), no portmapper required. First version to authenticate users rather than just the client machine. |
+| NFSv4.1 | Adds pNFS (parallel NFS) for distributed/clustered storage and session trunking (multipathing).                                                                                   |
 
 ---
 
