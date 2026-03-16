@@ -3,7 +3,7 @@
 
 Layer 3 enumeration. DNS leaks infrastructure details, internal hostnames, mail providers, third-party services, and sometimes entire zone files if misconfigured.
 
-For record types, server types, and email authentication standards see [[_Glossary/DNS|DNS Glossary]].
+For record types, server types, and email authentication standards see [[DNS-Glossary|DNS Glossary]].
 
 Port: `53` TCP/UDP - UDP by default, TCP for zone transfers and large responses.
 
@@ -86,6 +86,6 @@ See [[_Tools/DNS|DNS Tools]] for flag reference.
 - **Internal subdomains** -- `dc`, `vpn`, `mail`, `internal`, `dev`, `staging`, `wsus`, `backup` are high-value. Cross-reference IPs with [[01-Recon/Host-Discovery|Host Discovery]]
 - **Version disclosure** -- BIND version from CHAOS query, check against known CVEs
 - **SOA admin email** -- real contact address, useful for social engineering scope
-- **TXT records** -- SaaS stack intel from verification tokens, internal IPs from SPF `ip4:` entries. See [[_Glossary/DNS#TXT Record|TXT Record]]
+- **TXT records** -- SaaS stack intel from verification tokens, internal IPs from SPF `ip4:` entries. See [[DNS-Glossary#TXT Record|TXT Record]]
 - **NS resolving to internal IP** -- query it directly for additional records
 - **Subdomain brute force hits** -- `dev`, `test`, `staging`, `admin`, `api` tend to have looser security posture
