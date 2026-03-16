@@ -196,11 +196,13 @@
   },
   "active": "f803da6e1562bd5f",
   "lastOpenFiles": [
+    "_Glossary/DNS.md",
+    "01-Recon/DNS-Enumeration.md",
+    "01-Recon/DNS-Enumeration.md.tmp.29684.1773637858782",
     "06-AD.md",
     "_Tools/NFS.md",
     "_Tools/DNS.md",
     "_Tools/DNS.md.tmp.29684.1773550560694",
-    "01-Recon/DNS-Enumeration.md",
     "01-Recon/NFS-Enumeration.md",
     "01-Recon/Enumeration-Methodology.md",
     "01-Recon/SMB-Enumeration.md",
@@ -225,13 +227,11 @@
     "_Tools/Nmap.md.tmp.13944.1773302938718",
     "_Glossary/Nmap-Port-States.md",
     "_Tools/FTP.md",
-    "_Glossary/DNS.md",
     "01-Recon/OSINT-Online-Presence.md.tmp.22160.1773301605681",
     "01-Recon/OSINT-Online-Presence.md.tmp.18724.1773300213550",
     "01-Recon/OSINT-Online-Presence.md.tmp.18724.1773299833392",
     "_Glossary/DNS.md.tmp.18724.1773299593934",
     "_Glossary/DNS.md.tmp.18724.1773299585198",
-    "fix-emdash.ps1.tmp.18724.1773299223238",
     "Screenshots/Screenshot 2026-03-04 150707.png",
     "Screenshots/Screenshot 2026-03-03 200856.png"
   ]
