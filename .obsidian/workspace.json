@@ -196,6 +196,8 @@
   },
   "active": "f803da6e1562bd5f",
   "lastOpenFiles": [
+    "01-Recon/IMAP-POP3-Enumeration.md.tmp.48488.1773732585510",
+    "01-Recon/SMTP-Enumeration.md.tmp.48488.1773732247934",
     "_Glossary/Mail-Glossary.md",
     "_Glossary/Mail-Glossary.md.tmp.48488.1773731684468",
     "01-Recon/SMB-Enumeration.md",
@@ -230,11 +232,9 @@
     "_Tools/tcpdump.md",
     "_Tools/SQLmap.md",
     "_Tools/LinPEAS.md",
-    "_Tools/Gobuster.md",
     "_Tools/Nmap.md.tmp.13944.1773302938718",
     "01-Recon/OSINT-Online-Presence.md.tmp.22160.1773301605681",
     "01-Recon/OSINT-Online-Presence.md.tmp.18724.1773300213550",
-    "01-Recon/OSINT-Online-Presence.md.tmp.18724.1773299833392",
-    "_Glossary/DNS.md.tmp.18724.1773299593934"
+    "01-Recon/OSINT-Online-Presence.md.tmp.18724.1773299833392"
   ]
 }

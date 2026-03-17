@@ -1,7 +1,7 @@
 
 # IMAP / POP3
 
-Layer 3 enumeration. IMAP and POP3 are email retrieval protocols -- if you find credentials from any other service, these are the first places to test them. Mailboxes regularly contain credentials, internal documents, and sensitive communications. For protocol differences see [[_Glossary/SMTP-Glossary|SMTP Glossary]].
+Layer 3 enumeration. IMAP and POP3 are email retrieval protocols -- if you find credentials from any other service, these are the first places to test them. Mailboxes regularly contain credentials, internal documents, and sensitive communications. For protocol definitions and acronyms see [[Mail-Glossary|Mail Glossary]].
 
 ---
 

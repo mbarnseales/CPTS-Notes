@@ -4,6 +4,8 @@
 
 **SMTP Error Codes:** [TurboSMTP](https://serversmtp.com/smtp-error/)
 
+For protocol acronyms (MUA, MTA, MDA, ESMTP, SPF, DKIM, DMARC, Open Relay) see [[Mail-Glossary|Mail Glossary]].
+
 ---
 
 ## Ports
