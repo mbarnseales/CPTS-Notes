@@ -20,8 +20,21 @@
               "icon": "lucide-file",
               "title": "CeWL"
             }
+          },
+          {
+            "id": "9a1a67950c4688d3",
+            "type": "leaf",
+            "state": {
+              "type": "release-notes",
+              "state": {
+                "currentVersion": "1.12.7"
+              },
+              "icon": "lucide-book-up",
+              "title": "Release Notes 1.12.7"
+            }
           }
-        ]
+        ],
+        "currentTab": 1
       }
     ],
     "direction": "vertical"
@@ -194,7 +207,7 @@
       "obsidian-git:Open Git source control": false
     }
   },
-  "active": "f803da6e1562bd5f",
+  "active": "9a1a67950c4688d3",
   "lastOpenFiles": [
     "01-Recon/SNMP-Enumeration.md",
     "01-Recon/SMTP-Enumeration.md",
