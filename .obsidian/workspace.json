@@ -13,12 +13,12 @@
             "state": {
               "type": "markdown",
               "state": {
-                "file": "_Tools/CeWL.md",
+                "file": "_Tools/DNS.md",
                 "mode": "source",
                 "source": false
               },
               "icon": "lucide-file",
-              "title": "CeWL"
+              "title": "DNS"
             }
           }
         ]
@@ -196,6 +196,7 @@
   },
   "active": "f803da6e1562bd5f",
   "lastOpenFiles": [
+    "_Tools/CeWL.md",
     "01-Recon/SNMP-Enumeration.md",
     "01-Recon/SMTP-Enumeration.md",
     "_Reference/Ports.md",
@@ -232,7 +233,6 @@
     "_Tools/SMB.md.tmp.20268.1773477421100",
     "_Tools/WinPEAS.md",
     "_Tools/Whatweb.md",
-    "_Tools/tcpdump.md",
     "_Tools/Nmap.md.tmp.13944.1773302938718",
     "01-Recon/OSINT-Online-Presence.md.tmp.22160.1773301605681",
     "01-Recon/OSINT-Online-Presence.md.tmp.18724.1773300213550"
