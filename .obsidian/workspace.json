@@ -13,12 +13,12 @@
             "state": {
               "type": "markdown",
               "state": {
-                "file": "01-Recon/MySQL-Enumeration.md",
+                "file": "01-Recon/FTP-Enumeration.md",
                 "mode": "source",
                 "source": false
               },
               "icon": "lucide-file",
-              "title": "MySQL-Enumeration"
+              "title": "FTP-Enumeration"
             }
           }
         ]
@@ -194,20 +194,25 @@
       "obsidian-git:Open Git source control": false
     }
   },
-  "active": "af6033536c954a84",
+  "active": "f803da6e1562bd5f",
   "lastOpenFiles": [
+    "_Tools/Netcat.md",
+    "_Tools/Netcat.md.tmp.19084.1774920447163",
+    "_Reference/Ports.md",
+    "_Reference/Ports.md.tmp.19084.1774919971655",
+    "01-Recon/Windows-Remote-Management.md",
+    "01-Recon/MySQL-Enumeration.md",
+    "01-Recon/Linux-Remote-Management.md",
     "01-Recon/IPMI-Enumeration.md",
     "01-Recon/OracleTNS-Enumeration.md",
     "01-Recon/MSSQL-Enumeration.md",
     "_Tools/DNS.md",
-    "01-Recon/MySQL-Enumeration.md",
     "01-Recon/SNMP-Enumeration.md.tmp.4120.1774917550917",
     "01-Recon/DNS-Enumeration.md",
     "07-Passwords/Hash-Cracking.md",
     "_Tools/CeWL.md",
     "01-Recon/SNMP-Enumeration.md",
     "01-Recon/SMTP-Enumeration.md",
-    "_Reference/Ports.md",
     "05-Post-Exploitation/Linux-Privilege-Escalation.md",
     "_Reference/GTFOBins.md",
     "_Glossary/DNS-Glossary.md",
@@ -228,13 +233,8 @@
     "_Tools/cURL.md",
     "01-Recon/DNS-Enumeration.md.tmp.29684.1773637858782",
     "06-AD.md",
-    "_Tools/NFS.md",
     "_Tools/DNS.md.tmp.29684.1773550560694",
-    "01-Recon/NFS-Enumeration.md",
-    "01-Recon/Enumeration-Methodology.md",
     "_Tools/NFS.md.tmp.19564.1773483726890",
-    "_Tools/SMB.md.tmp.20268.1773477421100",
-    "_Tools/Nmap.md.tmp.13944.1773302938718",
-    "01-Recon/OSINT-Online-Presence.md.tmp.22160.1773301605681"
+    "_Tools/SMB.md.tmp.20268.1773477421100"
   ]
 }
