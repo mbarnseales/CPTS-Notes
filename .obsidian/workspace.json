@@ -13,12 +13,12 @@
             "state": {
               "type": "markdown",
               "state": {
-                "file": "01-Recon/FTP-Enumeration.md",
+                "file": "_Tools/DNS.md",
                 "mode": "source",
                 "source": false
               },
               "icon": "lucide-file",
-              "title": "FTP-Enumeration"
+              "title": "DNS"
             }
           }
         ]
@@ -196,9 +196,18 @@
   },
   "active": "f803da6e1562bd5f",
   "lastOpenFiles": [
-    "_Tools/Netcat.md",
-    "_Tools/Netcat.md.tmp.19084.1774920447163",
+    "_Glossary/DNS-Glossary.md",
+    "_Glossary/Mail-Glossary.md",
+    "_Glossary/Glossary.md",
+    "_Glossary/Nmap-Port-States.md",
+    "_Glossary/Networking.md",
+    "_Tools/DNS.md",
     "_Reference/Ports.md",
+    "_Reference/Shells.md",
+    "_Tools/Netcat.md",
+    "06-AD.md",
+    "01-Recon/FTP-Enumeration.md",
+    "_Tools/Netcat.md.tmp.19084.1774920447163",
     "_Reference/Ports.md.tmp.19084.1774919971655",
     "01-Recon/Windows-Remote-Management.md",
     "01-Recon/MySQL-Enumeration.md",
@@ -206,7 +215,6 @@
     "01-Recon/IPMI-Enumeration.md",
     "01-Recon/OracleTNS-Enumeration.md",
     "01-Recon/MSSQL-Enumeration.md",
-    "_Tools/DNS.md",
     "01-Recon/SNMP-Enumeration.md.tmp.4120.1774917550917",
     "01-Recon/DNS-Enumeration.md",
     "07-Passwords/Hash-Cracking.md",
@@ -215,24 +223,16 @@
     "01-Recon/SMTP-Enumeration.md",
     "05-Post-Exploitation/Linux-Privilege-Escalation.md",
     "_Reference/GTFOBins.md",
-    "_Glossary/DNS-Glossary.md",
     "01-Recon/IMAP-POP3-Enumeration.md",
     "01-Recon/IMAP-POP3-Enumeration.md.tmp.48488.1773732585510",
     "01-Recon/SMTP-Enumeration.md.tmp.48488.1773732247934",
-    "_Glossary/Mail-Glossary.md",
     "_Glossary/Mail-Glossary.md.tmp.48488.1773731684468",
     "01-Recon/SMB-Enumeration.md",
-    "_Glossary/SMTP-Glossary.md",
     "Screenshots/Pasted image 20260317164220.png",
     "Screenshots/Screenshot 2026-03-04 150707.png",
-    "Screenshots/SMPT-Sequence.md",
     "Screenshots/Pasted image 20260317164112.png",
     "Screenshots/Screenshot 2026-03-03 200856.png",
-    "01-Recon/OSINT-Online-Presence.md",
-    "01-Recon/FTP-Enumeration.md",
-    "_Tools/cURL.md",
     "01-Recon/DNS-Enumeration.md.tmp.29684.1773637858782",
-    "06-AD.md",
     "_Tools/DNS.md.tmp.29684.1773550560694",
     "_Tools/NFS.md.tmp.19564.1773483726890",
     "_Tools/SMB.md.tmp.20268.1773477421100"

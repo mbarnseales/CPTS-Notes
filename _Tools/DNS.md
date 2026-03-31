@@ -49,13 +49,13 @@ dnsenum --dnsserver <target-dns> \
         <domain>
 ```
 
-| Flag | Description |
-|------|-------------|
-| `--dnsserver` | Target DNS server |
-| `--enum` | Full enumeration mode |
-| `-p 0` | Disable Google scraping |
-| `-s 0` | Disable scraping |
-| `-o <file>` | Output file |
+| Flag            | Description              |
+| --------------- | ------------------------ |
+| `--dnsserver`   | Target DNS server        |
+| `--enum`        | Full enumeration mode    |
+| `-p 0`          | Disable Google scraping  |
+| `-s 0`          | Disable scraping         |
+| `-o <file>`     | Output file              |
 | `-f <wordlist>` | Wordlist for brute force |
 
 ---
@@ -63,7 +63,7 @@ dnsenum --dnsserver <target-dns> \
 ## Subdomain Brute Force (Bash)
 
 ```bash
-for sub in $(cat /opt/useful/seclists/Discovery/DNS/subdomains-top1million-110000.txt); do
+for sub in $(cat /usr/share/wordlists/seclists/Discovery/DNS/subdomains-top1million-110000.txt); do
   dig $sub.<domain> @<target-dns> \
   | grep -v ';\|SOA' \
   | sed -r '/^\s*$/d' \
