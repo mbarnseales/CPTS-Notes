@@ -13,12 +13,12 @@
             "state": {
               "type": "markdown",
               "state": {
-                "file": "01-Recon/FTP-Enumeration.md",
+                "file": "01-Recon/DNS-Enumeration.md",
                 "mode": "source",
                 "source": false
               },
               "icon": "lucide-file",
-              "title": "FTP-Enumeration"
+              "title": "DNS-Enumeration"
             }
           }
         ]
@@ -196,8 +196,14 @@
   },
   "active": "f803da6e1562bd5f",
   "lastOpenFiles": [
-    "01-Recon/SMTP-Enumeration.md",
     "01-Recon/FTP-Enumeration.md",
+    "01-Recon/SMB-Enumeration.md",
+    "01-Recon/OSINT-Online-Presence.md",
+    "01-Recon/OracleTNS-Enumeration.md",
+    "01-Recon/NFS-Enumeration.md",
+    "01-Recon/IMAP-POP3-Enumeration.md",
+    "01-Recon/Host-Discovery.md",
+    "01-Recon/SMTP-Enumeration.md",
     "_Tools/FTP.md",
     "_Tools/DNS.md",
     "_Glossary/DNS-Glossary.md",
@@ -215,16 +221,10 @@
     "01-Recon/MySQL-Enumeration.md",
     "01-Recon/Linux-Remote-Management.md",
     "01-Recon/IPMI-Enumeration.md",
-    "01-Recon/OracleTNS-Enumeration.md",
     "01-Recon/MSSQL-Enumeration.md",
     "01-Recon/SNMP-Enumeration.md.tmp.4120.1774917550917",
     "01-Recon/DNS-Enumeration.md",
     "07-Passwords/Hash-Cracking.md",
-    "_Tools/CeWL.md",
-    "01-Recon/SNMP-Enumeration.md",
-    "05-Post-Exploitation/Linux-Privilege-Escalation.md",
-    "_Reference/GTFOBins.md",
-    "01-Recon/IMAP-POP3-Enumeration.md",
     "01-Recon/IMAP-POP3-Enumeration.md.tmp.48488.1773732585510",
     "01-Recon/SMTP-Enumeration.md.tmp.48488.1773732247934",
     "_Glossary/Mail-Glossary.md.tmp.48488.1773731684468",
