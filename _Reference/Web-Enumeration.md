@@ -1,4 +1,4 @@
-﻿
+
 # Web Enumeration Tips
 
 ## SSL/TLS Certificates
