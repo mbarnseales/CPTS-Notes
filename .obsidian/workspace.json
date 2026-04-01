@@ -13,12 +13,12 @@
             "state": {
               "type": "markdown",
               "state": {
-                "file": "01-Recon/SMB-Enumeration.md",
+                "file": "01-Recon/Windows-Remote-Management.md",
                 "mode": "source",
                 "source": false
               },
               "icon": "lucide-file",
-              "title": "SMB-Enumeration"
+              "title": "Windows-Remote-Management"
             }
           }
         ]
@@ -196,11 +196,11 @@
   },
   "active": "f803da6e1562bd5f",
   "lastOpenFiles": [
+    "01-Recon/SMB-Enumeration.md",
     "01-Recon/NFS-Enumeration.md",
     "_Tools/NFS.md.tmp.7880.1775025501979",
     "01-Recon/NFS-Enumeration.md.tmp.7880.1775025483908",
     "_Tools/NFS.md",
-    "01-Recon/SMB-Enumeration.md",
     "_Tools/SMB.md.tmp.7880.1775015431786",
     "01-Recon/SMB-Enumeration.md.tmp.7880.1775015371911",
     "_Tools/SMB.md",
