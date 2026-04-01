@@ -102,8 +102,7 @@ rpcclient -N -U "" <target>
 
 ```bash
 for i in $(seq 500 1100); do
-  rpcclient -N -U "" <target> -c "queryuser 0x$(printf '%x\n' $i)" \
-  | grep "User Name\|user_rid\|group_rid" && echo ""
+    rpcclient -N -U "" <target> -c "queryuser 0x$(printf '%x' $i)" | grep -E "User Name|user_rid|group_rid" && echo ""
 done
 ```
 
