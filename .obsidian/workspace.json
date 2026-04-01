@@ -13,12 +13,12 @@
             "state": {
               "type": "markdown",
               "state": {
-                "file": "01-Recon/NFS-Enumeration.md",
+                "file": "01-Recon/SMB-Enumeration.md",
                 "mode": "source",
                 "source": false
               },
               "icon": "lucide-file",
-              "title": "NFS-Enumeration"
+              "title": "SMB-Enumeration"
             }
           }
         ]
@@ -196,6 +196,7 @@
   },
   "active": "f803da6e1562bd5f",
   "lastOpenFiles": [
+    "01-Recon/NFS-Enumeration.md",
     "_Tools/NFS.md.tmp.7880.1775025501979",
     "01-Recon/NFS-Enumeration.md.tmp.7880.1775025483908",
     "_Tools/NFS.md",
@@ -210,7 +211,6 @@
     "01-Recon/FTP-Enumeration.md",
     "01-Recon/OSINT-Online-Presence.md",
     "01-Recon/OracleTNS-Enumeration.md",
-    "01-Recon/NFS-Enumeration.md",
     "01-Recon/IMAP-POP3-Enumeration.md",
     "01-Recon/SMTP-Enumeration.md",
     "_Tools/FTP.md",
@@ -234,7 +234,6 @@
     "Screenshots/Pasted image 20260317164220.png",
     "Screenshots/Screenshot 2026-03-04 150707.png",
     "Screenshots/Pasted image 20260317164112.png",
-    "Screenshots/Screenshot 2026-03-03 200856.png",
-    "01-Recon/DNS-Enumeration.md.tmp.29684.1773637858782"
+    "Screenshots/Screenshot 2026-03-03 200856.png"
   ]
 }
