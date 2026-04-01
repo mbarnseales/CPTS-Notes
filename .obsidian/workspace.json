@@ -196,12 +196,15 @@
   },
   "active": "f803da6e1562bd5f",
   "lastOpenFiles": [
+    "_Tools/SMB.md.tmp.7880.1775015431786",
+    "01-Recon/SMB-Enumeration.md.tmp.7880.1775015371911",
+    "_Tools/SMB.md",
+    "01-Recon/SMB-Enumeration.md",
     "_Reference/Ports.md",
     "_Reference/Web-Enumeration.md",
     "01-Recon/Host-Discovery.md",
     "01-Recon/DNS-Enumeration.md",
     "01-Recon/FTP-Enumeration.md",
-    "01-Recon/SMB-Enumeration.md",
     "01-Recon/OSINT-Online-Presence.md",
     "01-Recon/OracleTNS-Enumeration.md",
     "01-Recon/NFS-Enumeration.md",
@@ -222,8 +225,6 @@
     "01-Recon/Windows-Remote-Management.md",
     "01-Recon/MySQL-Enumeration.md",
     "01-Recon/Linux-Remote-Management.md",
-    "01-Recon/IPMI-Enumeration.md",
-    "01-Recon/MSSQL-Enumeration.md",
     "01-Recon/SNMP-Enumeration.md.tmp.4120.1774917550917",
     "01-Recon/IMAP-POP3-Enumeration.md.tmp.48488.1773732585510",
     "01-Recon/SMTP-Enumeration.md.tmp.48488.1773732247934",
@@ -234,7 +235,6 @@
     "Screenshots/Screenshot 2026-03-03 200856.png",
     "01-Recon/DNS-Enumeration.md.tmp.29684.1773637858782",
     "_Tools/DNS.md.tmp.29684.1773550560694",
-    "_Tools/NFS.md.tmp.19564.1773483726890",
-    "_Tools/SMB.md.tmp.20268.1773477421100"
+    "_Tools/NFS.md.tmp.19564.1773483726890"
   ]
 }
