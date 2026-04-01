@@ -196,6 +196,8 @@
   },
   "active": "f803da6e1562bd5f",
   "lastOpenFiles": [
+    "_Tools/NFS.md.tmp.7880.1775025501979",
+    "01-Recon/NFS-Enumeration.md.tmp.7880.1775025483908",
     "_Tools/NFS.md",
     "01-Recon/SMB-Enumeration.md",
     "_Tools/SMB.md.tmp.7880.1775015431786",
@@ -225,7 +227,6 @@
     "_Reference/Ports.md.tmp.19084.1774919971655",
     "01-Recon/Windows-Remote-Management.md",
     "01-Recon/MySQL-Enumeration.md",
-    "01-Recon/Linux-Remote-Management.md",
     "01-Recon/SNMP-Enumeration.md.tmp.4120.1774917550917",
     "01-Recon/IMAP-POP3-Enumeration.md.tmp.48488.1773732585510",
     "01-Recon/SMTP-Enumeration.md.tmp.48488.1773732247934",
@@ -234,7 +235,6 @@
     "Screenshots/Screenshot 2026-03-04 150707.png",
     "Screenshots/Pasted image 20260317164112.png",
     "Screenshots/Screenshot 2026-03-03 200856.png",
-    "01-Recon/DNS-Enumeration.md.tmp.29684.1773637858782",
-    "_Tools/DNS.md.tmp.29684.1773550560694"
+    "01-Recon/DNS-Enumeration.md.tmp.29684.1773637858782"
   ]
 }

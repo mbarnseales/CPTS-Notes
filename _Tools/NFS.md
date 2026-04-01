@@ -82,3 +82,70 @@ chmod +s ./target-NFS/mnt/nfs/shell
 ```
 
 Only works when `no_root_squash` is set on the export.
+
+---
+
+## NFS Versions
+
+| Version | Key Features |
+|---------|-------------|
+| NFSv2 | Legacy. Originally UDP only. |
+| NFSv3 | Variable file sizes, better error reporting. |
+| NFSv4 | Kerberos support, stateful, ACLs, single port 2049 (no portmapper needed). First version to authenticate users rather than just the client machine. |
+| NFSv4.1 | Adds pNFS (parallel NFS) and session trunking (multipathing). |
+
+---
+
+## How Authentication Works
+
+NFS delegates authentication to RPC using UNIX UID/GID:
+
+- The server trusts the UID/GID the client presents
+- Maps those IDs to local users and applies filesystem permissions
+- No server-side verification that the client's UID mapping is legitimate
+- NFSv4 with Kerberos is the only version that actually authenticates users
+
+This is why NFS should only be used on trusted internal networks, and why UID mismatches are a common privilege escalation vector.
+
+---
+
+## Configuration
+
+Config file: `/etc/exports`
+
+```bash
+cat /etc/exports
+```
+
+### Export Options
+
+| Option | Description |
+|--------|-------------|
+| `rw` | Read and write permissions |
+| `ro` | Read only |
+| `sync` | Synchronous transfer (slower, safer) |
+| `async` | Asynchronous transfer (faster, less safe) |
+| `secure` | Restrict to ports below 1024 |
+| `insecure` | Allow ports above 1024 |
+| `no_subtree_check` | Disable subdirectory tree checking |
+| `root_squash` | Remap remote root (UID 0) to anonymous user |
+| `no_root_squash` | Remote root retains UID 0 on the share |
+
+### Apply Changes
+
+```bash
+echo '/mnt/nfs  10.129.14.0/24(sync,no_subtree_check)' >> /etc/exports
+systemctl restart nfs-kernel-server
+exportfs    # verify active exports
+```
+
+---
+
+## Dangerous Settings
+
+| Option | Risk |
+|--------|------|
+| `rw` | Allows write access to the share |
+| `insecure` | Any process (not just root) can connect |
+| `no_root_squash` | Remote root retains UID 0 -- SUID privesc if writable |
+| `nohide` | Exposes filesystems mounted below the exported directory |
