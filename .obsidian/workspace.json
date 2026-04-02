@@ -13,12 +13,12 @@
             "state": {
               "type": "markdown",
               "state": {
-                "file": "01-Recon/SMB-Enumeration.md",
+                "file": "01-Recon/IMAP-POP3-Enumeration.md",
                 "mode": "source",
                 "source": false
               },
               "icon": "lucide-file",
-              "title": "SMB-Enumeration"
+              "title": "IMAP-POP3-Enumeration"
             }
           }
         ]
@@ -196,9 +196,15 @@
   },
   "active": "f803da6e1562bd5f",
   "lastOpenFiles": [
+    "_Tools/cURL.md",
+    "_Reference/Shells.md",
+    "_Reference/Ports.md",
+    "01-Recon/SMTP-Enumeration.md",
+    "01-Recon/IMAP-POP3-Enumeration.md",
+    "01-Recon/IPMI-Enumeration.md",
+    "01-Recon/SMB-Enumeration.md",
     "01-Recon/FTP-Enumeration.md",
     "01-Recon/Windows-Remote-Management.md",
-    "01-Recon/SMB-Enumeration.md",
     "01-Recon/NFS-Enumeration.md",
     "_Tools/NFS.md.tmp.7880.1775025501979",
     "01-Recon/NFS-Enumeration.md.tmp.7880.1775025483908",
@@ -206,14 +212,11 @@
     "_Tools/SMB.md.tmp.7880.1775015431786",
     "01-Recon/SMB-Enumeration.md.tmp.7880.1775015371911",
     "_Tools/SMB.md",
-    "_Reference/Ports.md",
     "_Reference/Web-Enumeration.md",
     "01-Recon/Host-Discovery.md",
     "01-Recon/DNS-Enumeration.md",
     "01-Recon/OSINT-Online-Presence.md",
     "01-Recon/OracleTNS-Enumeration.md",
-    "01-Recon/IMAP-POP3-Enumeration.md",
-    "01-Recon/SMTP-Enumeration.md",
     "_Tools/FTP.md",
     "_Tools/DNS.md",
     "_Glossary/DNS-Glossary.md",
@@ -221,12 +224,10 @@
     "_Glossary/Glossary.md",
     "_Glossary/Nmap-Port-States.md",
     "_Glossary/Networking.md",
-    "_Reference/Shells.md",
     "_Tools/Netcat.md",
     "06-AD.md",
     "_Tools/Netcat.md.tmp.19084.1774920447163",
     "_Reference/Ports.md.tmp.19084.1774919971655",
-    "01-Recon/MySQL-Enumeration.md",
     "01-Recon/SNMP-Enumeration.md.tmp.4120.1774917550917",
     "01-Recon/IMAP-POP3-Enumeration.md.tmp.48488.1773732585510",
     "01-Recon/SMTP-Enumeration.md.tmp.48488.1773732247934",
