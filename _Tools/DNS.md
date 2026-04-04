@@ -1,7 +1,7 @@
 
 # DNS Tools Reference
 
-Quick command reference for DNS enumeration. For theory, workflow, and what to look for, see [[01-Recon/DNS-Enumeration|DNS Enumeration]]. For record type definitions, see [[DNS-Glossary|DNS Glossary]].
+Quick command reference for DNS enumeration. For theory, workflow, and what to look for, see [[01-Recon/Infrastructure/DNS-Enumeration|DNS Enumeration]]. For record type definitions, see [[DNS-Glossary|DNS Glossary]].
 
 Port: `53` (UDP default, TCP for zone transfers)
 

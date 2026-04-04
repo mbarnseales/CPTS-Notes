@@ -1,7 +1,7 @@
 
 # SNMP Tools Reference
 
-Quick command reference for SNMP enumeration. For workflow and what to look for see [[01-Recon/SNMP-Enumeration|SNMP Enumeration]].
+Quick command reference for SNMP enumeration. For workflow and what to look for see [[01-Recon/Infrastructure/SNMP-Enumeration|SNMP Enumeration]].
 
 Ports: `161` UDP (queries), `162` UDP (traps)
 

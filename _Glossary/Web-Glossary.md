@@ -15,7 +15,7 @@ Key tools:
 - **crt.sh** -- `https://crt.sh/?q=<domain>` -- free, no registration, good for quick lookups
 - **Censys** -- `https://search.censys.io` -- advanced filtering, requires free registration
 
-See: [[01-Recon/OSINT-Online-Presence|OSINT]] for usage commands.
+See: [[01-Recon/Web/OSINT-Online-Presence|OSINT]] for usage commands.
 
 ---
 

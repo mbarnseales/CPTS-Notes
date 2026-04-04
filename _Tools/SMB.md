@@ -1,7 +1,7 @@
 
 # SMB Tools Reference
 
-Quick command reference for SMB enumeration tools. For theory, workflow, and what to look for, see [[01-Recon/SMB-Enumeration|SMB Enumeration]].
+Quick command reference for SMB enumeration tools. For theory, workflow, and what to look for, see [[01-Recon/Infrastructure/SMB-Enumeration|SMB Enumeration]].
 
 Default ports: `445` (TCP), `139` (TCP legacy NetBIOS)
 

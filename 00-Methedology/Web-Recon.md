@@ -14,12 +14,12 @@ No direct interaction with the target. Pull from public sources only. Low/no det
 | Technique | What You're Looking For | Reference |
 |-----------|------------------------|-----------|
 | WHOIS | Registrant details, name servers, registration dates, admin contacts | [[_Tools/WHOIS\|WHOIS]] |
-| DNS Records | A, MX, NS, TXT, CNAME. TXT records reveal third-party services and SPF config | [[01-Recon/DNS-Enumeration\|DNS Enumeration]] |
-| Certificate Transparency | Subdomains from SSL cert history via crt.sh. Often finds what nothing else does | [[01-Recon/OSINT-Online-Presence\|OSINT]] |
-| Web Archives | Old pages, removed endpoints, exposed configs, historical tech stack via Wayback Machine | [[01-Recon/Web-Archives\|Web Archives]] |
-| Google Dorking | Exposed files, login pages, config files, and indexed sensitive content | [[01-Recon/Google-Dorking\|Google Dorking]] |
-| GitHub / Code Repos | Leaked credentials, API keys, internal tooling, infrastructure details | [[01-Recon/GitHub-Recon\|GitHub Recon]] |
-| Shodan / Censys | Open ports, service banners, TLS cert info -- external view without touching the target | [[01-Recon/OSINT-Online-Presence\|OSINT]] |
+| DNS Records | A, MX, NS, TXT, CNAME. TXT records reveal third-party services and SPF config | [[01-Recon/Infrastructure/DNS-Enumeration\|DNS Enumeration]] |
+| Certificate Transparency | Subdomains from SSL cert history via crt.sh. Often finds what nothing else does | [[01-Recon/Web/OSINT-Online-Presence\|OSINT]] |
+| Web Archives | Old pages, removed endpoints, exposed configs, historical tech stack via Wayback Machine | [[01-Recon/Web/Web-Archives\|Web Archives]] |
+| Google Dorking | Exposed files, login pages, config files, and indexed sensitive content | [[01-Recon/Web/Google-Dorking\|Google Dorking]] |
+| GitHub / Code Repos | Leaked credentials, API keys, internal tooling, infrastructure details | [[01-Recon/Web/GitHub-Recon\|GitHub Recon]] |
+| Shodan / Censys | Open ports, service banners, TLS cert info -- external view without touching the target | [[01-Recon/Web/OSINT-Online-Presence\|OSINT]] |
 
 ---
 
@@ -29,11 +29,11 @@ Direct interaction with the target. Higher detection risk. Do after passive phas
 
 | Technique | What You're Looking For | Reference |
 |-----------|------------------------|-----------|
-| Technology Fingerprinting | Web server, framework, CMS, client-side libraries. Shapes the rest of the assessment | [[01-Recon/Tech-Fingerprinting\|Tech Fingerprinting]] |
-| Subdomain Enumeration | Active DNS brute force to find subdomains not visible in CT logs or passive sources | [[01-Recon/Subdomain-Enumeration\|Subdomain Enumeration]] |
-| Web Crawling | Map pages, directories, parameters, and hidden endpoints by spidering the app | [[01-Recon/Web-Crawling\|Web Crawling]] |
+| Technology Fingerprinting | Web server, framework, CMS, client-side libraries. Shapes the rest of the assessment | [[01-Recon/Web/Tech-Fingerprinting\|Tech Fingerprinting]] |
+| Subdomain Enumeration | Active DNS brute force to find subdomains not visible in CT logs or passive sources | [[01-Recon/Web/Subdomain-Enumeration\|Subdomain Enumeration]] |
+| Web Crawling | Map pages, directories, parameters, and hidden endpoints by spidering the app | [[01-Recon/Web/Web-Crawling\|Web Crawling]] |
 | Directory / File Fuzzing | Admin panels, backup files, config files, and unlinked content | [[_Tools/Gobuster\|Gobuster]] |
-| HTTP Headers & Banners | Server version, security headers, cookies, and info disclosure in responses | [[01-Recon/Tech-Fingerprinting\|Tech Fingerprinting]] |
+| HTTP Headers & Banners | Server version, security headers, cookies, and info disclosure in responses | [[01-Recon/Web/Tech-Fingerprinting\|Tech Fingerprinting]] |
 
 ---
 

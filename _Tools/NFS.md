@@ -1,7 +1,7 @@
 
 # NFS Tools Reference
 
-Quick command reference for NFS enumeration. For theory, workflow, and what to look for, see [[01-Recon/NFS-Enumeration|NFS Enumeration]].
+Quick command reference for NFS enumeration. For theory, workflow, and what to look for, see [[01-Recon/Infrastructure/NFS-Enumeration|NFS Enumeration]].
 
 Ports: `2049` (TCP/UDP), `111` (TCP/UDP rpcbind)
 

@@ -43,6 +43,39 @@ See Also: [[00-Methedology/Web-Recon|Web Recon Methodology]]
 
 ---
 
+## robots.txt
+
+Always check `/robots.txt` before or during crawling. It's a plain text file at the site root that tells crawlers what they're not supposed to access -- which from a recon perspective is a list of interesting paths the admin wants hidden.
+
+```bash
+curl https://<target>/robots.txt
+```
+
+**Common directives:**
+
+| Directive | Meaning |
+|-----------|---------|
+| `Disallow: /admin/` | Path the owner doesn't want indexed -- high interest |
+| `Allow: /public/` | Explicitly permitted -- usually less interesting |
+| `Sitemap: https://example.com/sitemap.xml` | Free map of the site's content -- pull it |
+| `Crawl-delay: 10` | Rate limit hint -- less relevant for pentest, but note it |
+
+**Example:**
+```
+User-agent: *
+Disallow: /admin/
+Disallow: /private/
+Disallow: /backup/
+Sitemap: https://www.example.com/sitemap.xml
+```
+
+Every `Disallow` entry is a path worth manually visiting. The `Sitemap` URL gives you a structured list of all indexed pages -- fetch it and add to your URL list.
+
+> [!note]
+> robots.txt is advisory -- bots are expected to respect it but nothing enforces it. As a pentester, read it for intel but don't feel bound by it.
+
+---
+
 ## Tools
 
 *(Commands to be added as module progresses)*

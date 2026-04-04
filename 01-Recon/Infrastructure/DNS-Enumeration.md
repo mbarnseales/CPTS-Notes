@@ -83,7 +83,7 @@ See [[_Tools/DNS|DNS Tools]] for flag reference.
 ## What to Look For
 
 - **AXFR succeeds** -- full zone dump. Internal zones reveal DC names, mail servers, VPN endpoints, internal IPs
-- **Internal subdomains** -- `dc`, `vpn`, `mail`, `internal`, `dev`, `staging`, `wsus`, `backup` are high-value. Cross-reference IPs with [[01-Recon/Host-Discovery|Host Discovery]]
+- **Internal subdomains** -- `dc`, `vpn`, `mail`, `internal`, `dev`, `staging`, `wsus`, `backup` are high-value. Cross-reference IPs with [[01-Recon/Infrastructure/Host-Discovery|Host Discovery]]
 - **Version disclosure** -- BIND version from CHAOS query, check against known CVEs
 - **SOA admin email** -- real contact address, useful for social engineering scope
 - **TXT records** -- SaaS stack intel from verification tokens, internal IPs from SPF `ip4:` entries. See [[DNS-Glossary#TXT Record|TXT Record]]
