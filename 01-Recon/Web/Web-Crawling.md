@@ -78,7 +78,55 @@ Every `Disallow` entry is a path worth manually visiting. The `Sitemap` URL give
 
 ## Tools
 
-*(Commands to be added as module progresses)*
+### ReconSpider (Scrapy-based)
+
+HTB's custom Scrapy spider. Extracts emails, links, external files, JS files, images, form fields, and HTML comments in one run.
+
+```bash
+# Install Scrapy
+pip3 install scrapy
+
+# Download ReconSpider
+wget -O ReconSpider.zip https://academy.hackthebox.com/storage/modules/144/ReconSpider.v1.2.zip
+unzip ReconSpider.zip
+
+# Run against target
+python3 ReconSpider.py http://<target>
+```
+
+Output is saved to `results.json`. Key fields:
+
+| Field | What It Contains |
+|-------|-----------------|
+| `emails` | Email addresses found on the domain |
+| `links` | All internal and external URLs |
+| `external_files` | PDFs and other external file URLs |
+| `js_files` | JavaScript file URLs (check for API keys, endpoints, frameworks) |
+| `form_fields` | Form inputs found across the site |
+| `comments` | HTML comments in source -- developer notes, version hints |
+| `images` / `videos` / `audio` | Media file URLs |
+
+```bash
+# Quick look at results
+cat results.json | jq .
+
+# Pull just emails
+cat results.json | jq '.emails[]'
+
+# Pull just comments
+cat results.json | jq '.comments[]'
+
+# Pull external files
+cat results.json | jq '.external_files[]'
+```
+
+### Other Crawlers
+
+| Tool | Use Case |
+|------|---------|
+| Burp Suite Spider | Integrated crawler inside Burp -- good for app mapping during manual testing |
+| OWASP ZAP Spider | Free, open-source, GUI and CLI modes |
+| Scrapy | Python framework for building custom crawlers when you need more control |
 
 ---
 
