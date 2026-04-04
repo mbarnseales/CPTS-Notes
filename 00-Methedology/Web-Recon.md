@@ -13,7 +13,7 @@ No direct interaction with the target. Pull from public sources only. Low/no det
 
 | Technique | What You're Looking For | Reference |
 |-----------|------------------------|-----------|
-| WHOIS | Registrant details, name servers, registration dates, admin contacts | [[WHOIS\|WHOIS]] |
+| WHOIS | Registrant details, name servers, registration dates, admin contacts | [[_Tools/WHOIS\|WHOIS]] |
 | DNS Records | A, MX, NS, TXT, CNAME. TXT records reveal third-party services and SPF config | [[01-Recon/DNS-Enumeration\|DNS Enumeration]] |
 | Certificate Transparency | Subdomains from SSL cert history via crt.sh. Often finds what nothing else does | [[01-Recon/OSINT-Online-Presence\|OSINT]] |
 | Web Archives | Old pages, removed endpoints, exposed configs, historical tech stack via Wayback Machine | [[01-Recon/Web-Archives\|Web Archives]] |

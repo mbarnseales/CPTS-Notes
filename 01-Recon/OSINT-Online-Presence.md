@@ -3,6 +3,8 @@
 
 Layer 1 of the [[Enumeration-Methodology|Enumeration Methodology]]. The goal is to map everything the target exposes on the internet before touching a single system directly.
 
+See Also: [[00-Methedology/Web-Recon|Web Recon Methodology]]
+
 > [!info] Passive Only
 > Everything in this section is passive. No direct connections to the target. Navigate as a visitor. Direct active scans begin at Layer 3.
 
@@ -34,9 +36,9 @@ View in browser: padlock > certificate > Details > Subject Alternative Name
 
 ## 2. Certificate Transparency (crt.sh)
 
-Every certificate issued by a public CA is logged publicly. crt.sh queries those logs.
+Every certificate issued by a public CA is logged publicly. crt.sh queries those logs. Finds subdomains that DNS brute force and wordlists miss -- including historical subdomains from expired certs.
 
-See [[DNS#Certificate Transparency|Certificate Transparency]] for the concept.
+See [[_Glossary/Web-Glossary#Certificate Transparency Logs|CT Logs]] for the concept.
 
 ```bash
 # Browse manually
@@ -54,9 +56,17 @@ curl -s "https://crt.sh/?q=<domain>&output=json" \
   | cut -d'"' -f2 \
   | awk '{gsub(/\\n/,"\n");}1;' \
   | sort -u
+
+# Filter results by keyword (e.g. find only dev subdomains)
+curl -s "https://crt.sh/?q=<domain>&output=json" \
+  | jq -r '.[] | select(.name_value | contains("dev")) | .name_value' \
+  | sort -u
 ```
 
 Save output to `subdomainlist` for the next step.
+
+**Censys** is a deeper alternative -- advanced filtering by domain, IP, and certificate attributes. Requires free registration. Useful when crt.sh results are thin or you need to pivot on certificate attributes.
+`https://search.censys.io`
 
 ---
 
@@ -238,6 +248,7 @@ Once a framework is identified (e.g. Django), search for its known OWASP misconf
 | Tool | Purpose |
 |------|---------|
 | crt.sh | Subdomain discovery via certificate transparency logs |
+| Censys | Advanced CT log search with IP/cert attribute filtering |
 | `host` | Resolve subdomains to IPs |
 | Shodan CLI | Passive port/service fingerprinting by IP |
 | `dig any` | Pull all DNS record types |

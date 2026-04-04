@@ -14,6 +14,24 @@ gobuster dir -u http://<target>/ -w /usr/share/seclists/Discovery/Web-Content/co
 gobuster dns -d <domain> -w /usr/share/SecLists/Discovery/DNS/namelist.txt
 ```
 
+## VHost Fuzzing
+```bash
+# Basic VHost discovery
+gobuster vhost -u http://<target_IP> -w /usr/share/seclists/Discovery/DNS/subdomains-top1million-110000.txt --append-domain
+
+# With non-standard port
+gobuster vhost -u http://<target_IP>:8080 -w <wordlist> --append-domain
+
+# Useful flags
+# --append-domain   Appends base domain to each wordlist entry (required in newer versions)
+# -t <n>            Threads for faster scanning (default 10)
+# -k                Ignore SSL/TLS certificate errors
+# -o <file>         Save output to file
+```
+
+> [!note] --append-domain
+> Required in Gobuster v3.2+. Constructs full hostnames by appending the base domain to each wordlist word (e.g. `word` → `word.example.com`). Older versions handled this automatically.
+
 ## HTTP Status Codes
 | Code | Meaning |
 |------|---------|
