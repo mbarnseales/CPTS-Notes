@@ -20,13 +20,13 @@ See Also: [[00-Methedology/Web-Recon|Web Recon Methodology]]
 
 ## What to Extract
 
-| Data Type | What to Look For |
-|-----------|-----------------|
-| **Internal links** | Hidden pages, admin panels, unlinked endpoints, unusual directory names |
-| **External links** | Third-party services in use, CDN providers, potential for subdomain takeover |
-| **Comments in source** | Developer notes, version hints, internal hostnames, credentials left in HTML |
-| **Metadata** | Author names, software versions, dates -- can reveal CMS version or internal usernames |
-| **Sensitive files** | `.bak`, `.old`, `.config`, `web.config`, `settings.php`, `error_log`, `access_log` |
+| Data Type              | What to Look For                                                                       |
+| ---------------------- | -------------------------------------------------------------------------------------- |
+| **Internal links**     | Hidden pages, admin panels, unlinked endpoints, unusual directory names                |
+| **External links**     | Third-party services in use, CDN providers, potential for subdomain takeover           |
+| **Comments in source** | Developer notes, version hints, internal hostnames, credentials left in HTML           |
+| **Metadata**           | Author names, software versions, dates -- can reveal CMS version or internal usernames |
+| **Sensitive files**    | `.bak`, `.old`, `.config`, `web.config`, `settings.php`, `error_log`, `access_log`     |
 
 ---
 
