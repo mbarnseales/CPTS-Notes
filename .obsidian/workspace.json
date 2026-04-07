@@ -194,8 +194,12 @@
       "obsidian-git:Open Git source control": false
     }
   },
-  "active": "f803da6e1562bd5f",
+  "active": "af6033536c954a84",
   "lastOpenFiles": [
+    "02-Vuln-Assessment/VA-Overview.md.tmp.27412.1775550825826",
+    "02-Vuln-Assessment/VA-Reporting.md",
+    "02-Vuln-Assessment/VA-Reporting.md.tmp.27412.1775550759409",
+    "_Tools/OpenVAS.md.tmp.10724.1775549554725",
     "_Tools/OpenVAS.md",
     "_Tools/OpenVAS.md.tmp.10724.1775548809390",
     "_Tools/Nessus.md.tmp.10724.1775548039204",
@@ -211,9 +215,7 @@
     "_Reference/CVSS.md.tmp.26048.1775544336602",
     "_Reference/Standards.md",
     "01-Recon/Web/Web-Crawling.md",
-    "_Reference/Standards.md.tmp.26048.1775544010500",
     "02-Vuln-Assessment/VA-Overview.md",
-    "02-Vuln-Assessment/VA-Overview.md.tmp.26048.1775543362022",
     "01-Recon/Web/Tech-Fingerprinting.md",
     "01-Recon/Web/OSINT-Online-Presence.md",
     "_Tools/DNS.md",
@@ -230,8 +232,6 @@
     "01-Recon/Infrastructure/SMB-Enumeration.md",
     "01-Recon/Infrastructure/OracleTNS-Enumeration.md",
     "01-Recon/Infrastructure/NFS-Enumeration.md",
-    "01-Recon/Infrastructure/MySQL-Enumeration.md",
-    "01-Recon/Infrastructure/MSSQL-Enumeration.md",
     "Screenshots/Pasted image 20260317164220.png",
     "Screenshots/Screenshot 2026-03-04 150707.png",
     "Screenshots/Pasted image 20260317164112.png",

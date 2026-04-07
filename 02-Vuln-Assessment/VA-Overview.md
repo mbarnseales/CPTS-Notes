@@ -62,6 +62,16 @@ Most scanners use a combination of both. Static gives breadth, dynamic gives con
 
 ---
 
+## Reporting
+
+See [[02-Vuln-Assessment/VA-Reporting|VA Reporting]] for full report structure and per-finding template.
+
+- Never hand raw scanner output to a client as the final deliverable
+- Always eliminate false positives manually before including findings
+- Group related findings by type or severity
+
+---
+
 ## Key Concepts
 
 See [[_Glossary/Security-Concepts|Security Concepts]] for full definitions.
