@@ -3,6 +3,54 @@
 
 Fundamental security infrastructure concepts referenced throughout enumeration, exploitation, and evasion. Understanding what these systems do and how they differ informs how you scan, move, and stay quiet.
 
+# Vulnerability
+
+A weakness or bug in an environment (application, network, or infrastructure) that opens up the possibility of exploitation. Registered through MITRE's CVE database and scored using CVSS (0–10).
+
+CVSS score is calculated from:
+- **Attack vector** -- Network / Adjacent / Local / Physical
+- **Attack complexity** -- Low / High
+- **Privileges required** -- None / Low / High
+- **User interaction** -- None / Required
+- **Impact** -- Confidentiality, Integrity, Availability (None / Low / High each)
+
+Higher score = higher severity. A network-exploitable vuln requiring no auth and no user interaction with high CIA impact = maximum score.
+
+---
+
+# Threat
+
+A process that amplifies the potential of an adverse event -- i.e. a threat actor actively exploiting or capable of exploiting a vulnerability. The higher the reward and ease of exploitation, the more likely a vulnerability becomes a threat.
+
+---
+
+# Exploit
+
+Code or resources that take advantage of a specific vulnerability. Sources: Exploit-DB, Rapid7 Vulnerability Database, GitHub, GitLab.
+
+---
+
+# Risk
+
+The possibility of assets or data being harmed by threat actors. Risk is a function of **likelihood** and **impact**.
+
+**Threat + Vulnerability = Risk**
+- **Vulnerability** -- known weakness
+- **Threat** -- something bad that is happening
+- **Risk** -- something bad that could happen
+
+### Risk Matrix
+
+| | Low Impact | Medium Impact | High Impact |
+|-|-----------|--------------|------------|
+| **High Likelihood** | Medium (3) | High (4) | Critical (5) |
+| **Medium Likelihood** | Low (2) | Medium (3) | High (4) |
+| **Low Likelihood** | Lowest (1) | Low (2) | Medium (3) |
+
+Prioritise remediation from Critical → High → Medium → Low.
+
+---
+
 # Firewall
 
 ##### Purpose:
