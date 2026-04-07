@@ -40,11 +40,34 @@ See Also: [[_Glossary/Security-Concepts|Security Concepts]] for Vulnerability / 
 
 ---
 
+## Static vs Dynamic Testing
+
+| Type | How It Works | Limitation |
+|------|-------------|------------|
+| **Static** | Identifies vulnerability based on detected software version matching a known CVE | Inaccurate if a patch has been applied or the target isn't specifically affected |
+| **Dynamic** | Sends benign payloads to the target (weak creds, SQLi, command injection) and observes the response | Slower, but confirms exploitability rather than just version matching |
+
+Most scanners use a combination of both. Static gives breadth, dynamic gives confidence.
+
+---
+
+## Tools
+
+| Tool | Notes |
+|------|-------|
+| **Nessus** | Industry standard. Free tier (Essentials) limited to 16 hosts. | [[_Tools/Nessus\|Nessus]] |
+| **OpenVAS** | Open-source. Full-featured. No host limit. | [[_Tools/OpenVAS\|OpenVAS]] |
+| **Qualys** | Cloud-based platform. Free community edition available. | -- |
+| **Nexpose** | Rapid7's scanner. 30-day trial. Integrates with Metasploit. | -- |
+
+---
+
 ## Key Concepts
 
 See [[_Glossary/Security-Concepts|Security Concepts]] for full definitions.
 
-- **CVSS** -- Common Vulnerability Scoring System. 0–10 scale. Used to standardise severity ratings across tools and reports.
+- **CVSS** -- Common Vulnerability Scoring System. 0–10 scale. Used to standardise severity ratings across tools and reports. See [[_Glossary/CVSS|CVSS Reference]].
 - **CVE** -- Common Vulnerabilities and Exposures. MITRE's registry of known vulnerabilities. Referenced as `CVE-YEAR-NUMBER`.
 - **False Positive** -- Scanner flags an issue that doesn't actually exist. Always validate before reporting.
+- **False Negative** -- Scanner misses a real vulnerability. Credentialed scans reduce these significantly.
 - **Risk** -- Likelihood × Impact. A high-severity vuln in an isolated dev environment may be lower risk than a medium-severity vuln on an internet-facing production server.

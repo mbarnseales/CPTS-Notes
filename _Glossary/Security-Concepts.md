@@ -3,6 +3,49 @@
 
 Fundamental security infrastructure concepts referenced throughout enumeration, exploitation, and evasion. Understanding what these systems do and how they differ informs how you scan, move, and stay quiet.
 
+# CVE -- Common Vulnerabilities and Exposures
+
+A publicly available catalog of known security vulnerabilities and exposures, sponsored by the US Department of Homeland Security. Each entry has a unique ID assigned by a CVE Numbering Authority (CNA).
+
+**Format:** `CVE-YEAR-NUMBER` (e.g. `CVE-2021-34527`)
+
+Each CVE entry contains:
+- Description of the vulnerability
+- References (vendor advisories, PoC links, patch notes)
+- CVSS score (via NVD)
+
+**Assignment criteria** -- a vulnerability must be:
+- Independently fixable
+- Affecting only one codebase
+- Acknowledged and documented by the relevant vendor
+
+**NVD (National Vulnerability Database):** `https://nvd.nist.gov` -- NIST's database that enriches CVE entries with CVSS scores, CWE classification, and CPE applicability.
+
+**Responsible Disclosure:** When discovering an unreported vulnerability, contact the vendor privately first and allow time to patch before public disclosure. Publishing without notice gives threat actors a zero-day window.
+
+Notable examples:
+- `CVE-2020-5902` -- BIG-IP TMUI unauthenticated RCE. Network-exploitable, no auth, full system takeover.
+- `CVE-2021-34527` -- PrintNightmare. Windows Print Spooler RCE/LPE. Authenticated but allows full domain compromise via DCs and workstations.
+
+---
+
+# OVAL -- Open Vulnerability Assessment Language
+
+An XML-based standard for describing system state and identifying vulnerabilities without exploiting them. Used internally by scanners like Nessus for compliance templates.
+
+Four definition types:
+
+| Type | Purpose |
+|------|---------|
+| Vulnerability Definitions | Identifies system vulnerabilities |
+| Compliance Definitions | Checks if configs meet policy requirements |
+| Inventory Definitions | Checks if specific software is present |
+| Patch Definitions | Checks if appropriate patches are applied |
+
+ID format: `oval:org.domain:type:number` (e.g. `oval:org.mitre.oval:obj:1116`)
+
+---
+
 # Vulnerability
 
 A weakness or bug in an environment (application, network, or infrastructure) that opens up the possibility of exploitation. Registered through MITRE's CVE database and scored using CVSS (0–10).
@@ -15,6 +58,8 @@ CVSS score is calculated from:
 - **Impact** -- Confidentiality, Integrity, Availability (None / Low / High each)
 
 Higher score = higher severity. A network-exploitable vuln requiring no auth and no user interaction with high CIA impact = maximum score.
+
+See [[_Glossary/CVSS|CVSS Reference]] for full metric breakdown and scoring tables.
 
 ---
 
