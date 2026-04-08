@@ -196,6 +196,8 @@
   },
   "active": "75da678c43657fcc",
   "lastOpenFiles": [
+    "03-File-Transfers/Windows-File-Transfers.md",
+    "03-File-Transfers",
     "02-Vuln-Assessment/VA-Overview.md",
     "02-Vuln-Assessment/VA-Overview.md.tmp.27412.1775550825826",
     "02-Vuln-Assessment/VA-Reporting.md",
@@ -211,7 +213,6 @@
     "_Glossary/Security-Concepts.md.tmp.26048.1775544402500",
     "_Glossary/CVSS.md",
     "_Glossary/Standards.md",
-    "_Glossary/Security-Concepts.md.tmp.26048.1775544352009",
     "_Reference/CVSS.md",
     "_Reference/Standards.md",
     "01-Recon/Web/Web-Crawling.md",
