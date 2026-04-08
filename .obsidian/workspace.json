@@ -13,12 +13,12 @@
             "state": {
               "type": "markdown",
               "state": {
-                "file": "01-Recon/Infrastructure/SMB-Enumeration.md",
+                "file": "03-File-Transfers/Windows-File-Transfers.md",
                 "mode": "source",
                 "source": false
               },
               "icon": "lucide-file",
-              "title": "SMB-Enumeration"
+              "title": "Windows-File-Transfers"
             }
           }
         ]
@@ -194,8 +194,9 @@
       "obsidian-git:Open Git source control": false
     }
   },
-  "active": "75da678c43657fcc",
+  "active": "f803da6e1562bd5f",
   "lastOpenFiles": [
+    "01-Recon/Infrastructure/SMB-Enumeration.md",
     "03-File-Transfers/Windows-File-Transfers.md",
     "03-File-Transfers",
     "02-Vuln-Assessment/VA-Overview.md",
@@ -229,7 +230,6 @@
     "01-Recon/Infrastructure/Windows-Remote-Management.md",
     "01-Recon/Infrastructure/SNMP-Enumeration.md",
     "01-Recon/Infrastructure/SMTP-Enumeration.md",
-    "01-Recon/Infrastructure/SMB-Enumeration.md",
     "01-Recon/Infrastructure/OracleTNS-Enumeration.md",
     "01-Recon/Infrastructure/NFS-Enumeration.md",
     "Screenshots/Pasted image 20260317164220.png",
