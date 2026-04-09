@@ -7,7 +7,7 @@
 
 ## Windows — AES Encryption (PowerShell)
 
-Uses `Invoke-AESEncryption.ps1` — AES-256-CBC, outputs `.aes` file.
+Uses `Invoke-AESEncryption.ps1` — AES-256-CBC, outputs `.aes` file. → [[_Scripts/Invoke-AESEncryption.ps1|Script]]
 
 ```powershell
 # Import the module (transfer the script first)
