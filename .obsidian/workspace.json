@@ -13,12 +13,12 @@
             "state": {
               "type": "markdown",
               "state": {
-                "file": "07-Post-Exploitation/Linux-Privilege-Escalation.md",
+                "file": "00-Methedology/Web-Recon.md",
                 "mode": "source",
                 "source": false
               },
               "icon": "lucide-file",
-              "title": "Linux-Privilege-Escalation"
+              "title": "Web-Recon"
             }
           }
         ]
@@ -196,6 +196,9 @@
   },
   "active": "f803da6e1562bd5f",
   "lastOpenFiles": [
+    "01-Recon/Web/Google-Dorking.md",
+    "_Reference/Google-Dorks.md",
+    "07-Post-Exploitation/Linux-Privilege-Escalation.md",
     "03-File-Transfers/Linux-File-Transfers.md",
     "04-Shells-Payloads/Bind-Shells.md",
     "04-Shells-Payloads/Bind-Shells.md.tmp.3572.1775720977319",
@@ -204,7 +207,6 @@
     "09-Passwords",
     "08-AD",
     "07-Post-Exploitation/Windows-Privilege-Escalation.md",
-    "07-Post-Exploitation/Linux-Privilege-Escalation.md",
     "07-Post-Exploitation/Credential-Hunting.md",
     "07-Post-Exploitation",
     "06-Web-Attacks",
@@ -230,8 +232,6 @@
     "01-Recon/Web/Web-Crawling.md",
     "01-Recon/Web/Tech-Fingerprinting.md",
     "01-Recon/Web/OSINT-Online-Presence.md",
-    "_Tools/DNS.md",
-    "_Tools/WHOIS.md",
     "Screenshots/Pasted image 20260317164220.png",
     "Screenshots/Screenshot 2026-03-04 150707.png",
     "Screenshots/Pasted image 20260317164112.png",
